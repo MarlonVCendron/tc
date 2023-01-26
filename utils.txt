@@ -1,0 +1,5 @@
+Neuromatch tutorial: The Leaky Integrate-and-Fire (LIF) Neuron Model
+https://compneuro.neuromatch.io/tutorials/W2D3_BiologicalNeuronModels/student/W2D3_Tutorial1.html
+
+Notebooks: A tutorial on surrogate gradient learning in spiking neural networks
+https://github.com/fzenke/spytorch

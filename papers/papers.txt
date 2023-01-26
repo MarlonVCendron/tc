@@ -1,0 +1,22 @@
+* Cliques of Neurons Bound into Cavities Provide a Missing Link between Structure and Function
+https://www.frontiersin.org/articles/10.3389/fncom.2017.00048/full
+
+* Toward an Integration of Deep Learning and Neuroscience
+https://www.frontiersin.org/articles/10.3389/fncom.2016.00094/full
+
+* Reproducing and quantitatively validating a biologically-constrained point-neuron model of CA1 pyramidal cells
+https://www.frontiersin.org/articles/10.3389/fnint.2022.1041423/full
+
+* Simulations of working memory spiking networks driven by short-term plasticity
+https://www.frontiersin.org/articles/10.3389/fnint.2022.972055/full
+
+* Error-based or target-based? A unified framework for learning in recurrent spiking networks
+https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1010221
+
+* Dynamic primitives of brain network interaction
+https://www.sciencedirect.com/science/article/pii/S105381192200057X?via%3Dihub
+
+* Digital implementation of a spiking neural network (SNN) capable of spike-timing-dependent plasticity (STDP) learning
+https://ieeexplore.ieee.org/document/6968000
+    ~ Foda
+
