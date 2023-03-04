@@ -20,3 +20,18 @@ https://www.sciencedirect.com/science/article/pii/S105381192200057X?via%3Dihub
 https://ieeexplore.ieee.org/document/6968000
     ~ Foda
 
+* Spiking Neural Networks and Their Applications: A Review
+https://www.mdpi.com/2076-3425/12/7/863
+    ~~~~~~ Importante ler
+
+* Evolving spiking neural network — a survey
+https://link.springer.com/article/10.1007/s12530-013-9074-9
+    ~ Foda - evolução
+
+* Diverse synaptic plasticity mechanisms orchestrated to form and retrieve memories in spiking neural networks
+https://www.nature.com/articles/ncomms7922
+    ~ Complicado e perfeitinho ????
+
+* Simple Model of Spiking Neurons
+https://www.izhikevich.org/publications/spikes.pdf
+    ~ The model combines the biologically plausibility of Hodgkin–Huxley-type dynamics and the computational efficiency of integrate-and-fire neurons

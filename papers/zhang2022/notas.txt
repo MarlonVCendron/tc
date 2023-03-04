@@ -1,0 +1,43 @@
+### Recent Advances and New Frontiers in Spiking Neural Networks
+
+3 gerações de redes neurais artificiais (ANN):
+    • Perceptron
+    • Deep neural networks
+    • Spiking neural networks
+ANNs normais tratam encoding espacial apenas com a frequência de ativação. SNNs tratam encoding espaço-temporal com disparos e dinâmicas sub-threshold.
+
+# Modelos de neurônios
+
+O artigo fornece um overview dos modelos HH, LIF e Izhikevich e de DNNs como comparação.
+New Frontiers: it is still an urgent problem to find a neuron model with both excellent learning ability and high biological credibility.
+
+Métodos de codificação
+
+# Mais comuns
+    • Frequência: números são convertidos em disparos com uma frequência proporcional ao número
+    • Temporal: exemplo: um pixel com brilho entre 0 e 1, um pixel de brilho 0.1 tem um disparo no tempo 0.9, um com brilho 1, tem no tempo 0. Informação mais importante dispara antes.
+    • Populacional: junta o de frequência e tempo e ainda pode carregar informação de outros neurônios junto.
+New frontiers: explorar um método que mantenha mais informação e aproveite melhor a característica temporal de SNNs
+
+# Topologia
+
+Topologias são bem básicas, fully connected, recorrente, convolucional.
+New frontiers: analisar motifs das redes pra determinar função, topologia do cérebro é mais complexa e com neurônios diferentes. Mais recente, usaram SNNs para processar input em forma de grafo
+
+# Datasets neuromórficos
+
+Neuromorphic vision sensors (NVSs). Ainda existem muito poucos.
+
+# Algoritmos de otimização
+
+Plasticidade
+    • Micro-escala: ocorre em um neurônio ou em uma única sinapse. STDP e STD. Symmetric-STDP, Reward-STDP, dopamine modulation. De 95% a 98% no MNIST.
+    • Meso-escala: Múltiplas sinapses e múltiplos neurônios. Self-backpropagation, lateral inhibition, homeostatic control.
+    • Macro-escala: The brain has no known way to access weights during backpropagation, which is called the transport problem. Target propagation, feedback alignment.
+Since the spike signal is not differentiable, the direct application of gradient-based BP is difficult. 
+
+# Software frameworks
+
+    • Neuron e Nest: escala menor. H-H, LIF, Izhikevich
+    • Bindsnet, Brain2, Spyketorch, SpikingJelly, CogSNN: maior escala, vários tipos de plasticidade.
+New frontiers: currently, only a few frameworks can support the construction and training of large-scale SNNs. Building large SNNs still requires programmers to have excellent programming skills.

@@ -1,0 +1,17 @@
+#Primeiro semestre:
+
+Introdução: Contextualização, motivação, justificativa, problema, objetivos (geral e específicos)
+
+Fundamentação teórica: cérebro humano, neurociência, neurociência computacional… (o que for utilizado no trabalho, ex: modelos de forma geral), trabalhos correlatos
+o que for usar no trabalho em mais detalhes técnicos na própria seção
+
+metodologia (adiantar): o que vai fazer, protocolo de avaliação…
+
+
+# Segundo semestre
+
+experimental
+implementação
+análise
+conclusão
+…
