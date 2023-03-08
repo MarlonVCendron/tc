@@ -1,0 +1,37 @@
+SNNs são o que o cérebro faz. Pra entender o cérebro, é preciso entender SNNs.
+São a base para o único sistema conhecido de inteligência geral.
+
+2D LIF
+Threshold aumenta caso haja um disparo e tem um exponential decay de volta ao threshold normal. ISI vai aumentando. Ainda muito simples.
+
+H-H
+modelos reduzidos do H-H na verdade funcionam melhor pra aprender dados.
+
+Integrator and resonator
+resonator ativa mais numa frequência específica
+
+active/passive dendrites
+
+a single neuron can learn MNIST
+
+---
+
+Aprendizado
+- Fortalecer ou enfraquecer sinapses
+- Adicionar ou remover sinapses
+- Adicionar ou remover neurônios
+
+STDP
+Reward-modulated
+
+Nenhum é muito bom pra problemas realmente difíceis
+"The brain solves hard tasks. So if you only study solving easy tasks, you are not studying this unique property of the brain"
+
+Hard tasks ideas
+- Reservoir computing
+- Evolutionary optimization
+- Surrogate gradient descent (Zenke)
+
+SGD
+Usa a função heaviside como uma SNN normal. Mas ao calcular o gradiente, finge que usou sigmoid.
+

@@ -30,8 +30,18 @@ https://link.springer.com/article/10.1007/s12530-013-9074-9
 
 * Diverse synaptic plasticity mechanisms orchestrated to form and retrieve memories in spiking neural networks
 https://www.nature.com/articles/ncomms7922
-    ~ Complicado e perfeitinho ????
+    ~ Muito interessante
 
 * Simple Model of Spiking Neurons
 https://www.izhikevich.org/publications/spikes.pdf
     ~ The model combines the biologically plausibility of Hodgkin–Huxley-type dynamics and the computational efficiency of integrate-and-fire neurons
+
+* Introducing the Dendrify framework for incorporating dendrites to spiking neural networks
+https://www.nature.com/articles/s41467-022-35747-8
+
+* The temporal paradox of Hebbian learning and homeostatic plasticity
+https://pubmed.ncbi.nlm.nih.gov/28431369/
+
+* Homeostatic plasticity in the developing nervous system
+https://www.nature.com/articles/nrn1327
+    ~ Descreve homeostatic plasticity em experimentos

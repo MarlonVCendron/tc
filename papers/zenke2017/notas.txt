@@ -1,0 +1,4 @@
+Plasticidade Hebbiana sozinha não é o suficiente
+É necessária plasticidade homeostática para manter os neurônios disparando quando há pouca atividade e não permitir que os pesos aumentem muito quando há muita atividade
+Plasticidade homeostática pode ocorrer em diversas escalas de tempo diferentes
+Plasticidade homeostática já foi observada experimentalmente

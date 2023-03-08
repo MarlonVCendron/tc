@@ -1,0 +1,10 @@
+Memória
+    - criar uma rede que mantenha memórias de padrões e possa prevê-los
+    - criar uma rede inspirada no hipocampo
+    - tentar simular o sono e como ele afeta a memória
+explorar mapas sensoriais
+    - criar uma rede com visão e audição, depois de um tempo remover a audição e ver como a rede muda (resultado muito óbvio?)
+    - criar uma rede que crie um mapa somatossensorial e analisar se há um homúnculo e como ele muda na perda de um membro
+Dendrify
+    - Utilizar dendrify pra algo
+    - Melhorar o dendrify
