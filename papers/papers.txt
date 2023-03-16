@@ -45,3 +45,13 @@ https://pubmed.ncbi.nlm.nih.gov/28431369/
 * Homeostatic plasticity in the developing nervous system
 https://www.nature.com/articles/nrn1327
     ~ Descreve homeostatic plasticity em experimentos
+
+* A mechanism for learning with sleep spindles
+https://royalsocietypublishing.org/doi/full/10.1098/rstb.2019.0230
+    ~ Ideia não explorada em redes neurais de disparos
+
+* A wake-sleep algorithm for recurrent, spiking neural networks
+https://arxiv.org/abs/1703.06290
+
+* Sleep prevents catastrophic forgetting in spiking neural networks by forming a joint synaptic weight representation
+https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1010628&trk=public_post_comment-text 

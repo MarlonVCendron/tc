@@ -1,0 +1,16 @@
+A mechanism for learning with sleep spindles
+
+* They occur during NREM, mainly on stage 2
+* Research shows spindles are related to learnng and memory
+* spindles are associated with increased dendritic activity and high intracellular calcium levels
+* During spindles, thalamocortical networks become unresponsive to inputs, thus potentially preventing interference between memory-related internal information processing and extrinsic signals
+* spindles are co-modulated with other major NREM oscillations, including hippocampal sharp wave-ripples (SWRs) and neocortical slow waves, both previously shown to be associated with learning and memory
+
+Sleep is considered to be an ideal brain state for reprocessing memories in order to sort, consolidate and generalize recently acquired knowledge 
+
+experience-dependent NREM ‘replay' activity in the hippocampus
+
+spindles are generated in the thalamus
+
+
+

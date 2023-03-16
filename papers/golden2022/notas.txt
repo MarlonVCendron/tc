@@ -1,0 +1,17 @@
+interleaved training was originally construed to be an approximation to what the brain may be doing during sleep to consolidate memories; spontaneously reactivating memories from multiple interfering tasks in an interleaved manner
+
+Sleep is believed to be an off-line processing period when recent memories are replayed to avoid damage from new learning
+
+In vivo, activity of the neocortical neurons during REM sleep is low-synchronized and similar to baseline awake activity [42]. Therefore, to simulate REM sleep-like activity in the model, the rewarded STDP rule was replaced by unsupervised STDP, the input layer was silenced while hidden layer neurons were artificially stimulated by Poisson distributed spike trains in order to maintain spiking rates similar to that during task training 
+
+Rede feed-forward
+
+Reinforcement learning
+
+Para simular o sono, os métodos foram:
+- Inativar os sensores
+- Desabilitar que o output resulte em movimento
+- Mudar de rewarded para unsupervised STDP
+- Adicionar ruído
+
+

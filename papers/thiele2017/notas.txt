@@ -1,0 +1,11 @@
+A wake-sleep algorithm for recurrent, spiking neural networks
+
+pela natureza da plasticidade hebbiana, a rede forma feedback loops que geram estados de atração.
+
+O artigo propõe um algoritmo de sono para a rede:
+enquanto acordada, a rede irá receber input normal e as regras de plasticidade também ficam normais
+durante o sono, o input passa a ser aleatório e a plasticidade tem seu sinal invertido
+
+a ideia é que durante o sono, um input aleatório levará a rede para algum dos estados de atração. A plasticidade com sinal invertido irá então enfraquecer as sinapses acabando com esse feedback loop.
+
+os autores chamam oque acontece com a rede durante o input aleatório de sonhos
