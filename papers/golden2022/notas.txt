@@ -15,3 +15,19 @@ Para simular o sono, os métodos foram:
 - Adicionar ruído
 
 
+---------
+
+Enquanto ANNs são boas para resolver tarefas complicadas, são ruins em aprender várias tarefas sequenciamente. Catastrophic forgetting
+
+Uma hipótese comum é que a consolidação de memórias ocorre durante o sono, quando a reativação de grupos de neurônios causa mudanças nas sinapses 
+
+It has been suggested that Rapid Eye Movement (REM) sleep supports the consolidation of non-declarative or procedural memories, while non-REM sleep supports the consolidation of declarative memories
+
+----
+
+sono protege as sinapses, mas não treina
+
+Treino 1 -> Teste 1 bom -> teste 2 ruim -> 
+Treino 2 -> Teste 1 ruim -> teste 2 bom ->
+Intercalado (treino 1, sono) -> ambos os testes bons
+
