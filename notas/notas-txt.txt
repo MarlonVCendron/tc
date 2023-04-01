@@ -1,0 +1,26 @@
+Spiking Neural Networks and Their Applications: A Review
+
+# Introdução
+
+Redes neurais de disparos (SNN) são ótimas para dados temporais.
+
+Redes neurais artificiais (ANN) são historicamente inspiradas no cérebro, mas sua estrutura é completamente diferente. ANNs representam os dados com números e são treinadas por retropopagação. SNNs representam os dados com disparos e são treinadas por plasticidade, assim como nas redes neurais biológicas.
+
+# Neurônios biológicos
+
+Neurônios recebem sinais dos dendritos, esses sinais são integrados no soma e, se for o caso, um potencial de ação é disparado pelo axônio. O axônio carrega o sinal que é transmitido para os dendritos de outros neurônios através da sinapse.
+
+Sinapses podem ser químicas (através de neurotransmissores), mais lentas mas que podem intesificar o sinal, ou elétricas, rápidas mas que não podem mudar a amplitude do sinal. Sinapses podem ser excitatórias, que despolarizam a célula pós-sináptica, ou inibitórias, que hiperpolarizam.
+Os neurotransmissores excitatórios mais comuns são: glutamato, dopamina e noradrenalina. Os inibitórios são: GABA, glicina e serotonina.
+
+O potencial de membrana é o potencial elétrico interior da célula em relação ao exterior. Em neurônios, o potencial de repouso é de -70,15 mV. Quando ocorre um potencial de ação, canais de Na+ são abertos até que o potencial de reversão do sódio é alcançado, em 38,43 mV. O potencial de membrana cai até chegar no potencial de reversão do K+ e hiperpolariza um pouco além do potencial de repouso, para então voltar ao potencial de repouso. Diferentes neurônios têm potencial de repouso e de reversão de sódio e potássio diferentes, entre mais ou menos 10 mV.
+
+Modelo Hodgkin–Huxley é o mais biologicamente plausível, leva em consideração os canais de íons de Na+, K+ e Cl-. Inviável em grandes simulações.
+
+LIF é simples, mas amplamente utilizado.
+
+Izhikevich: plausibilidade biológica de HH e eficiência computacional de LIF. 4 parâmetros (a, b, c e d) que controlam como o neurônio se comporta.
+
+Adaptive Exponential Integrate-and-Fire (AdEx) Model também é bom.
+
+

@@ -9,3 +9,8 @@ explorar mapas sensoriais
 Dendrify
     - Utilizar dendrify pra algo
     - Melhorar o dendrify
+
+
+Pacemaker neurons
+    - Responsáveis por criar alguns tipos de frequências no cérebro
+    https://www.youtube.com/watch?v=5CxSoFK5tOQ
