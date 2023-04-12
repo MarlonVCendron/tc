@@ -27,26 +27,32 @@ dos disparos, que as torna não diferenciáveis, impedindo o cálculo de gradien
 O principal método empregado para o aprendizado de RNDs é a plasticidade das sinapses. A plasticidade é a capacidade do cérebro de
 se adaptar e reorganizar suas conexões neurais em resposta a novas informações, experiências ou estímulos; é a principal
 propriedade por trás do aprendizado e da formação de memórias. Uma das primeiras formas de plasticidade neural descritas é a
-plasticidade Hebbiana, que pode resultar no fortalecimento ou enfraquecimento das sinapses com base na ativação simultânea de
+plasticidade hebbiana, que pode resultar no fortalecimento ou enfraquecimento das sinapses com base na ativação simultânea de
 neurônios conectados: caso o neurônio pós-sináptico dispare logo após o neurônio pré-sináptico, significa que há uma correlação
 entre eles e a sinapse é fortalecida, caso contrário, a sinapse é enfraquecida.
 
-A plasticidade Hebbiana, porém, não descreve toda a gama de diferentes modos com que a plasticidade se manifesta no cérebro, como
+A plasticidade hebbiana, porém, não descreve toda a gama de diferentes modos com que a plasticidade se manifesta no cérebro, como
 é o caso das  plasticidades heterossináptica, em que a ativação de neurônios causa mudanças em neurônios inativos, e homeostática,
 um processo lento em que as sinapses se auto-regulam para garantir estabilidade. A plasticidade também
 depende do tipo de neurônio, do tipo da conexão, do tempo de efeito das alterações (curto ou longo-prazo), entre outros fatores. A
 natureza do efeito da plasticidade também varia muito, podendo depender da frequência de disparos, da diferença de potencial, do
-tempo dos disparos (como é o caso da plasticidade Hebbiana), entre outros. Nas RNDs, assim como ocorre com os modelos de
+tempo dos disparos (como é o caso da plasticidade hebbiana), entre outros. Nas RNDs, assim como ocorre com os modelos de
 neurônios, os modelos de plasticidade também possuem uma ampla variação em termos de plausibilidade biológica. Além disso,
 dependendo da implementação, pode-se utilizar múltiplos modelos de plasticidade simultaneamente.
 
-A plasticidade Hebbiana pode ser sumarizada pela seguinte frase "Neurônios que disparam juntos, conectam-se juntos", assim, a
+A plasticidade hebbiana pode ser sumarizada pela seguinte frase "Neurônios que disparam juntos, conectam-se juntos", assim, a
 plasticidade dá origem a um fenômeno emergente no cérebro chamado de conjuntos celulares, em que grupos de neurônios relacionados
-a um mesmo estímulo ou processo acabam fortalecendo as conexões entre si. Um conjunto celular, na teoria Hebbiana, é a unidade
-básica de uma memória
+a um mesmo estímulo ou processo acabam fortalecendo as conexões entre si. Um conjunto celular pode servir como uma forma de
+memória associativa \cite{sakuraiMultipleApproachesInvestigation2018}, em que a ativação de um dos neurônios do conjunto acaba por
+ativar sincronamemente os demais neurônios do conjunto. Tomando como exemplo a memória de uma viagem à praia na infância: essa
+memória consiste em vários elementos, como o som das ondas, a sensação de areia quente, o cheiro de água salgada e a visão de
+pessoas, guarda-sóis etc. Cada um desses elementos sensoriais é processado em diferentes áreas do cérebro e ativa diferentes
+grupos de neurônios. A ativação síncrona dos neurônios responsáveis por esses elementos sensoriais leva à formação de um conjunto
+celular. Um tempo depois, ao sentir o cheiro do mar novamente, esse estímulo pode acabar ativando o conjunto celular, resultando
+na experiência da memória.
 
-A plasticidade acaba dando origem a um processo emergente no cérebro chamado de conjuntos celulares, em que conjuntos de neurônios
-interconectados disparam simultaneamente a partir da ativação de um dos neurônios do conjunto.
+Um conjunto celular não é uma estrutura estática, mas sim uma rede dinâmica de neurônios que podem ser modificados e reativados
+ao longo do tempo.
 
 
 # Motivação
