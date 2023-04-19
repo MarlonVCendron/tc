@@ -1,0 +1,51 @@
+\chapter{Trabalhos correlatos}
+
+// fundamentação teórica!!!!
+O modelo de neurônio de McCulloh-Pitts \cite{mccullochLogical1943} representou a primeira tentativa de representar matematicamente
+um neurônio biológico. O modelo é bastante simplificado: o neurônio recebe X sinais de entrada binários, que podem ser
+excitatórios (+1) ou inibitórios (-1). Esses sinais são integrados e, em seguida, é verificado se um limiar é atingido. Apenas
+quando o limiar é ultrapassado, o neurônio emite um sinal. O modelo foi uma ideia inovadora ao tentar analisar a biologia por meio
+de termos matemáticos. No entanto, o modelo não conseguiu capturar toda a complexidade de um neurônio biológico, pois essa não era
+a intenção do trabalho. O objetivo principal era mostrar que era possível representar e analisar o sistema nervoso usando lógica
+proposicional.
+
+<equação>
+<imagem mcculloh-pitts neuron>
+
+O modelo de Hodgkin-Huxley \cite{hodgkinQuantitative1952}, representou um avanço significativo na compreensão e na modelagem dos
+neurônios biológicos. Esse modelo buscou descrever a geração e propagação de potenciais de ação em neurônios, levando em
+consideração os processos eletroquímicos subjacentes, como a dinâmica dos canais iônicos e as correntes iônicas que atravessam a
+membrana celular. Diferentemente do modelo de McCulloch-Pitts, o modelo de Hodgkin-Huxley é capaz de descrever disparos de
+potenciais de ação, fornecendo uma representação mais precisa e detalhada da atividade neuronal.
+
+O modelo de Hodgkin-Huxley é composto por um conjunto de equações diferenciais ordinárias que descrevem a variação do potencial de
+membrana em função do tempo e das correntes iônicas. Essas equações consideram o comportamento dinâmico dos canais iônicos de
+sódio e potássio, bem como a corrente de vazamento através da membrana. O modelo é capaz de capturar o comportamento típico dos
+neurônios, incluindo a resposta ao estímulo, a fase refratária e a propagação do sinal ao longo do axônio.
+
+<equações>
+<imagem comparando tensão de neurônio biológico e de Hodgkin-Huxley>
+
+Os modelos de neurônios do tipo Integrate-and-Fire (IF), como o modelo Leaky Integrate-and-Fire (LIF) \cite{burkitt2006review},
+surgiram como uma alternativa mais simples e computacionalmente eficiente em comparação ao modelo de Hodgkin-Huxley. Embora não
+sejam tão biologicamente precisos quanto o modelo de Hodgkin-Huxley, os modelos IF conseguem capturar algumas das características
+essenciais dos neurônios, como a integração temporal dos estímulos e a emissão de potenciais de ação quando um limiar é atingido.
+Outra vantagem dos modelos IF é que modelos simples são uma forma de reduzir a complexidade do cérebro para seus mecanismos mais
+fundamentais.
+
+Apesar de sua simplicidade, os modelos IF têm sido amplamente utilizados em RND devido à sua eficiência computacional e capacidade
+de reproduzir aspectos fundamentais do comportamento neuronal. \cite{teeterGeneralized2018} reproduziram o comportamento de 645
+neurônios do neocórtex.
+\cite{gerstnerHow2009}
+
+<equações>
+
+? Ornstein–Uhlenbeck
+
+Izhikevich
+
+
+@Plasticidade As principais limitações encontradas nestes trabalhos estão relacionadas com ….
+
+
+@Sono bla bla bla bla. A principal vantagem é que o sono ajuda a melhorar a memória
