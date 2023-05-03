@@ -3,7 +3,7 @@ filename=documento
 all: compile
 	
 compile:
-	latexmk -pdf -pv $(filename).tex
+	latexmk -pdf -pv $(filename).tex -f
 	latexmk -c
 	@rm $(filename).bbl
 	
