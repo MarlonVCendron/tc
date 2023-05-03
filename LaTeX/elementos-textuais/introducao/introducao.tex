@@ -1,0 +1,89 @@
+\chapter{Introdução}
+
+A busca pela compreensão e reprodução das habilidades cognitivas e de aprendizado do cérebro humano tem sido um desafio constante
+nas áreas de neurociência computacional e Inteligência Artificial (IA). É possível argumentar que as Redes Neurais Artificiais
+(RNA) são o mais próximo que já chegamos dessa reprodução; entretanto, as RNAs deixaram de lado o realismo biológico em prol do
+aperfeiçoamento da IA \cite{yamazakiSpiking2022}. As Redes Neurais de Disparos (RND)\footnote{Do inglês \textit{Spiking Neural
+Networks}.} representam um avanço significativo em direção ao objetivo de compreender o cérebro humano, uma vez que buscam emular
+o comportamento das Redes Neurais Biológicas (RNB) de forma mais realista do que as abordagens tradicionais.
+
+As RNAs convencionais são inspiradas no cérebro: neurônios disparam em determinadas frequências conforme os sinais recebidos de
+conexões com outros neurônios através de sinapses plásticas, cuja força muda dinamicamente de acordo com o treinamento.
+Entretanto, as semelhanças com o cérebro terminam aqui. As RNAs tradicionais não capturam a dinâmica interna dos neurônios
+biológicos, que disparam de maneiras complexas e distintas, e não apenas em uma determinada frequência. Outra diferença das RNAs
+com sistemas biológicos é que as RNAs possuem um período de treinamento em que as sinapses são otimizadas, e um período em que não
+há mais treinamento e as sinapses se tornam estáticas; enquanto nas RNBs as sinapses estão sempre se alterando conforme a
+experiência, salvo nos raros casos em que há um período crítico de aprendizado durante a infância que é desativado quando o
+indivíduo se torna adulto \cite{crepelRegression1982}. A principal característica que torna as RNAs capazes de aprender é seu
+método de retropropagação de erro, um método de treinamento que até pode existir em alguns casos no cérebro
+\cite{lillicrapBackpropagation2020; songCan2020}, mas que é diferente da forma de aprendizado local por plasticidade das
+RNBs \cite{yamazakiSpiking2022}.
+
+As RNDs são modelos muito mais próximos às RNBs que se comunicam por meio de impulsos elétricos discretos, chamados de disparos, e
+que aprendem por métodos realistas, como a plasticidade das sinapses. O grau de realismo biológico de uma RND depende de sua
+implementação, podendo empregar modelos de neurônios tão simples quanto uma única equação que descreve a mudança de tensão
+elétrica de um neurônio\cite{burkitt2006review}, ou até modelos que simulam canais de íons\cite{hodgkinQuantitative1952},
+ramificações de dendritos\cite{pagkalosIntroducing2023}, entre outros. As RNDs não só representam uma possível evolução das RNAs,
+como também são usadas para seu propósito original: compreender o cérebro através da simulação \cite{}.
+
+No entanto, treinar RNDs continua sendo uma tarefa desafiadora, já que os algoritmos de aprendizado empregados nas RNAs, além de
+não serem biologicamente realistas, também não são diretamente aplicáveis às RNDs devido à natureza discreta dos disparos que as
+torna não diferenciáveis, impedindo o cálculo de gradientes, parte fundamental no treinamento de RNAs \cite{}.
+
+O principal método empregado para o aprendizado de RNDs é a plasticidade das sinapses. A plasticidade é a capacidade do cérebro de
+se adaptar e reorganizar suas conexões neurais em resposta a novas informações, experiências ou estímulos; é a principal
+propriedade por trás do aprendizado e da formação de memórias \cite{}. Uma das principais formas de plasticidade neural foi
+primeiramente descrita por \cite{hebbOrganization1949}, chamada de plasticidade hebbiana, que pode resultar no fortalecimento ou
+enfraquecimento das sinapses com base na ativação simultânea de neurônios conectados: caso o neurônio pós-sináptico dispare logo
+após o neurônio pré-sináptico, significa que há uma correlação entre eles e a sinapse é fortalecida, caso contrário, a sinapse é
+enfraquecida.
+
+A plasticidade hebbiana, resumida pela expressão "Neurônios que disparam juntos, conectam-se juntos", descreve a formação de
+conjuntos celulares\footnote{Do inglês \textit{Cell Assemblies}. Também traduzido como Assembleias Celulares.} como resultado do
+fortalecimento das conexões entre neurônios ativados simultaneamente. Esses conjuntos podem funcionar como mecanismos de memória
+associativa \cite{sakuraiMultiple2018}. Tomando como exemplo a memória de uma viagem à praia: essa memória consiste em vários
+elementos, como o som das ondas, a sensação de areia sob os pés, o cheiro de água salgada, a visão do mar, entre outros. Cada um
+desses elementos sensoriais é processado em diferentes áreas do cérebro e ativa diferentes grupos de neurônios. A ativação
+síncrona dos neurônios responsáveis por esses elementos sensoriais leva à formação de um conjunto celular. Um tempo depois, ao
+sentir o cheiro do mar novamente, esse estímulo pode acabar ativando o conjunto celular, resultando na experiência da memória.
+Conjuntos celulares não são estruturas estáticas, essas redes dinâmicas de neurônios que surgem a partir da experiência estão
+sujeitas a modificações e reativações ao longo do tempo, sendo influenciadas pela falta de estímulos ou novas informações, o que
+pode levar à alteração ou esquecimento de partes da memória.
+
+A plasticidade hebbiana, no entanto, não consegue gerar, por si só, conjuntos celulares estáveis quando simulada em uma RND; isso
+ocorre pois a atividade neural continuamente modifica as sinapses, fazendo com que em pouco tempo quaisquer estímulos não
+relacionados com a informação codificada no conjunto celular acabem alterando as sinapses e desfazendo o conjunto celular
+\cite{gerstnerSpiking2002}.
+
+Mas a plasticidade hebbiana não descreve toda a gama de diferentes modos com que a plasticidade se manifesta no cérebro, como é o
+caso das  plasticidades heterossináptica, em que a ativação de neurônios causa mudanças em neurônios inativos, e homeostática, um
+processo lento em que as sinapses se auto-regulam para garantir estabilidade. A plasticidade também depende do tipo de neurônio,
+do tipo da conexão, do tempo de efeito das alterações (curto ou longo-prazo), entre outros fatores. A natureza do efeito da
+plasticidade também varia muito, podendo depender da frequência de disparos, da diferença de potencial, do tempo dos disparos,
+entre outros. Nas RNDs, assim como ocorre com os modelos de neurônios, os modelos de plasticidade também possuem uma ampla
+variação em termos de plausibilidade biológica. Além disso, dependendo do modelo que se deseja utilizar, pode-se combinar
+múltiplos modelos de plasticidade simultaneamente. Uma RND com plasticidade hebbiana junto de outras formas de plasticidade é
+capaz de formar conjuntos celulares estáveis por horas \cite{zenkeDiverse2015}.
+
+O sono é um processo fisiológico crucial para a consolidação\footnote{A consolidação de uma memória é entendida como o processo
+que transforma novas memórias frágeis criadas enquanto acordado para memórias mais estáveis e de longo prazo} e manutenção das
+memórias \cite{blissittSleep2001, walkerSleep2006, diekelmannMemory2010}. Inicialmente, postulava-se que o sono desempenhava uma
+função passiva no processo de consolidação da memória \cite{jenkinsObliviscence1924}; contudo, com a descoberta das distintas
+fases do sono, começaram-se a explorar as contribuições ativas do sono na consolidação mnemônica \cite{aserinskyRegularly1953}.
+Durante o sono, ocorrem diferentes fases caracterizadas por padrões distintos de atividade cerebral: sono REM (\textit{Rapid Eye
+Movement}) e sono não REM (NREM, dividido entre as fases N1, N2 e N3) \cite{schulzRethinking2008}. Durante a fase NREM, oscilações
+lentas, fusos e ondulações coordenam a reativação e redistribuição de memórias dependentes do hipocampo para o neocórtex
+\cite{diekelmannMemory2010}. Já quanto ao sono REM, a dificuldade em isolar a atividade neural dessa etapa específica, que ocorre
+após a fase NREM, torna a discussão sobre sua contribuição para a consolidação da memória ainda controversa. Contudo, pesquisas
+mais recentes oferecem evidências de que o sono REM desempenha um papel fundamental na consolidação da memória espacial e
+contextual \cite{boyceREM2017}.
+
+Neste contexto, o problema abordado neste trabalho consiste em explorar a retenção de memórias em uma RND. A principal hipótese a
+ser avaliada neste trabalho é de que abordagens baseadas em simulações de fases do sono podem melhorar a estabilidade de conjuntos
+celulares contribuindo para o processo de retenção de memórias.
+
+\input{elementos-textuais/introducao/objetivo_geral}
+
+\input{elementos-textuais/introducao/objetivos_específicos}
+
+\input{elementos-textuais/introducao/estrutura_do_trabalho}
