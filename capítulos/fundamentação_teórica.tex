@@ -1,4 +1,6 @@
-# Neurônios biológicos
+\chapter{Fundamentação teórica}
+
+\section{Neurônios biológicos}
 
 Neurônios recebem sinais dos dendritos, esses sinais são integrados no soma e, se for o caso, um potencial de ação é disparado
 pelo axônio. O axônio carrega o sinal que é transmitido para os dendritos de outros neurônios através da sinapse.
@@ -14,48 +16,84 @@ em 38,43 mV. O potencial de membrana cai até chegar no potencial de reversão d
 repouso, para então voltar ao potencial de repouso. Diferentes neurônios têm potencial de repouso e de reversão de sódio e
 potássio diferentes, entre mais ou menos 10 mV.
 
-# Redes Neurais de Disparos (RNDs)
+// mais detalhes de neurônios
+{...}
 
+\section{Modelos de Neurônios}
 
-# Modelos de Neurônios
+!!! Na verdade Lapicque já tinha criado um modelo matemático em 1907. Modelo IF
 
-Diferentes modelos de neurônios são utilizados em SNNs para simular o comportamento biológico dos neurônios. Alguns dos modelos
-mais comuns incluem:
+Lapicque L (1907) Quantitative investigations of electrical
+nerve excitation treated as polarization (in French). J
+Physiol Pathol Gen 9: 620–635.
 
-Modelo de Integrate-and-Fire: Neste modelo simplificado, o neurônio acumula potenciais sinápticos até atingir um limiar, quando
-dispara um spike e reseta seu potencial de membrana.
+O modelo de neurônio de McCulloh-Pitts \cite{mccullochLogical1943} representou a primeira tentativa de representar matematicamente
+um neurônio biológico. O modelo é bastante simplificado: o neurônio recebe X sinais de entrada binários, que podem ser
+excitatórios (+1) ou inibitórios (-1). Esses sinais são integrados e, em seguida, é verificado se um limiar é atingido. Apenas
+quando o limiar é ultrapassado, o neurônio emite um sinal. O modelo foi uma ideia inovadora ao tentar analisar a biologia por meio
+de termos matemáticos. No entanto, o modelo não conseguiu capturar toda a complexidade de um neurônio biológico, pois essa não era
+a intenção do trabalho. O objetivo principal era mostrar que era possível representar e analisar o sistema nervoso usando lógica
+proposicional.
 
-Modelo de Hodgkin-Huxley: Um modelo mais complexo que descreve a dinâmica de
-canais iônicos e a propagação do potencial de ação ao longo do axônio.
+<equação>
+<imagem mcculloh-pitts neuron>
 
-Modelo de Izhikevich: Um modelo que combina a simplicidade
-do Integrate-and-Fire com a flexibilidade e biorealismo do Hodgkin-Huxley.
+O modelo de Hodgkin-Huxley \cite{hodgkinQuantitative1952}, representou um avanço significativo na compreensão e na modelagem dos
+neurônios biológicos. Esse modelo buscou descrever a geração e propagação de potenciais de ação em neurônios, levando em
+consideração os processos eletroquímicos subjacentes, como a dinâmica dos canais iônicos e as correntes iônicas que atravessam a
+membrana celular. Diferentemente do modelo de McCulloch-Pitts, o modelo de Hodgkin-Huxley é capaz de descrever disparos de
+potenciais de ação, fornecendo uma representação mais precisa e detalhada da atividade neuronal.
 
-Nesse trabalho, foi utilizado o modelo XXXXX. (mais detalhes de pq foi utilizado esse modelo na metodologia)
+O modelo de Hodgkin-Huxley é composto por um conjunto de equações diferenciais ordinárias que descrevem a variação do potencial de
+membrana em função do tempo e das correntes iônicas. Essas equações consideram o comportamento dinâmico dos canais iônicos de
+sódio e potássio, bem como a corrente de vazamento através da membrana. O modelo é capaz de capturar o comportamento típico dos
+neurônios, incluindo a resposta ao estímulo, a fase refratária e a propagação do sinal ao longo do axônio.
 
-# Modelos de Plasticidade
+<equações>
+<imagem comparando tensão de neurônio biológico e de Hodgkin-Huxley>
+
+citar Stein 1967
+
+Os modelos de neurônios do tipo Integrate-and-Fire (IF), como o modelo Leaky Integrate-and-Fire (LIF) \cite{burkitt2006review},
+surgiram como uma alternativa mais simples e computacionalmente eficiente em comparação ao modelo de Hodgkin-Huxley. Embora não
+sejam tão biologicamente precisos quanto o modelo de Hodgkin-Huxley, os modelos IF conseguem capturar algumas das características
+essenciais dos neurônios, como a integração temporal dos estímulos e a emissão de potenciais de ação quando um limiar é atingido.
+Outra vantagem dos modelos IF é que modelos simples são uma forma de reduzir a complexidade do cérebro para seus mecanismos mais
+fundamentais.
+
+<equação>
+
+\section{Modelos de Plasticidade}
 
 A plasticidade é um conceito chave na neurociência e se refere à capacidade dos neurônios de modificar suas sinapses e
 comportamento em resposta a experiências e estímulos. Modelos de plasticidade incluem:
 
 STP, STP, STDP, Homeostática, etc.
 
-# Formação de Memórias por Conjuntos Celulares (Assembleias Celulares?)
- 
-A teoria de conjuntos celulares (do inglês, cell assemblies) propõe que a memória é armazenada na forma de conjuntos de neurônios
-interconectados que são ativados simultaneamente. Esses conjuntos de neurônios são formados através da plasticidade sinápticao.
-Quando um neurônio do conjunto é ativado após a formação da memória, isso leva à ativação de outros neurônios no conjunto, o que
-permite a recuperação da memória.
+\section{Conjuntos Celulares}
+
+A plasticidade hebbiana pode ser sumarizada pela seguinte frase "Neurônios que disparam juntos, conectam-se juntos", assim, a
+plasticidade dá origem a um fenômeno emergente no cérebro chamado de conjuntos celulares\footnote{Do inglês \textit{Cell
+Assemblies}. Também traduzido como Assembleias Celulares.}, em que grupos de neurônios relacionados a um mesmo estímulo ou
+processo acabam fortalecendo as conexões entre si. Um conjunto celular pode servir como uma forma de memória associativa
+\cite{sakuraiMultiple2018}, em que a ativação de um dos neurônios do conjunto acaba por ativar sincronamemente os demais neurônios
+do conjunto devido ao fortalecimento das conexões entre os neurônios do conjunto. Tomando como exemplo a memória de uma viagem à
+praia: essa memória consiste em vários elementos, como o som das ondas, a sensação de areia quente, o cheiro de água salgada e a
+visão de gaivotas etc. Cada um desses elementos sensoriais é processado em diferentes áreas do cérebro e ativa diferentes grupos
+de neurônios. A ativação síncrona dos neurônios responsáveis por esses elementos sensoriais leva à formação de um conjunto
+celular. Um tempo depois, ao sentir o cheiro do mar novamente, esse estímulo pode acabar ativando o conjunto celular, resultando
+na experiência da memória.
+
+Um conjunto celular não é uma estrutura estática, mas sim uma rede dinâmica de neurônios que podem ser modificados e reativados ao
+longo do tempo. A falta de estímulos ou a exposição a novas informações pode levar a uma modificação ou mesmo ao esquecimento de
+partes da memória {...} 
 
 <imagem demonstrando que diferentes conjuntos celulares representam memórias diferentes>
 
-A formação e consolidação de memórias por conjuntos celulares podem ser influenciadas por fatores como a frequência e intensidade
-dos estímulos, a sincronização dos disparos neuronais e a modulação neuromodulatória.
 
-(falar como que em simulações simples os conjuntos celulares não são estáveis e degradam ou inflam com o tempo de simulação)
-depois de um tempo)
-
-# Sono
+\section{Sono}
 
 O sono é um processo biológico essencial que afeta muitos aspectos do funcionamento do cérebro, incluindo a consolidação da
 memória e a plasticidade sináptica.
+
+\section{Falta organizar melhor as seções}
