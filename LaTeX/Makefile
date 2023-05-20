@@ -1,7 +1,7 @@
 filename=tc
 
 all: compile
-	
+
 compile:
 	latexmk -pdf -pv $(filename).tex
 	bibtex $(filename).aux

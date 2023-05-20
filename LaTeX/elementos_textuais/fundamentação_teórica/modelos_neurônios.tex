@@ -1,28 +1,19 @@
 \section{Modelos de Neurônios}
 
-!!! Na verdade Lapicque já tinha criado um modelo matemático em 1907. Modelo IF
+Em 1907, Lapicque desenvolveu um modelo de neurônio que descreve o neurônio como um circuito elétrico contendo um capacitor e um
+resistor em paralelo~\ref{imagem}, representando a capacitância e a resistência de vazamento da membrana
+celular~\cite{lapicqueRecherches1907}. Mesmo sem entender os mecanismos por trás da geração de potenciais de ação, Lapicque
+postulou que, ao atingir um certo potencial limiar, um potencial de ação seria gerado e o capacitor descarregado, reiniciando o
+potencial da membrana. Isso mostra que, ao se tratar de modelagem de neurônios, estudos da função não necessariamente requerem
+conhecimento do mecanismo~\cite{abbottLapicque1999}. O modelo de neurônio de Lapicque foi a primeira tentativa de representar
+matematicamente um neurônio biológico.
 
-Lapicque L (1907) Quantitative investigations of electrical
-nerve excitation treated as polarization (in French). J
-Physiol Pathol Gen 9: 620–635.
-
-O modelo de neurônio de McCulloh-Pitts~\cite{mccullochLogical1943} representou a primeira tentativa de representar matematicamente
-um neurônio biológico. O modelo é bastante simplificado: o neurônio recebe X sinais de entrada binários, que podem ser
-excitatórios (+1) ou inibitórios (-1). Esses sinais são integrados e, em seguida, é verificado se um limiar é atingido. Apenas
-quando o limiar é ultrapassado, o neurônio emite um sinal. O modelo foi uma ideia inovadora ao tentar analisar a biologia por meio
-de termos matemáticos. No entanto, o modelo não conseguiu capturar toda a complexidade de um neurônio biológico, pois essa não era
-a intenção do trabalho. O objetivo principal era mostrar que era possível representar e analisar o sistema nervoso usando lógica
-proposicional.
-
-<equação>
-
-<imagem mcculloh-pitts neuron>
+<imagem circuito>
 
 O modelo de Hodgkin-Huxley~\cite{hodgkinQuantitative1952}, representou um avanço significativo na compreensão e na modelagem dos
-neurônios biológicos. Esse modelo buscou descrever a geração e propagação de potenciais de ação em neurônios, levando em
-consideração os processos eletroquímicos subjacentes, como a dinâmica dos canais iônicos e as correntes iônicas que atravessam a
-membrana celular. Diferentemente do modelo de McCulloch-Pitts, o modelo de Hodgkin-Huxley é capaz de descrever disparos de
-potenciais de ação, fornecendo uma representação mais precisa e detalhada da atividade neuronal.
+neurônios biológicos. Diferentemente do primeiro modelo criado por Lapicque, esse modelo buscou descrever a geração e propagação
+de potenciais de ação em neurônios levando em consideração os processos eletroquímicos subjacentes, como a dinâmica dos diferentes
+canais iônicos que controlam a corrente elétrica através da membrana celular.
 
 O modelo de Hodgkin-Huxley é composto por um conjunto de equações diferenciais ordinárias que descrevem a variação do potencial de
 membrana em função do tempo e das correntes iônicas. Essas equações consideram o comportamento dinâmico dos canais iônicos de
@@ -33,13 +24,18 @@ neurônios, incluindo a resposta ao estímulo, a fase refratária e a propagaç�
 
 <imagem comparando tensão de neurônio biológico e de Hodgkin-Huxley>
 
-citar Stein 1967
-
-Os modelos de neurônios do tipo Integrate-and-Fire (IF), como o modelo Leaky Integrate-and-Fire (LIF)~\cite{burkitt2006review},
-surgiram como uma alternativa mais simples e computacionalmente eficiente em comparação ao modelo de Hodgkin-Huxley. Embora não
-sejam tão biologicamente precisos quanto o modelo de Hodgkin-Huxley, os modelos IF conseguem capturar algumas das características
-essenciais dos neurônios, como a integração temporal dos estímulos e a emissão de potenciais de ação quando um limiar é atingido.
-Outra vantagem dos modelos IF é que modelos simples são uma forma de reduzir a complexidade do cérebro para seus mecanismos mais
+Baseados na ideia de Lapicque, hoje em dia são utilizados os modelos Integrate-and-Fire (IF). Existem diversos modelos IF, com
+várias modificações da ideia original, como o modelo Leaky Integrate-and-Fire (LIF)~\cite{burkitt2006review}. Os modelos IF são
+uma alternativa mais simples e computacionalmente eficiente em comparação ao modelo de Hodgkin-Huxley. Embora não sejam tão
+biologicamente precisos quanto o modelo de Hodgkin-Huxley, os modelos IF conseguem capturar algumas das características essenciais
+dos neurônios, como a integração temporal dos estímulos e a emissão de potenciais de ação quando um limiar é atingido. Outra
+vantagem dos modelos IF é que modelos simples são uma forma de reduzir a complexidade do cérebro para seus mecanismos mais
 fundamentais.
 
 <equação>
+
+Existem diversos outros modelos de neurônios, como o modelo de Izhikevich~\cite{izhikevichSimple2003}, que é quase tão simples em
+termos computacionais quanto o modelo IF, mas que consegue capturar de forma muito mais realista um conjunto maior de
+comportamentos neurais dependendo dos parâmetros utilizados. Esse modelo é especialmente útil para simular neurônios específicos
+do cérebro, enquanto os modelos IF são preferidos quando o objetivo é estudar o comportamento geral de neurônios por sua
+simplicidade, e, portanto, serão utilizados nesse trabalho.
