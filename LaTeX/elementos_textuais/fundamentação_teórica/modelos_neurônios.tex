@@ -33,7 +33,7 @@ vantagem dos modelos IF é que modelos simples são uma forma de reduzir a compl
 fundamentais.
 
 Apesar de sua simplicidade, os modelos IF têm sido amplamente utilizados em RND devido à sua eficiência computacional e capacidade
-de reproduzir aspectos fundamentais do comportamento neuronal. \cite{teeterGeneralized2018} reproduziram o comportamento de 645
+de reproduzir aspectos fundamentais do comportamento neuronal.\ \cite{teeterGeneralized2018} reproduziram o comportamento de 645
 neurônios do neocórtex. % falar mais aqui!!!!!!!!!!!!!!!!!
 
 % Explicar mais detalhadamente o modelo LIF
@@ -45,3 +45,29 @@ termos computacionais quanto o modelo IF, mas que consegue capturar de forma mui
 comportamentos neurais dependendo dos parâmetros utilizados. Esse modelo é especialmente útil para simular neurônios específicos
 do cérebro, enquanto os modelos IF são preferidos quando o objetivo é estudar o comportamento geral de neurônios por sua
 simplicidade, e, portanto, serão utilizados nesse trabalho.
+
+\subsection{Modelos de Sinapses}\label{subsection_modelos_sinapses}
+
+% Quando se deseja simular uma rede neural, é necessário considerar não apenas os modelos de neurônios, mas também os modelos de
+% sinapses. As sinapses são as conexões entre os neurônios, e são responsáveis pela transmissão de sinais entre eles.
+
+% O modelo de sinapse mais simples, chamado modelo de sinapse de pulso delta, considera a sinapse como um ponto de interação
+% instantâneo entre neurônios. Nesse modelo, o potencial pós-sináptico é instantaneamente aumentado por uma quantidade fixa cada vez
+% que um pulso pré-sináptico ocorre. Embora esse modelo seja computacionalmente eficiente, ele é uma simplificação extrema da
+% complexidade biológica da sinapse~\cite{gerstner2002spiking}.
+
+% Para uma representação mais biologicamente realista, os modelos de sinapses de tempo contínuo podem ser utilizados. Estes
+% consideram o retardo sináptico e a duração da resposta pós-sináptica. No modelo de condutância baseado em tempo, a sinapse é
+% representada por uma condutância variável que aumenta após a chegada de um pulso pré-sináptico e decai exponencialmente com o
+% tempo~\cite{abbott2004chemically}. Este modelo é capaz de representar os efeitos de vários impulsos pré-sinápticos que chegam em
+% tempos próximos, um fenômeno conhecido como facilitação sináptica.
+
+% Outro modelo que se destaca é o modelo de sinapse de Markram-Tsodyks~\cite{markram1997synaptic}, que aborda a plasticidade de
+% curto prazo da sinapse, um processo pelo qual a eficácia de uma sinapse em transmitir sinais entre neurônios pode aumentar ou
+% diminuir em um curto período de tempo. Este modelo é particularmente útil para simular sinapses em redes neuronais que apresentam
+% dinâmica complexa, como o córtex cerebral. Apesar da complexidade adicional, esses modelos de sinapses são necessários para
+% capturar as sutilezas da interação entre neurônios em uma rede neural.
+
+
+
+

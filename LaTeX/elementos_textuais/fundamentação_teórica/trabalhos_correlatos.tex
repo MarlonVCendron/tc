@@ -7,25 +7,25 @@
 % @Sono bla bla bla bla. A principal vantagem é que o sono ajuda a melhorar a memória
 
 
-A utilização de modelos computacionais de neurônios e RNDs para o estudo das funções cognitivas do cérebro é muito popular, pois em simulações
-computacionais existe o controle total sobre todas as propriedades de cada neurônio simulado
+A utilização de modelos computacionais de neurônios e RNDs para o estudo das funções cognitivas do cérebro é muito popular, pois
+em simulações computacionais existe o controle total sobre todas as propriedades de cada neurônio simulado
 
 
-No trabalho de \cite{Zenke}, os autores criaram uma RND composta de 4096 neurônios excitatórios e 1024 neurônios inibitórios para testar
-a hipótese de que diferentes formas de plasticidade, tanto hebbianas como não hebbianas, quando implementadas juntas poderiam levar à formação
-e à recordação de conjuntos celulares. O modelo criado pôde criar memórias dos quatro diferentes estímulos visuais que recebia,
-e essas memórias eram estáveis e podiam ser recordadas até mesmo depois de horas de simulação sem que o modelo visse novamente os
-estímulos. Esse modelo de RND serviu para provar que é possível, pelo menos em teoria, ter a formação de conjuntos celulares, e consequentemente
-memória, apenas a partir de mecanismos de plasticidade orquestrados. Porém, algo que os autores não exploraram, ou pelo menos não tornaram explícito
-em seu trabalho, é a quantidade de estímulos que a RND é capaz de memorizar; também no mesmo tema, não é explorado o que acontece com o modelo
-quando um novo estímulo é apresentado ao depois da memorização dos demais.
+No trabalho de~\cite{}, os autores criaram uma RND composta de 4096 neurônios excitatórios e 1024 neurônios inibitórios para
+testar a hipótese de que diferentes formas de plasticidade, tanto hebbianas como não hebbianas, quando implementadas juntas
+poderiam levar à formação e à recordação de conjuntos celulares. O modelo criado pôde criar memórias dos quatro diferentes
+estímulos visuais que recebia, e essas memórias eram estáveis e podiam ser recordadas até mesmo depois de horas de simulação sem
+que o modelo visse novamente os estímulos. Esse modelo de RND serviu para provar que é possível, pelo menos em teoria, ter a
+formação de conjuntos celulares, e consequentemente memória, apenas a partir de mecanismos de plasticidade orquestrados. Porém,
+algo que os autores não exploraram, ou pelo menos não tornaram explícito em seu trabalho, é a quantidade de estímulos que a RND é
+capaz de memorizar; também no mesmo tema, não é explorado o que acontece com o modelo quando um novo estímulo é apresentado ao
+depois da memorização dos demais.
 
-No trabalho não lembro qual, os autores utilizam RNDs para um problema de não lembro o que. Ao tentar
-treinar a RND em duas tarefas diferentes, a rede experienciava um fenômeno chamado de "Catastrophic
-Forgetting", em que uma das tarefas aprendidas era completamente esquecida após aprender a outra. Ao
-implementar um estado que os autores chamaram de sono na rede, caracterizado por curtos períodos
-de não lembro o que, a rede se tornou capaz de aprender ambas as tarefas sem esquecer do que já havia
-aprendido anteriormente. Essa simulação
+No trabalho não lembro qual, os autores utilizam RNDs para um problema de não lembro o que. Ao tentar treinar a RND em duas
+tarefas diferentes, a rede experienciava um fenômeno chamado de "Catastrophic Forgetting", em que uma das tarefas aprendidas era
+completamente esquecida após aprender a outra. Ao implementar um estado que os autores chamaram de sono na rede, caracterizado por
+curtos períodos de não lembro o que, a rede se tornou capaz de aprender ambas as tarefas sem esquecer do que já havia aprendido
+anteriormente. Essa simulação
 
 
 % Talvez referenciar goldenSleep2022?  {Sleep Prevents Catastrophic Forgetting in Spiking Neural Networks by Forming a Joint Synaptic Weight Representation},
