@@ -1,15 +1,12 @@
 \chapter{Trabalhos correlatos}
 
-
-% @Plasticidade As principais limitações encontradas nestes trabalhos estão relacionadas com ….
-
-
-% @Sono bla bla bla bla. A principal vantagem é que o sono ajuda a melhorar a memória
-
-
-A utilização de modelos computacionais de neurônios e RNDs para o estudo das funções cognitivas do cérebro é muito popular, pois
-em simulações computacionais existe o controle total sobre todas as propriedades de cada neurônio simulado
-
+A popularidade do uso de modelos computacionais de neurônios e RNDs para o estudo das funções cognitivas cerebrais reside em sua
+capacidade de proporcionar um controle completo e preciso sobre todas as características de cada neurônio simulado. Diferentemente
+dos neurônios biológicos em laboratório ou em seres humanos vivos, onde a manipulação precisa e a observação das variáveis são
+intrinsecamente limitadas devido a complexidade biológica e ética, as RNDs permitem controle total sobre todos os parâmetros da
+rede e de cada neurônio simulado, o que habilita a realização de experimentos teóricos detalhados, facilita o entendimento dos
+mecanismos neurais subjacentes às funções cognitivas e acelera o desenvolvimento de aplicações práticas, como a melhoria dos
+algoritmos de inteligência artificial. 
 
 No trabalho de~\cite{zenkeDiverse2015}, os autores criaram uma RND composta de 4096 neurônios excitatórios e 1024 neurônios inibitórios para
 testar a hipótese de que diferentes formas de plasticidade, tanto hebbianas como não hebbianas, quando implementadas juntas
@@ -21,10 +18,13 @@ algo que os autores não exploraram, ou pelo menos não tornaram explícito em s
 capaz de memorizar; também no mesmo tema, não é explorado o que acontece com o modelo quando um novo estímulo é apresentado ao
 depois da memorização dos demais.
 
-
-No trabalho de~\cite{goldenSleep2022}, os autores utilizam RNDs para um problema de não lembro o que. Ao tentar treinar a RND em duas
-tarefas diferentes, a rede experienciava um fenômeno chamado de "Catastrophic Forgetting", em que uma das tarefas aprendidas era
-completamente esquecida após aprender a outra. Ao implementar um estado que os autores chamaram de sono na rede, caracterizado por
-curtos períodos de não lembro o que, a rede se tornou capaz de aprender ambas as tarefas sem esquecer do que já havia aprendido
-anteriormente. Essa simulação
+No trabalho de~\cite{goldenSleep2022}, os autores utilizam RNDs para treinar um agente a buscar alimentos em um ambiente simulado.
+Ao tentar treinar a RND em duas tarefas diferentes~\footnote{Em cada tarefa, o tipo de alimento que o agente deveria comer mudava
+de forma e ele deveria aprender a reconhecer essa forma no ambiente}, a rede experienciava um fenômeno chamado pelos autores de
+``esquecimento catastrófico'', em que uma das tarefas aprendidas era completamente esquecida após aprender a outra. Ao implementar
+um estado de sono na rede, caracterizado por períodos muito curtos em que a rede não recebia nenhum estímulo, o agente era incapaz
+de se mover, o tipo de plasticidade era trocado e também era inserido ruído em cada neurônio, a rede se tornou capaz de aprender
+ambas as tarefas sem esquecer do que já havia aprendido anteriormente. Essa simulação do sono foi feita para tentar imitar o sono
+REM ao se adicionar ruído, mas as outras fases do sono não foram simuladas. Além disso, o modelo da RND não era recorrente, como
+no cérebro humano, e era utilizado em uma tarefa de aprendizado de reforço, o que não está no escopo deste trabalho.
 
