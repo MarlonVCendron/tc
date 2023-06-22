@@ -40,11 +40,16 @@ de reproduzir aspectos fundamentais do comportamento neuronal. Por exemplo, no t
 comportamento de 645 neurônios do neocórtex foi reproduzido utilizando modelos GLIF (Generalized Leaky Integrate-and-Fire). 
 
 O modelo de neurônio LIF é descrito pela dinâmica do potencial de membrana do neurônio, $v(t)$, que é dado pela
-equação~\ref{eq_lif}
+equação~\ref{eq_lif} e uma condição adicional para a geração de potenciais de ação, dada pela equação~\ref{eq_lif_cond}:
 
 \begin{equation}
 \label{eq_lif}
 C_m \frac{dv(t)}{dt} = -\frac{C_m}{\tau_m} [v(t) - V_0] + I(t)
+\end{equation}
+
+\begin{equation}
+\label{eq_lif_cond}
+\text{se}\quad v \ge v_{th} \quad \text{então} \quad v \gets v_{reset}
 \end{equation}
 
 onde $C_m$ é a capacitância da membrana, $V_0$ é o potencial de repouso, $\tau_m$ é a constante de tempo passiva da membrana
@@ -69,7 +74,28 @@ simplicidade, e, portanto, serão utilizados nesse trabalho.
 
 \subsection{Modelos de Sinapses}\label{subsection_modelos_sinapses}
 
+Para modelar a comunicação entre neurônios, é necessário modelar as sinapses. Existem diversos modelos de sinapses, que variam em
+complexidade e precisão. O modelo mais simples e muito utilizado é o modelo de sinapse de condução, que é uma sinapse estática,
+que não possui plasticidade e não se adapta ao longo do tempo. A dinâmica de condutância da sinapse é descrita pela
+equação~\ref{eq_sinapse}:
+
 \begin{equation}
 \label{eq_sinapse}
 \frac{dg_{syn}(t)}{dt} = \bar{g}_{syn}\sum_{k}{\delta(t-t_k)} - g_{syn}(t)/\tau_{syn}
 \end{equation}
+
+onde $g_{syn}(t)$ refere-se à condutância da sinapse, $\bar{g}_{syn}$ é a condutância máxima da sinapse, ou o peso da sinapse, que
+determina quão forte é a influência da sinapse no neurônio pós-sináptico, $\delta(x)$ é a função Delta de Dirac, que vale 1 quando
+$x=0$ e 0 caso contrário, esse somatório resulta em 0 caso não tenha havido nenhum potencial de ação na sinapse no tempo $t$.
+
+A lei de Ohm é utilizada para calcular a corrente elétrica a partir da condutância da sinapse, que é dada pela
+equação~\ref{eq_sinapse_curr}:
+
+\begin{equation}
+\label{eq_sinapse_curr}
+I_{syn}(t)=g_{syn}(t)(V(t)-E_{syn})
+\end{equation}
+
+onde $V(t)$ é o potencial da membrana e $E_{syn}$ corresponde ao potencial de reversão da sinapse, que determina se a sinapse é
+excitatória ou inibitória.
+
