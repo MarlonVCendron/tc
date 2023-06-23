@@ -3,10 +3,10 @@ filename=tc
 all: compile
 
 compile:
-	latexmk -pdf -pv $(filename).tex
+	latexmk -pdf $(filename).tex
 	bibtex $(filename).aux
-	latexmk -pdf -pv $(filename).tex
-	latexmk -pdf -pv $(filename).tex
+	latexmk -pdf $(filename).tex
+	latexmk -pdf $(filename).tex
 	latexmk -c
 	@rm $(filename).bbl
 	

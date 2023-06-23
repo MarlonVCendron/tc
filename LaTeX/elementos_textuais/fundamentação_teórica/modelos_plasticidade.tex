@@ -60,9 +60,10 @@ O rastro de disparo é atualizado de acordo com a equação~\ref{eq_stdp4}.
 \frac{dx_{\text{pós}}}{dt} = -\frac{x_{\text{pós}}(t)}{\tau_{-}}+\delta(t)
 \end{equation}
 
-Aqui, $x_{\text{pré}}$ e $x_{\text{pós}}$ são os rastros de disparo dos neurônios pré- e pós-sináptico, respectivamente, e começa em zero. Caso
-haja um disparo no tempo $t$, o rastro de disparo é incrementado em um e decai exponencialmente com uma constante de tempo
-$\tau_{\pm}$. A figura~\ref{fig_stdp} ilustra o funcionamento da STDP entre dois modelos de neurônio.
+Aqui, $x_{\text{pré}}$ e $x_{\text{pós}}$ são os rastros de disparo dos neurônios pré- e pós-sináptico, respectivamente, e começa
+em zero. Caso haja um disparo no tempo $t$, o rastro de disparo é incrementado em um e decai exponencialmente com uma constante de
+tempo $\tau_{\pm}$. Esse modelo de plasticidade é chamado de STDP estável (S-STDP)~\cite{paredes-vallesUnsupervised2018} A
+figura~\ref{fig_stdp} ilustra o funcionamento da STDP entre dois modelos de neurônio.
 
 \begin{figure}[!ht]
 \centering
