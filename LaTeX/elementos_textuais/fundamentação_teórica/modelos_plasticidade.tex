@@ -54,11 +54,11 @@ pós-sináptico ($x_{\text{pós}}$).
 
 O rastro de disparo é atualizado de acordo com a equação~\ref{eq_stdp4}.
 
-\begin{equation}
+\begin{align}
 \label{eq_stdp4}
-\frac{dx_{\text{\text{pré}}}}{dt} = -\frac{x_{\text{pré}}(t)}{\tau_{+}}+\delta(t) \\
-\frac{dx_{\text{pós}}}{dt} = -\frac{x_{\text{pós}}(t)}{\tau_{-}}+\delta(t)
-\end{equation}
+\frac{dx_{\text{pré}}}{dt} &= -\frac{x_{\text{pré}}(t)}{\tau_{+}}+\delta(t)\\
+\frac{dx_{\text{pós}}}{dt} &= -\frac{x_{\text{pós}}(t)}{\tau_{-}}+\delta(t)
+\end{align}
 
 Aqui, $x_{\text{pré}}$ e $x_{\text{pós}}$ são os rastros de disparo dos neurônios pré- e pós-sináptico, respectivamente, e começa
 em zero. Caso haja um disparo no tempo $t$, o rastro de disparo é incrementado em um e decai exponencialmente com uma constante de
