@@ -1,109 +1,87 @@
-\input{preambulo}
+%=======================================================================
+%
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% abnTeX2: Modelo de Trabalho Academico  em conformidade com 
+% ABNT NBR 14724:2011: Informacao e documentacao - Trabalhos academicos
+% ------------------------------------------------------------------------
+%Customização IFC
+% ------------------------------------------------------------------------
+% Autor:  Tiago Possato (tiago.possato@yahoo.com.br), baseado no modelo de Eliton Tiago (elitontiago@hotmail.com)
+% Versão: 08 de Outubro de 2017.
+% Codificação: UTF-8
+% LaTeX:  abnTeX2
+%
+%=======================================================================
 
-\trabalhoacademico{tccgraduacao}
+\documentclass[
+	% -- opções da classe memoir --
+	12pt,				% tamanho da fonte	
+	oneside,          % não imprimir em verso e anverso, oposto do twoside 
+	a4paper,			% tamanho do papel. 
+	% -- opções da classe abntex2 --
+	chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	brazil,			% o último idioma é o principal do documento
+	sumario=tradicional,
+]{abntex2-IFC}
 
-\ehqualificacao{nao}
-\removerbordasdohyperlink{sim} 
-% \cordohyperlink{sim}
+\include{config_inicial}
 
-\autor{Marlon Valmórbida Cendron}
-\titulo{A Contribuição das Fases do Sono na Consolidação de Memórias em Redes Neurais de Disparos}
-\local{Videira}
-\data{2023}
+\include{pretextuais/capa}
 
-\ies{Instituto Federal de Educação, Ciência e Tecnologia Catarinense}
-\iessigla{IFC}
-\centro{\textit{Campus} Videira}
+\begin{document}
 
-% Informação para TCC de Graduação
-
-\graduacaoem{Ciência da Computação} 
-\habilitacao{Bacharel} % Licenciado ou Bacharel
-\areadeconcentracaograduacao{Ciência da Computação}
-
-% Data de Aprovação
-
-\dataaprovacao{\underline{\hspace*{1cm}}/\underline{\hspace*{1cm}}/\underline{\hspace*{1.2cm}}.}
-
-% Informação sobre o Orientador
-
-\orientador{Prof.\ Dr.\ Manassés Ribeiro}
-\orientadories{Instituto Federal de Educação, Ciência e Tecnologia Catarinense}
-\orientadoriessigla{IFC}
-\orientadorcentro{\textit{Campus} Videira}
-\orientadorfeminino{nao} % Coloque 'sim' se for do sexo feminino
-
-\coorientador{} % Deixe o nome do coorientador em branco para remover do documento
-
-% Informação sobre a banca
-
-% Membro da Banca Dois
-
-\membrodabancadois{Prof.\ Dra.\ XXXXX}
-\membrodabancadoisies{Instituto Federal de Educação, Ciência e Tecnologia Catarinense}
-\membrodabancadoisiessigla{IFC}
-\membrodabancadoiscentro{\textit{Campus} Videira}
-
-% Membro da Banca Três
-
-\membrodabancatres{Prof.\ Dra.\ XXXXX}
-\membrodabancatresies{Instituto Federal de Educação, Ciência e Tecnologia Catarinense}
-\membrodabancatresiessigla{IFC}
-\membrodabancatrescentro{\textit{Campus} Videira}
-
-% Informação Complementar sobre a banca
-
-\membrodabancaquatro{Membro da Banca Quatro}
-\membrodabancaquatrocentro{Centro de Ciências e Tecnologia — CCT}
-\membrodabancaquatroies{Universidade do Membro da Banca Quatro — SIGLA}
-\membrodabancacinco{Membro da Banca Cinco}
-\membrodabancacincocentro{Teste}
-\membrodabancacincoies{Universidade do Membro da Banca Cinco — SIGLA}
-\membrodabancaseis{Membro da Banca Seis}
-\membrodabancaseiscentro{}
-\membrodabancaseisies{Universidade do Membro da Banca Seis — SIGLA}
-
-\begin{document}	
-
-% Elementos pré-textuais
+\frenchspacing 
 
 \imprimircapa{}
-% \imprimirfolhaderosto{}
-% %\imprimirfichacatalografica{elementos_pre_textuais/ficha-catalografica}
-% %\imprimirerrata{elementos_pre_textuais/errata}
-% \imprimirfolhadeaprovacao{}
-% \imprimirdedicatoria{elementos_pre_textuais/dedicatoria}
-% \imprimiragradecimentos{elementos_pre_textuais/agradecimentos}
-% \imprimirepigrafe{elementos_pre_textuais/epigrafe}
-\imprimirresumo{elementos_pre_textuais/resumo}
-\imprimirabstract{elementos_pre_textuais/abstract}
-\imprimirlistadefiguras{}
-\imprimirlistadetabelas{}
-% %\imprimirlistadequadros
-% %\imprimirlistadealgoritmos
-% %\imprimirlistadecodigosfonte
-\imprimirlistadesiglas{elementos_pre_textuais/lista-de-siglas}
-% \imprimirlistadesimbolos{elementos_pre_textuais/lista-de-simbolos}
-\imprimirsumario{}
-	
-% Elementos textuais
+\imprimirfolhaderosto{}
+% \imprimirfolhaderosto* (o * indica que haverá a ficha bibliográfica)
 
-% \textual{}
-\input{elementos_textuais/introdução/introdução}
-\input{elementos_textuais/fundamentação_teórica/fundamentação_teórica}
-\input{elementos_textuais/metodologia/metodologia}
-\input{elementos_textuais/resultados_esperados}
-\input{elementos_textuais/considerações_finais}
-% \input{elementos_textuais/conclusão}
-	
-% Elementos pós-textuais
+% \include{pretextuais/folhadeaprovacao}
+% \include{pretextuais/folhadeautorizacao}
 
-\bibliography{elementos_pos_textuais/referencias}
-%\imprimirglossario	
-%\imprimirapendices
-%\input{elementos_pos_textuais/apendice-a}
-%\imprimiranexos
-%\input{elementos_pos_textuais/anexo-a}		
-%\imprimirindice
+\input{pretextuais/resumo}
+% \include{pretextuais/agradecimentos}
+% \include{pretextuais/epigrafe}
+
+% Lista de ilustrações
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage{}
+
+% Lista de tabelas
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage{}
+
+% Lista de siglas
+\input{pretextuais/lista-de-siglas}
+\cleardoublepage{}
+
+% Sumário
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage{}
+
+\textual{}
+\input{textuais/introdução/introdução}
+\input{textuais/fundamentação_teórica/fundamentação_teórica}
+\input{textuais/metodologia/metodologia}
+\input{textuais/resultados_esperados}
+\input{textuais/considerações_finais}
+% \input{textuais/conclusão}
+	
+\postextual{}
+
+\bibliography{postextuais/referencias}
+
+% \include{postextuais/apendice}
+% \include{postextuais/anexo}
+% \printindex
 
 \end{document}

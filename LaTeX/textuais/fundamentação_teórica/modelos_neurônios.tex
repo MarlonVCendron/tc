@@ -9,12 +9,13 @@ estudos da função não necessariamente requerem conhecimento do mecanismo~\cit
 Lapicque foi a primeira tentativa de representar matematicamente um neurônio biológico.
 
 \begin{figure}[!ht]
-\Caption{\label{fig_lapicque} (A) O circuito elétrico de Lapicque: I é a corrente injetada, C a capacitância da membrana, R a resistência da membrana,
+\caption{(A) O circuito elétrico de Lapicque: I é a corrente injetada, C a capacitância da membrana, R a resistência da membrana,
 V o potencial de membrana e $V_{rest}$ o potencial de repouso. (B) A trajetória de tensão, quando um limiar é atingido, um
 potencial de ação é disparado. (C) Um modelo IF com corrente que varia pelo tempo.}
-\centering
-\includegraphics[width=\linewidth]{figuras/lapicque.png}
-\Fonte{\cite{abbottLapicque1999}}
+\centering{
+\parbox{\linewidth}{
+\includegraphics[width=\linewidth]{figuras/lapicque.png}\label{fig_lapicque}
+\fonte{\cite{abbottLapicque1999}}}}
 \end{figure}
 
 O modelo de Hodgkin-Huxley~\cite{hodgkinQuantitative1952}, representou um avanço significativo na compreensão e na modelagem dos
@@ -66,10 +67,11 @@ do cérebro, enquanto os modelos IF são preferidos quando o objetivo é estudar
 simplicidade, e, portanto, serão utilizados nesse trabalho.
 
 \begin{figure}[!ht]
-\Caption{Diferentes tipos de neurônios simulados pelo modelo de Izhikevich.}
-\centering\label{fig_izhikevich}
-\includegraphics[width=\linewidth]{figuras/izhikevich.png}
-\Fonte{\cite{izhikevichSimple2003}}
+\caption{Diferentes tipos de neurônios simulados pelo modelo de Izhikevich.}
+\centering{
+\parbox{\linewidth}{
+\includegraphics[width=\linewidth]{figuras/izhikevich.png}\label{fig_izhikevich}
+\fonte{\cite{izhikevichSimple2003}}}}
 \end{figure}
 
 \subsection{Modelos de Sinapses}\label{subsection_modelos_sinapses}
