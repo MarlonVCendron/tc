@@ -8,11 +8,13 @@ compile:
 	latexmk -pdf $(filename).tex
 	latexmk -pdf $(filename).tex
 	latexmk -c
-	@rm $(filename).bbl
+	@rm -f $(filename).bbl
+	@rm -f $(filename).brf
 	
 clean:
 	latexmk -c
-	@rm $(filename).bbl
+	@rm -f $(filename).bbl
+	@rm -f $(filename).brf
 
 watch:
 	latexmk -pdf -pvc $(filename).tex
