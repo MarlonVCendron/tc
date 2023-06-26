@@ -1,11 +1,11 @@
 \chapter{Metodologia}
 
-Para estudar a influência do sono na formação e recordação de conjuntos celulares será simulado um modelo de RND com diferentes
+Para estudar a influência do sono na formação e recordação de assembleias neuronais será simulado um modelo de RND com diferentes
 formas de plasticidade.
 
 \section{Modelo da rede neural de disparos}
 
-A rede será composta de 5120 neurônios LIF, sendo 4096 excitatórios e 1024 inibitórios. Cada neurônio da rede será conectado a de
+A rede será composta de 5.120 neurônios LIF, sendo 4.096 excitatórios e 1.024 inibitórios. Cada neurônio da rede será conectado a de
 forma aleatória a 10\% dos neurônios da rede. Todas as conexões sinápticas serão implementadas com modelos de plasticidade. Além
 disso, a rede será conectada a uma ``retina'' simulada, que receberá os estímulos de imagem em uma resolução de 64$\times$64
 pixels; cada neurônio da rede receberá conexões de uma área circular de alguns neurônios da retina.
@@ -33,9 +33,7 @@ Todo o código da simulação será escrito em C++ utilizando o framework Auryn~
 
 \section{Análise}
 
-Para determinar quais neurônios pertencem ao conjunto celular associado a um estímulo, será analisada a frequência de disparos de
+Para determinar quais neurônios pertencem à assembleia neuronal associada a um estímulo, será analisada a frequência de disparos de
 cada neurônio no intervalo $3s < t < 3.5s$ após a apresentação do estímulo. Os neurônios que dispararem com frequência maior que
-10Hz serão considerados como pertencentes ao conjunto celular associado ao estímulo.
+10Hz serão considerados como pertencentes à assembleia neuronal associada a um estímulo.
 
-
-\input{textuais/metodologia/cronograma}

@@ -40,21 +40,21 @@ simultânea de neurônios conectados: caso o neurônio pós-sináptico dispare l
 correlação entre eles e a sinapse é fortalecida, caso contrário, a sinapse é enfraquecida.
 
 A plasticidade hebbiana, resumida pela expressão ``neurônios que disparam juntos, co\-nectam-se juntos'', descreve a formação de
-conjuntos celulares\footnote{Do inglês \textit{Cell Assemblies}. Também traduzido como Assembleias Celulares.} como resultado do
-fortalecimento das conexões entre neurônios ativados simultaneamente. Esses conjuntos podem funcionar como mecanismos de memória
-associativa~\cite{sakuraiMultiple2018}. Tomando como exemplo a memória de uma viagem à praia: essa memória consiste em vários
-elementos, como o som das ondas, a sensação de areia sob os pés, o cheiro de água salgada, a visão do mar, entre outros. Cada um
-desses elementos sensoriais é processado em diferentes áreas do cérebro e ativa diferentes grupos de neurônios. A ativação
-síncrona dos neurônios responsáveis por esses elementos sensoriais leva à formação de um conjunto celular. Algum tempo depois, ao
-sentir o cheiro do mar novamente, esse estímulo pode acabar ativando o conjunto celular, resultando na experiência da memória.
-Conjuntos celulares não são estruturas estáticas, essas redes dinâmicas de neurônios que surgem a partir da experiência estão
+assembleias neuronais\footnote{Do inglês \textit{Cell Assemblies}. Também traduzido como Assembleias Celulares.} como resultado do
+fortalecimento das conexões entre neurônios ativados simultaneamente. Essas assembleias neuronais podem funcionar como mecanismos
+de memória associativa~\cite{sakuraiMultiple2018}. Tomando como exemplo a memória de uma viagem à praia: essa memória consiste em
+vários elementos, como o som das ondas, a sensação de areia sob os pés, o cheiro de água salgada, a visão do mar, entre outros.
+Cada um desses elementos sensoriais é processado em diferentes áreas do cérebro e ativa diferentes grupos de neurônios. A ativação
+síncrona dos neurônios responsáveis por esses elementos sensoriais leva à formação de uma assembleia neuronal. Algum tempo depois, ao
+sentir o cheiro do mar novamente, esse estímulo pode acabar ativando a assembleia neuronal, resultando na experiência da memória.
+Assembleias celulares não são estruturas estáticas, essas redes dinâmicas de neurônios que surgem a partir da experiência estão
 sujeitas a modificações e reativações ao longo do tempo, sendo influenciadas pela falta de estímulos ou novas informações, o que
 pode levar à alteração ou esquecimento de partes da memória.
 
-A plasticidade hebbiana, no entanto, não consegue gerar, por si só, conjuntos celulares estáveis quando simulada em uma RND;\@
+A plasticidade hebbiana, no entanto, não consegue gerar, por si só, assembleias neuronais estáveis quando simulada em uma RND;\@
 isso ocorre pois a atividade neural continuamente modifica as sinapses, fazendo com que em pouco tempo quaisquer estímulos não
-relacionados com a informação codificada no conjunto celular acabem alterando as sinapses e desfazendo o conjunto
-celular~\cite{gerstnerSpiking2002}.
+relacionados com a informação codificada na assembleia neuronal acabem alterando as sinapses e desfazendo a
+assembleia~\cite{gerstnerSpiking2002}.
 
 Mas a plasticidade hebbiana não descreve toda a gama de diferentes modos com que a plasticidade se manifesta no cérebro, como é o
 caso das  plasticidades heterossináptica, em que a ativação de neurônios causa mudanças em neurônios inativos, e homeostática, um
@@ -64,24 +64,24 @@ plasticidade também varia muito, podendo depender da frequência de disparos, d
 entre outros. Nas RNDs, assim como ocorre com os modelos de neurônios, os modelos de plasticidade também possuem uma ampla
 variação em termos de plausibilidade biológica. Além disso, dependendo do modelo que se deseja utilizar, pode-se combinar
 múltiplos modelos de plasticidade simultaneamente. Uma RND com plasticidade hebbiana junto de outras formas de plasticidade é
-capaz de formar conjuntos celulares estáveis por horas~\cite{zenkeDiverse2015}.
+capaz de formar assembleias neuronais estáveis por horas~\cite{zenkeDiverse2015}.
 
 O sono é um processo fisiológico crucial para a consolidação\footnote{A consolidação de uma memória é entendida como o processo
 que transforma novas memórias frágeis criadas enquanto acordado para memórias mais estáveis e de longo prazo} e manutenção das
 memórias~\cite{blissittSleep2001, walkerSleep2006, diekelmannMemory2010}. Inicialmente, postulava-se que o sono desempenhava uma
 função passiva no processo de consolidação da memória~\cite{jenkinsObliviscence1924}; contudo, com a descoberta das distintas
-fases do sono, começaram-se a explorar as contribuições ativas do sono na consolidação mnemônica~\cite{aserinskyRegularly1953}.
-Durante o sono, ocorrem diferentes fases caracterizadas por padrões distintos de atividade cerebral: sono REM (\textit{Rapid Eye
-Movement}) e sono não REM (NREM, dividido entre as fases N1, N2 e N3)~\cite{schulzRethinking2008}. Durante a fase NREM, oscilações
-lentas, fusos e ondulações coordenam a reativação e redistribuição de memórias dependentes do hipocampo para o
-neocórtex~\cite{diekelmannMemory2010}. Já quanto ao sono REM, a dificuldade em isolar a atividade neural dessa etapa específica,
-que ocorre após a fase NREM, torna a discussão sobre sua contribuição para a consolidação da memória ainda controversa. Contudo,
-pesquisas mais recentes oferecem evidências de que o sono REM desempenha um papel fundamental na consolidação da memória espacial
-e contextual~\cite{boyceREM2017}.
+fases do sono, começaram-se a explorar as contribuições ativas do sono na consolidação mnemônica\footnote{A consolidação de
+memórias}~\cite{aserinskyRegularly1953}. Durante o sono, ocorrem diferentes fases caracterizadas por padrões distintos de
+atividade cerebral: sono REM (\textit{Rapid Eye Movement}) e sono não REM (NREM, dividido entre as fases N1, N2 e
+N3)~\cite{schulzRethinking2008}. Durante a fase NREM, oscilações lentas, fusos e ondulações coordenam a reativação e
+redistribuição de memórias dependentes do hipocampo para o neocórtex~\cite{diekelmannMemory2010}. Já quanto ao sono REM, a
+dificuldade em isolar a atividade neural dessa etapa específica, que ocorre após a fase NREM, torna a discussão sobre sua
+contribuição para a consolidação da memória ainda controversa. Contudo, pesquisas mais recentes oferecem evidências de que o sono
+REM desempenha um papel fundamental na consolidação da memória espacial e contextual~\cite{boyceREM2017}.
 
 Neste contexto, o problema a ser abordado neste trabalho consiste em explorar a retenção de memórias em uma RND.\@ A principal
 hipótese a ser avaliada neste trabalho é de que abordagens baseadas em simulações de fases do sono podem melhorar a estabilidade
-de conjuntos celulares contribuindo para o processo de retenção de memórias.
+de assembleias neuronais contribuindo para o processo de retenção de memórias.
 
 \input{textuais/introdução/objetivo_geral}
 
