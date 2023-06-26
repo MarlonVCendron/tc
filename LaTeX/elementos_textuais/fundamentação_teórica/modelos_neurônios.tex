@@ -1,7 +1,7 @@
 \section{Modelos de Neurônios}\label{section_modelos_neuronios} 
 
 Em 1907, Lapicque desenvolveu um modelo de neurônio que descreve o neurônio como um circuito elétrico contendo um capacitor e um
-resistor em paralelo, como representado na figura~\ref{fig_lapicque}, representando a capacitância e a resistência de vazamento da
+resistor em paralelo, como representado na Figura~\ref{fig_lapicque}, representando a capacitância e a resistência de vazamento da
 membrana celular~\cite{lapicqueRecherches1907}, chamado de modelo Integrate-and-Fire (IF). Mesmo sem entender os mecanismos por
 trás da geração de potenciais de ação, Lapicque postulou que, ao atingir um certo potencial limiar, um potencial de ação seria
 gerado e o capacitor descarregado, reiniciando o potencial da membrana. Isso mostra que, ao se tratar de modelagem de neurônios,
@@ -40,7 +40,7 @@ de reproduzir aspectos fundamentais do comportamento neuronal. Por exemplo, no t
 comportamento de 645 neurônios do neocórtex foi reproduzido utilizando modelos GLIF (Generalized Leaky Integrate-and-Fire). 
 
 O modelo de neurônio LIF é descrito pela dinâmica do potencial de membrana do neurônio, $v(t)$, que é dado pela
-equação~\ref{eq_lif} e uma condição adicional para a geração de potenciais de ação, dada pela equação~\ref{eq_lif_cond}:
+Equação~\ref{eq_lif} e uma condição adicional para a geração de potenciais de ação, dada pela Equação~\ref{eq_lif_cond}:
 
 \begin{equation}
 \label{eq_lif}
@@ -77,7 +77,7 @@ simplicidade, e, portanto, serão utilizados nesse trabalho.
 Para modelar a comunicação entre neurônios, é necessário modelar as sinapses. Existem diversos modelos de sinapses, que variam em
 complexidade e precisão. O modelo mais simples e muito utilizado é o modelo de sinapse de condução, que é uma sinapse estática,
 que não possui plasticidade e não se adapta ao longo do tempo. A dinâmica de condutância da sinapse é descrita pela
-equação~\ref{eq_sinapse}:
+Equação~\ref{eq_sinapse}:
 
 \begin{equation}
 \label{eq_sinapse}
@@ -89,7 +89,7 @@ determina quão forte é a influência da sinapse no neurônio pós-sináptico, 
 $x=0$ e 0 caso contrário, esse somatório resulta em 0 caso não tenha havido nenhum potencial de ação na sinapse no tempo $t$.
 
 A lei de Ohm é utilizada para calcular a corrente elétrica a partir da condutância da sinapse, que é dada pela
-equação~\ref{eq_sinapse_curr}:
+Equação~\ref{eq_sinapse_curr}:
 
 \begin{equation}
 \label{eq_sinapse_curr}

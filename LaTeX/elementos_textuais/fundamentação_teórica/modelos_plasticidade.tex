@@ -13,7 +13,7 @@ relação a outras formas de plasticidade no cérebro ainda não é completament
 \end{cases}
 \end{equation}
 
-A equação~\ref{eq_stdp1} representa como o peso da sinapse, $w$, varia de acordo com a diferença do tempo de disparos dos
+A Equação~\ref{eq_stdp1} representa como o peso da sinapse, $w$, varia de acordo com a diferença do tempo de disparos dos
 neurônios pré- e pós-sináptico, onde $\tau_{\pm}$ são as constantes de tempo. Se o disparo pré-sináptico ocorre antes do disparo
 pós-sináptico ($t_{\text{pré}} \le t_{\text{pós}}$), significa que há uma correlação entre os dois disparos, e a sinapse é potencializada de
 acordo com uma regra exponencial, quanto mais próximos em tempo forem os disparos, mais relevante é essa correlação. Caso o
@@ -26,7 +26,7 @@ frequências de disparos, a potenciação induzida por transmissor vai contra a 
 inteira caia em silêncio por constante diminuição da força das sinapses; em altas frequências de disparos, a depressão
 heterossináptica garante que algumas sinapses não se tornem absurdamente fortes e, por consequência, a única parte ativa da rede.
 
-A equação~\ref{eq_stdp1} também pode ser melhorada de forma a se tornar mais estável, como demonstra a equação~\ref{eq_stdp2}.
+A Equação~\ref{eq_stdp1} também pode ser melhorada de forma a se tornar mais estável, como demonstra a Equação~\ref{eq_stdp2}.
 
 \begin{equation}
 \label{eq_stdp2}
@@ -47,12 +47,12 @@ introduzido o conceito de um rastro do disparo, $x$.
 \frac{dw}{dt} = A_{+} x_{\text{pré}} \delta_{\text{pós}} - A_{-} x_{\text{pós}} \delta_{\text{pré}}
 \end{equation}
 
-De acordo com a equação~\ref{eq_stdp3}, caso haja um disparo no neurônio pós-sináptico (indicado por $\delta_{\text{pós}}$), o peso da
+De acordo com a Equação~\ref{eq_stdp3}, caso haja um disparo no neurônio pós-sináptico (indicado por $\delta_{\text{pós}}$), o peso da
 sinapse é potencializado de acordo com o rastro do disparo do neurônio pré-sináptico ($x_{\text{pré}}$). Caso haja um disparo no
 neurônio pré-sináptico (indicado por $\delta_{\text{pré}}$), o peso da sinapse é deprimido de acordo com o rastro do disparo do neurônio
 pós-sináptico ($x_{\text{pós}}$).
 
-O rastro de disparo é atualizado de acordo com a equação~\ref{eq_stdp4}.
+O rastro de disparo é atualizado de acordo com a Equação~\ref{eq_stdp4}.
 
 \begin{align}
 \label{eq_stdp4}
@@ -63,7 +63,7 @@ O rastro de disparo é atualizado de acordo com a equação~\ref{eq_stdp4}.
 Aqui, $x_{\text{pré}}$ e $x_{\text{pós}}$ são os rastros de disparo dos neurônios pré- e pós-sináptico, respectivamente, e começa
 em zero. Caso haja um disparo no tempo $t$, o rastro de disparo é incrementado em um e decai exponencialmente com uma constante de
 tempo $\tau_{\pm}$. Esse modelo de plasticidade é chamado de STDP estável (S-STDP)~\cite{paredes-vallesUnsupervised2018} A
-figura~\ref{fig_stdp} ilustra o funcionamento da STDP entre dois modelos de neurônio.
+Figura~\ref{fig_stdp} ilustra o funcionamento da STDP entre dois modelos de neurônio.
 
 \begin{figure}[!ht]
 \centering
