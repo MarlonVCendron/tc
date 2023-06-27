@@ -1,22 +1,54 @@
 \chapter{Metodologia}
 
-Para estudar a influência do sono na formação e recordação de assembleias neuronais será simulado um modelo de RND com diferentes
+Para estudar a influência do sono na formação e recordação de assembleias neu\-ro\-nais será simulado um modelo de RND com diferentes
 formas de plasticidade.
 
-\section{Modelo da rede neural de disparos}
 
-A rede será composta de 5.120 neurônios LIF, sendo 4.096 excitatórios e 1.024 inibitórios. Cada neurônio da rede será conectado a de
-forma aleatória a 10\% dos neurônios da rede. Todas as conexões sinápticas serão implementadas com modelos de plasticidade. Além
-disso, a rede será conectada a uma ``retina'' simulada, que receberá os estímulos de imagem em uma resolução de 64$\times$64
-pixels; cada neurônio da rede receberá conexões de uma área circular de alguns neurônios da retina.
+\begin{figure}[!ht]
+\caption{Visão geral da metodologia: passos para construção do modelo e simulação e análise.}
+\centering{
+\parbox{\linewidth}{
+\includegraphics[width=\linewidth]{figuras/metodologia.png}\label{fig_metodologia}
+% \fonte{}
+}}
+\end{figure}
 
-\section{Estímulos}
+\section{Modelo}
 
-Os estímulos serão imagens simples de serem reconhecidas, como formas geométricas e símbolos. Os estímulos serão apresentados à
-rede de forma intercalada e aleatória, também haverão momentos da simulação em que nenhum estímulo será apresentado. Nesse último
-caso, cada neurônio da retina vai se comportar com uma unidade de Poisson que dispara de forma aleatória.
+\subsection{Modelo dos neurônios}
 
-\section{Simulação do sono}
+A unidade básica de uma RND é o neurônio, então o primeiro passo para o modelo será a modelagem do neurônio. O modelo de neurônio
+utilizado será o \textit{Leaky Integrate-and-Fire} (LIF) devido à sua simplicidade, que captura o comportamento geral de um
+neurônio enquanto permite simulações rápidas de larga escala, como apresentado na Seção~\ref{section_modelos_neuronios}.
+
+\subsection{Modelo das sinapses}
+
+O próximo passo será simular como os neurônios interagem entre si. Para isso, será utilizado o modelo de sinapse de condução,
+apresentado na Seção~\ref{subsection_modelos_sinapses}.
+
+\subsection{Modelos de plasticidade}
+
+As sinapses, porém, não serão estáticas e terão diversas formas de plasticidade simuladas. Todas as sinapses serão plásticas, de
+acordo com os seguintes modelos de plasticidade: PCP, PDTD-E, heterossináptica e a induzida por transmissor, apresentados na
+Seção~\ref{section_modelos_plasticidade}.
+
+\subsection{Modelo de conexão da rede}
+
+A rede será composta de 5.120 neurônios LIF, sendo 4.096 excitatórios e 1.024 inibitórios. Cada neurônio da rede será conectado a
+de forma aleatória a 10\% dos neurônios da rede.
+
+\subsection{Modelo da retina}
+
+De modo a simular a entrada de estímulos visuais, será simulada uma retina. A retina será composta de 4.096 neurônios LIF, com
+cada neurônio representando um pixel em uma imagem de 64$\times$64 pixels. Cada neurônio da RND receberá conexões dos neurônios da
+retina de uma área circular de raio 8, em que o centro do círculo é escolhido aleatoriamente para cada neurônio. As conexões da
+retina com a RND não serão plásticas.
+
+Como explicado na Seção~\ref{section_experimento}, os estímulos serão imagens simples de serem reconhecidas, como formas
+geométricas e símbolos. Essas imagens serão binárias: apenas preto e branco; o neurônio da retina correspondente a um pixel preto
+irá disparar com frequência de 10Hz, enquanto o neurônio correspondente a um pixel branco irá disparar com frequência de 35Hz.
+
+\subsection{Simulação do sono}
 
 Para simular o sono, a rede funcionará de dois modos diferentes intercalados: um modo de atividade, em que a rede vai funcionar
 normalmente enquanto recebe estímulos, e um modo de inatividade, em que será simulado o sono. 
@@ -27,13 +59,25 @@ receberão uma corrente sinusoidal de frequência e amplitude diferentes para ca
 atividade cerebral durante o sono observados em eletroencefalograma; também serão simulados outros sinais característicos do sono
 de forma similar injetando corrente, como os fusos do sono que ocorrem durante a fase N2.
 
-\section{Detalhes da simulação}
+\section{Experimento}\label{section_experimento}
 
-Todo o código da simulação será escrito em C++ utilizando o framework Auryn~\cite{zenkeLimits2014}.
+Durante a simulação da RND, serão apresentados estímulos à retina. Esses estímulos serão algumas imagens simples de serem
+reconhecidas, como formas geométricas e símbolos. Os estímulos serão apresentados à rede de forma intercalada e aleatória, também
+haverão momentos da simulação em que nenhum estímulo será apresentado. Espera-se que a repetição desses estímulos durante o tempo
+de simulação da RND leve à formação de assembleias neuronais associadas a cada estímulo.
+
+Serão feitos diversos testes com diferentes parâmetros de plasticidade, diferentes tempos de simulação e diferentes quantidades de
+estímulos, de modo a encontrar uma configuração que leve à formação de assembleias neuronais associadas a cada estímulo.
 
 \section{Análise}
+
+A parte final do trabalho consistirá em analisar as diferentes simulações feitas e determinar se a simulação de sono teve algum
+efeito na formação de assembleias neuronais. Para isso, antes de tudo é necessário um modo de identificar as assembleias neuronais
+e quais neurônios pertencem a cada uma.
 
 Para determinar quais neurônios pertencem à assembleia neuronal associada a um estímulo, será analisada a frequência de disparos de
 cada neurônio no intervalo $3s < t < 3.5s$ após a apresentação do estímulo. Os neurônios que dispararem com frequência maior que
 10Hz serão considerados como pertencentes à assembleia neuronal associada a um estímulo.
 
+Por fim, será analisado quanto tempo leva para a assembleia neuronal associada ser formada e quanto tempo ela dura nas diferentes
+simulações.
