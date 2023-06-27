@@ -3,7 +3,7 @@
 A busca pela compreensão e reprodução das habilidades cognitivas e de aprendizado do cérebro humano tem sido um desafio constante
 nas áreas de neurociência computacional e Inteligência Artificial (IA). É possível argumentar que as Redes Neurais Artificiais
 (RNA) são o mais próximo que já chegamos dessa reprodução; entretanto, as RNAs deixaram de lado o realismo biológico em prol do
-aperfeiçoamento da IA~\cite{yamazakiSpiking2022}. As Redes Neurais de Disparos (RND)\footnote{Do inglês \textit{Spiking Neural
+aperfeiçoamento da IA~\cite{yamazakiSpiking2022}. As Redes Neurais Pulsadas (RNP)\footnote{Do inglês \textit{Spiking Neural
 Networks}.} representam um avanço significativo em direção ao objetivo de compreender o cérebro humano, uma vez que buscam emular
 o comportamento das Redes Neurais Biológicas (RNB) de forma mais realista do que as abordagens tradicionais.
 
@@ -16,22 +16,23 @@ otimizadas, e um período em que não há mais treinamento e as sinapses se torn
 sempre se alterando conforme a experiência, salvo nos raros casos em que há um período crítico de aprendizado durante a infância,
 que é desativado quando o indivíduo se torna adulto~\cite{crepelRegression1982}.
 
-As RNDs são modelos muito mais próximos das RNBs que se comunicam por meio de impulsos elétricos discretos, chamados de disparos,
-e que aprendem por métodos realistas, como a plasticidade das sinapses. O grau de realismo biológico de uma RND depende de sua
-implementação, podendo empregar modelos de neurônios tão simples quanto uma única equação, que descreve a mudança de tensão
-elétrica de um neurônio~\cite{burkittReview2006}, ou até modelos que simulam canais de íons~\cite{hodgkinQuantitative1952},
-ramificações de dendritos~\cite{pagkalosIntroducing2023}, entre outros. As RNDs não só representam uma possível evolução das RNAs,
-como também são usadas para seu propósito original: compreender o cérebro através da simulação.
+As RNPs são modelos muito mais próximos das RNBs que se comunicam por meio de impulsos elétricos discretos, chamados de
+disparos\footnote{Também chamados de potenciais de ação, pulsos ou \textit{spikes}} e que aprendem por métodos realistas, como a
+plasticidade das sinapses. O grau de realismo biológico de uma RNP depende de sua implementação, podendo empregar modelos de
+neurônios tão simples quanto uma única equação, que descreve a mudança de tensão elétrica de um neurônio~\cite{burkittReview2006},
+ou até modelos que simulam canais de íons~\cite{hodgkinQuantitative1952}, ramificações de
+dendritos~\cite{pagkalosIntroducing2023}, entre outros. As RNPs não só representam uma possível evolução das RNAs, como também são
+usadas para seu propósito original: compreender o cérebro através da simulação.
 
 A principal característica que torna as RNAs capazes de aprender é seu método de retropropagação de erro, um método de treinamento
 que até pode existir em alguns casos no cérebro~\cite{lillicrapBackpropagation2020,songCan2020}, mas que é diferente da forma de
 aprendizado local por plasticidade das RNBs~\cite{yamazakiSpiking2022}.
 
-No entanto, treinar RNDs continua sendo uma tarefa desafiadora, já que os algoritmos de aprendizado empregados nas RNAs, além de
-não serem biologicamente realistas, também não são diretamente aplicáveis às RNDs devido à natureza discreta dos disparos que as
+No entanto, treinar RNPs continua sendo uma tarefa desafiadora, já que os algoritmos de aprendizado empregados nas RNAs, além de
+não serem biologicamente realistas, também não são diretamente aplicáveis às RNPs devido à natureza discreta dos disparos que as
 torna não diferenciáveis, impedindo o cálculo de gradientes, parte fundamental no treinamento de RNAs.
 
-O principal método empregado para o aprendizado de RNDs é a plasticidade das sinapses. A plasticidade é a capacidade do cérebro de
+O principal método empregado para o aprendizado de RNPs é a plasticidade das sinapses. A plasticidade é a capacidade do cérebro de
 se adaptar e reorganizar suas conexões neurais em resposta a novas informações, experiências ou estímulos; é a principal
 propriedade por trás do aprendizado e da formação de memórias. Uma das principais formas de plasticidade neural foi primeiramente
 descrita por~\cite{hebbOrganization1949}, chamada de plasticidade hebbiana e influenciada pelas ideias
@@ -51,7 +52,7 @@ Assembleias celulares não são estruturas estáticas, essas redes dinâmicas de
 sujeitas a modificações e reativações ao longo do tempo, sendo influenciadas pela falta de estímulos ou novas informações, o que
 pode levar à alteração ou esquecimento de partes da memória.
 
-A plasticidade hebbiana, no entanto, não consegue gerar, por si só, assembleias neuronais estáveis quando simulada em uma RND;\@
+A plasticidade hebbiana, no entanto, não consegue gerar, por si só, assembleias neuronais estáveis quando simulada em uma RNP;\@
 isso ocorre pois a atividade neural continuamente modifica as sinapses, fazendo com que em pouco tempo quaisquer estímulos não
 relacionados com a informação codificada na assembleia neuronal acabem alterando as sinapses e desfazendo a
 assembleia~\cite{gerstnerSpiking2002}.
@@ -61,9 +62,9 @@ caso das  plasticidades heterossináptica, em que a ativação de neurônios cau
 processo lento em que as sinapses se auto-regulam para garantir estabilidade. A plasticidade também depende do tipo de neurônio,
 do tipo da conexão, do tempo de efeito das alterações (curto ou longo-prazo), entre outros fatores. A natureza do efeito da
 plasticidade também varia muito, podendo depender da frequência de disparos, da diferença de potencial, do tempo dos disparos,
-entre outros. Nas RNDs, assim como ocorre com os modelos de neurônios, os modelos de plasticidade também possuem uma ampla
+entre outros. Nas RNPs, assim como ocorre com os modelos de neurônios, os modelos de plasticidade também possuem uma ampla
 variação em termos de plausibilidade biológica. Além disso, dependendo do modelo que se deseja utilizar, pode-se combinar
-múltiplos modelos de plasticidade simultaneamente. Uma RND com plasticidade hebbiana junto de outras formas de plasticidade é
+múltiplos modelos de plasticidade simultaneamente. Uma RNP com plasticidade hebbiana junto de outras formas de plasticidade é
 capaz de formar assembleias neuronais estáveis por horas~\cite{zenkeDiverse2015}.
 
 O sono é um processo fisiológico crucial para a consolidação\footnote{A consolidação de uma memória é entendida como o processo
@@ -79,7 +80,7 @@ dificuldade em isolar a atividade neural dessa etapa específica, que ocorre ap�
 contribuição para a consolidação da memória ainda controversa. Contudo, pesquisas mais recentes oferecem evidências de que o sono
 REM desempenha um papel fundamental na consolidação da memória espacial e contextual~\cite{boyceREM2017}.
 
-Neste contexto, o problema a ser abordado neste trabalho consiste em explorar a retenção de memórias em uma RND.\@ A principal
+Neste contexto, o problema a ser abordado neste trabalho consiste em explorar a retenção de memórias em uma RNP.\@ A principal
 hipótese a ser avaliada neste trabalho é de que abordagens baseadas em simulações de fases do sono podem melhorar a estabilidade
 de assembleias neuronais contribuindo para o processo de retenção de memórias.
 
