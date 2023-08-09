@@ -8,7 +8,7 @@ Redes neurais artificiais (ANN) são historicamente inspiradas no cérebro, mas 
 
 # Neurônios biológicos
 
-Neurônios recebem sinais dos dendritos, esses sinais são integrados no soma e, se for o caso, um potencial de ação é disparado pelo axônio. O axônio carrega o sinal que é transmitido para os dendritos de outros neurônios através da sinapse.
+Neurônios recebem sinais dos dendritos, esses sinais são integrados na soma e, se for o caso, um potencial de ação é disparado pelo axônio. O axônio carrega o sinal que é transmitido para os dendritos de outros neurônios através da sinapse.
 
 Sinapses podem ser químicas (através de neurotransmissores), mais lentas mas que podem intesificar o sinal, ou elétricas, rápidas mas que não podem mudar a amplitude do sinal. Sinapses podem ser excitatórias, que despolarizam a célula pós-sináptica, ou inibitórias, que hiperpolarizam.
 Os neurotransmissores excitatórios mais comuns são: glutamato, dopamina e noradrenalina. Os inibitórios são: GABA, glicina e serotonina.

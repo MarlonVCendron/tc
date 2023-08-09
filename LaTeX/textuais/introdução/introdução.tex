@@ -17,7 +17,10 @@ sempre se alterando conforme a experiência, salvo nos raros casos em que há um
 que é desativado quando o indivíduo se torna adulto~\cite{crepelRegression1982}.
 
 As RNPs são modelos muito mais próximos das RNBs que se comunicam por meio de impulsos elétricos discretos, chamados de
-disparos\footnote{Também chamados de potenciais de ação, pulsos ou \textit{spikes}} e que aprendem por métodos realistas, como a
+disparos\footnote{Também chamados de potenciais de ação, pulsos ou \textit{spikes}, um disparo é um impulso elétrico propagado
+pelo axônio de um neurônio para transmitir um sinal pelas sinapses a outros neurônios. Um disparo é sempre igual independente do
+neurônio, a informação transmitida pelo neurônio é codificada no tempo e na frequência dos disparos \cite{kandelPrinciples2021}.}
+e que aprendem por métodos realistas, como a
 plasticidade das sinapses. O grau de realismo biológico de uma RNP depende de sua implementação, podendo empregar modelos de
 neurônios tão simples quanto uma única equação, que descreve a mudança de tensão elétrica de um neurônio~\cite{burkittReview2006},
 ou até modelos que simulam canais de íons~\cite{hodgkinQuantitative1952}, ramificações de
@@ -35,8 +38,8 @@ torna não diferenciáveis, impedindo o cálculo de gradientes, parte fundamenta
 O principal método empregado para o aprendizado de RNPs é a plasticidade das sinapses. A plasticidade é a capacidade do cérebro de
 se adaptar e reorganizar suas conexões neurais em resposta a novas informações, experiências ou estímulos; é a principal
 propriedade por trás do aprendizado e da formação de memórias. Uma das principais formas de plasticidade neural foi primeiramente
-descrita por~\cite{hebbOrganization1949}, chamada de plasticidade hebbiana e influenciada pelas ideias
-de~\cite{santiagoCroonian1894}, que pode resultar no fortalecimento ou enfraquecimento das sinapses com base na ativação
+descrita por~\citeonline{hebbOrganization1949}, chamada de plasticidade hebbiana e influenciada pelas ideias
+de~\citeonline{santiagoCroonian1894}, que pode resultar no fortalecimento ou enfraquecimento das sinapses com base na ativação
 simultânea de neurônios conectados: caso o neurônio pós-sináptico dispare logo após o neurônio pré-sináptico, significa que há uma
 correlação entre eles e a sinapse é fortalecida, caso contrário, a sinapse é enfraquecida.
 
@@ -65,14 +68,15 @@ plasticidade também varia muito, podendo depender da frequência de disparos, d
 entre outros. Nas RNPs, assim como ocorre com os modelos de neurônios, os modelos de plasticidade também possuem uma ampla
 variação em termos de plausibilidade biológica. Além disso, dependendo do modelo que se deseja utilizar, pode-se combinar
 múltiplos modelos de plasticidade simultaneamente. Uma RNP com plasticidade hebbiana junto de outras formas de plasticidade é
-capaz de formar assembleias neuronais estáveis por horas~\cite{zenkeDiverse2015}.
+capaz de formar assembleias neuronais estáveis por horas~\cite{zenkeDiverse2015}. Outra possibilidade para uma melhor estabilidade
+das assembleias neuronais e da consolidação das memórias, que será explorada neste trabalho, é a do sono.
 
 O sono é um processo fisiológico crucial para a consolidação\footnote{A consolidação de uma memória é entendida como o processo
-que transforma novas memórias frágeis criadas enquanto acordado para memórias mais estáveis e de longo prazo} e manutenção das
+que transforma novas memórias frágeis criadas enquanto acordado para memórias mais estáveis e de longo prazo.} e manutenção das
 memórias~\cite{blissittSleep2001, walkerSleep2006, diekelmannMemory2010}. Inicialmente, postulava-se que o sono desempenhava uma
 função passiva no processo de consolidação da memória~\cite{jenkinsObliviscence1924}; contudo, com a descoberta das distintas
 fases do sono, começaram-se a explorar as contribuições ativas do sono na consolidação mnemônica\footnote{A consolidação de
-memórias}~\cite{aserinskyRegularly1953}. Durante o sono, ocorrem diferentes fases caracterizadas por padrões distintos de
+memórias.}~\cite{aserinskyRegularly1953}. Durante o sono, ocorrem diferentes fases caracterizadas por padrões distintos de
 atividade cerebral: sono REM (\textit{Rapid Eye Movement}) e sono não REM (NREM, dividido entre as fases N1, N2 e
 N3)~\cite{schulzRethinking2008}. Durante a fase NREM, oscilações lentas, fusos e ondulações coordenam a reativação e
 redistribuição de memórias dependentes do hipocampo para o neocórtex~\cite{diekelmannMemory2010}. Já quanto ao sono REM, a
@@ -87,5 +91,3 @@ de assembleias neuronais contribuindo para o processo de retenção de memórias
 \input{textuais/introdução/objetivo_geral}
 
 \input{textuais/introdução/objetivos_específicos}
-
-\input{textuais/introdução/estrutura_trabalho}
