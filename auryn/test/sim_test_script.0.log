@@ -1,0 +1,15 @@
+08/09/23 21:16:57:: Logger started on Rank 0
+08/09/23 21:16:57:: Starting Auryn Kernel
+08/09/23 21:16:57:: Auryn version 0.8.2dev-1610e83 ( compiled Jun 23 2023 11:41:43 )
+08/09/23 21:16:57:: Git repository revision v0.8.1-136-g1610e83
+08/09/23 21:16:57:: Simulation timestep is set to 1.000000e-04s  
+08/09/23 21:16:57:: Auryn was compiled with MPI support.
+08/09/23 21:16:57:: Not running a parallel simulation.
+08/09/23 21:16:57:: SpikingGroup (SpikingGroup.cpp): :: Size 100
+08/09/23 21:16:57:: PoissonGroup:: Seeding with 231128565 and 352212346 salt
+08/09/23 21:16:57:: SpikingGroup (SpikingGroup.cpp): :: Size 1
+08/09/23 21:16:57:: Simulation triggered ( runtime=2s ) ...
+08/09/23 21:16:57:: On this rank: neurons_total=101, synapses_total=1
+08/09/23 21:16:57:: On all ranks: neurons_total=101, synapses_total=1
+08/09/23 21:16:57:: Simulation finished. Elapsed wall time 0s. 
+08/09/23 21:16:57:: Logger stopped

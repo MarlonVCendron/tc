@@ -1,0 +1,207 @@
+08/13/23 19:33:40:: Logger started on Rank 0
+08/13/23 19:33:40:: Starting Auryn Kernel
+08/13/23 19:33:40:: Auryn version 0.8.2dev-1610e83 ( compiled Jun 23 2023 11:41:43 )
+08/13/23 19:33:40:: Git repository revision v0.8.1-136-g1610e83
+08/13/23 19:33:40:: Simulation timestep is set to 1.000000e-04s  
+08/13/23 19:33:40:: Auryn was compiled with MPI support.
+08/13/23 19:33:40:: This is an MPI run. I am rank 0 of a total of 4 ranks.
+08/13/23 19:33:40::   Parameter alpha=4.000000e+00
+08/13/23 19:33:40::   Parameter beta=5.000000e-02
+08/13/23 19:33:40::   Parameter delta=2.000000e-02
+08/13/23 19:33:40::   Parameter eta=1.000000e-03
+08/13/23 19:33:40::   Parameter wee=1.000000e-01
+08/13/23 19:33:40::   Parameter wext=5.000000e-02
+08/13/23 19:33:40::   Parameter chi=1.000000e+00
+08/13/23 19:33:40::   Parameter xi=5.000000e-01
+08/13/23 19:33:40::   Parameter stimfile=./data/shapes.pat
+08/13/23 19:33:40::   Parameter monfile=./data/rf1.pat
+08/13/23 19:33:40::   Parameter offtime=2.000000e+00
+08/13/23 19:33:40::   Parameter ontime=1.000000e+00
+08/13/23 19:33:40::   Parameter taud=1.500000e-01
+08/13/23 19:33:40::   Parameter tauf=6.000000e-01
+08/13/23 19:33:40::   Parameter ujump=2.000000e-01
+08/13/23 19:33:40::   Parameter tauh=6.000000e+02
+08/13/23 19:33:40:: SpikingGroup (SpikingGroup.cpp): :: Size 1024 (ROUNDROBIN)
+08/13/23 19:33:40:: SpikingGroup (SpikingGroup.cpp): :: Registering SpikeDelay (MINDELAY=8)
+08/13/23 19:33:40:: SpikingGroup:: Running find_state_vector for mem
+08/13/23 19:33:40:: SpikingGroup:: Running find_state_vector for mem
+08/13/23 19:33:40:: SpikingGroup:: Running find_state_vector for thr
+08/13/23 19:33:40:: SpikingGroup:: Running find_state_vector for thr
+08/13/23 19:33:40:: SpikingGroup:: Running find_state_vector for g_ampa
+08/13/23 19:33:40:: SpikingGroup:: Running find_state_vector for g_ampa
+08/13/23 19:33:40:: SpikingGroup:: Running find_state_vector for g_gaba
+08/13/23 19:33:40:: SpikingGroup:: Running find_state_vector for g_gaba
+08/13/23 19:33:40:: SpikingGroup:: Running find_state_vector for g_nmda
+08/13/23 19:33:40:: SpikingGroup:: Running find_state_vector for g_nmda
+08/13/23 19:33:40:: SpikingGroup:: Running find_state_vector for t_leak
+08/13/23 19:33:40:: SpikingGroup:: Running find_state_vector for t_leak
+08/13/23 19:33:40:: SpikingGroup:: Running find_state_vector for t_exc
+08/13/23 19:33:40:: SpikingGroup:: Running find_state_vector for t_exc
+08/13/23 19:33:40:: SpikingGroup:: Running find_state_vector for t_inh
+08/13/23 19:33:40:: SpikingGroup:: Running find_state_vector for t_inh
+08/13/23 19:33:40:: SpikingGroup:: Running find_state_vector for g_adapt1
+08/13/23 19:33:40:: SpikingGroup:: Running find_state_vector for g_adapt1
+08/13/23 19:33:40:: SpikingGroup:: Running find_state_vector for g_adapt2
+08/13/23 19:33:40:: SpikingGroup:: Running find_state_vector for g_adapt2
+08/13/23 19:33:40:: SpikingGroup (SpikingGroup.cpp): :: Size 256 (ROUNDROBIN)
+08/13/23 19:33:40:: SpikingGroup (SpikingGroup.cpp): :: Registering SpikeDelay (MINDELAY=8)
+08/13/23 19:33:40:: SpikingGroup:: Running find_state_vector for mem
+08/13/23 19:33:40:: SpikingGroup:: Running find_state_vector for mem
+08/13/23 19:33:40:: SpikingGroup:: Running find_state_vector for thr
+08/13/23 19:33:40:: SpikingGroup:: Running find_state_vector for thr
+08/13/23 19:33:40:: SpikingGroup:: Running find_state_vector for g_ampa
+08/13/23 19:33:40:: SpikingGroup:: Running find_state_vector for g_ampa
+08/13/23 19:33:40:: SpikingGroup:: Running find_state_vector for g_gaba
+08/13/23 19:33:40:: SpikingGroup:: Running find_state_vector for g_gaba
+08/13/23 19:33:40:: SpikingGroup:: Running find_state_vector for g_nmda
+08/13/23 19:33:40:: SpikingGroup:: Running find_state_vector for g_nmda
+08/13/23 19:33:40:: SpikingGroup:: Running find_state_vector for t_leak
+08/13/23 19:33:40:: SpikingGroup:: Running find_state_vector for t_leak
+08/13/23 19:33:40:: SpikingGroup:: Running find_state_vector for t_exc
+08/13/23 19:33:40:: SpikingGroup:: Running find_state_vector for t_exc
+08/13/23 19:33:40:: SpikingGroup:: Running find_state_vector for t_inh
+08/13/23 19:33:40:: SpikingGroup:: Running find_state_vector for t_inh
+08/13/23 19:33:40:: SpikingGroup (SpikingGroup.cpp): :: Size 1024 (ROUNDROBIN)
+08/13/23 19:33:40:: SpikingGroup (SpikingGroup.cpp): :: Registering SpikeDelay (MINDELAY=8)
+08/13/23 19:33:40::   Parameter StimulusGroup:: baserate=1.000000e+00
+08/13/23 19:33:40:: StimulusGroup:: seeding Poisson generator with 1575046825
+08/13/23 19:33:40:: StimulusGroup:: size 4096 (mode 1) 
+08/13/23 19:33:40::   Parameter StimulusGroup:: mean_on_period=1.000000e+00
+08/13/23 19:33:40::   Parameter StimulusGroup:: mean_off_period=2.000000e+00
+08/13/23 19:33:40:: P11Connection (Connection.cpp): Detected recurrent connection. skip_diagonal was activated!
+08/13/23 19:33:40:: P11Connection (Connection.cpp): Seeding with 1276590181
+08/13/23 19:33:40:: P11Connection (Connection.cpp): Assuming memory demand for pre #4096 and post #1024 ( total 212004)
+08/13/23 19:33:40:: P11Connection (Connection.cpp): Allocating sparse matrix (4096, 4096) with space for 2.1200e+05 nonzero elements 
+08/13/23 19:33:40:: P11Connection (Connection.cpp): Randomfill with weight 0.1 and sparseness 0.05
+08/13/23 19:33:40:: P11Connection (Connection.cpp): Finished connect_block_random [0, 4096, 0, 4096]  (stop count 4.1943e+06) and successfully pushed 2.0984e+05 entries. Resulting overall sparseness 5.0030e-02
+08/13/23 19:33:40:: P11Connection (Connection.cpp): Finalized with fill level 0.989797
+08/13/23 19:33:40:: DuplexConnection:: Init of bkw backward (transposed) matrix
+08/13/23 19:33:40:: Clearing reverse matrix...
+08/13/23 19:33:40:: DuplexConnection: (P11Connection): Computing transposed (reverse) matrix view ...
+08/13/23 19:33:40:: DuplexConnection: (P11Connection): 209841 elements processed.
+08/13/23 19:33:40::   Parameter timestep_consolidation=11999
+08/13/23 19:33:40::   Parameter beta_fudge=1.000000e-01
+08/13/23 19:33:40:: Initializing post trace instance
+08/13/23 19:33:40:: Initializing pre trace instance
+08/13/23 19:33:40:: Initializing post trace instance
+08/13/23 19:33:40:: Initializing post trace instance
+08/13/23 19:33:40:: NeuronGroup (SpikingGroup.cpp): :: Registering 1 spike attributes.
+08/13/23 19:33:40::   Parameter normalized pot_strength=1.706667e+01
+08/13/23 19:33:40::   Parameter beta_fudge=5.000000e-02
+08/13/23 19:33:40:: STPConnection (Connection.cpp): Assuming memory demand for pre #4096 and post #256 ( total 53572)
+08/13/23 19:33:40:: STPConnection (Connection.cpp): Allocating sparse matrix (4096, 1024) with space for 5.3572e+04 nonzero elements 
+08/13/23 19:33:40:: STPConnection (Connection.cpp): Randomfill with weight 0.6 and sparseness 0.05
+08/13/23 19:33:40:: STPConnection (Connection.cpp): Finished connect_block_random [0, 4096, 0, 1024]  (stop count 1.0486e+06) and successfully pushed 5.3009e+04 entries. Resulting overall sparseness 5.0553e-02
+08/13/23 19:33:40:: STPConnection (Connection.cpp): Finalized with fill level 0.989491
+08/13/23 19:33:40:: NeuronGroup (SpikingGroup.cpp): :: Registering 1 spike attributes.
+08/13/23 19:33:40:: SparseConnection (Connection.cpp): Detected recurrent connection. skip_diagonal was activated!
+08/13/23 19:33:40:: SparseConnection (Connection.cpp): Assuming memory demand for pre #1024 and post #256 ( total 13679)
+08/13/23 19:33:40:: SparseConnection (Connection.cpp): Allocating sparse matrix (1024, 1024) with space for 1.3679e+04 nonzero elements 
+08/13/23 19:33:40:: SparseConnection (Connection.cpp): Randomfill with weight 0.2 and sparseness 0.05
+08/13/23 19:33:40:: SparseConnection (Connection.cpp): Finished connect_block_random [0, 1024, 0, 1024]  (stop count 2.6214e+05) and successfully pushed 1.3102e+04 entries. Resulting overall sparseness 4.9980e-02
+08/13/23 19:33:40:: SparseConnection (Connection.cpp): Finalized with fill level 0.957819
+08/13/23 19:33:40:: GlobalPFConnection (Connection.cpp): Assuming memory demand for pre #1024 and post #1024 ( total 53572)
+08/13/23 19:33:40:: GlobalPFConnection (Connection.cpp): Allocating sparse matrix (1024, 4096) with space for 5.3572e+04 nonzero elements 
+08/13/23 19:33:40:: GlobalPFConnection (Connection.cpp): Randomfill with weight 0.2 and sparseness 0.05
+08/13/23 19:33:40:: GlobalPFConnection (Connection.cpp): Finished connect_block_random [0, 1024, 0, 4096]  (stop count 1.0486e+06) and successfully pushed 5.2279e+04 entries. Resulting overall sparseness 4.9857e-02
+08/13/23 19:33:40:: GlobalPFConnection (Connection.cpp): Finalized with fill level 0.975864
+08/13/23 19:33:40:: DuplexConnection:: Init of bkw backward (transposed) matrix
+08/13/23 19:33:40:: Clearing reverse matrix...
+08/13/23 19:33:40:: DuplexConnection: (GlobalPFConnection): Computing transposed (reverse) matrix view ...
+08/13/23 19:33:40:: DuplexConnection: (GlobalPFConnection): 52279 elements processed.
+08/13/23 19:33:40:: Initializing pre trace instance
+08/13/23 19:33:40:: NeuronGroup (SpikingGroup.cpp): :: Sharing post trace with 0.02s timeconstant.
+08/13/23 19:33:40:: P11Connection (Connection.cpp): Assuming memory demand for pre #4096 and post #1024 ( total 422668)
+08/13/23 19:33:40:: P11Connection (Connection.cpp): Allocating sparse matrix (4096, 4096) with space for 4.2267e+05 nonzero elements 
+08/13/23 19:33:40:: P11Connection (Connection.cpp): Randomfill with weight 0.05 and sparseness 0.1
+08/13/23 19:33:40:: P11Connection (Connection.cpp): Finished connect_block_random [0, 4096, 0, 4096]  (stop count 4.1943e+06) and successfully pushed 4.2078e+05 entries. Resulting overall sparseness 1.0032e-01
+08/13/23 19:33:40:: P11Connection (Connection.cpp): Finalized with fill level 0.995528
+08/13/23 19:33:40:: DuplexConnection:: Init of bkw backward (transposed) matrix
+08/13/23 19:33:40:: Clearing reverse matrix...
+08/13/23 19:33:40:: DuplexConnection: (P11Connection): Computing transposed (reverse) matrix view ...
+08/13/23 19:33:40:: DuplexConnection: (P11Connection): 420778 elements processed.
+08/13/23 19:33:40::   Parameter timestep_consolidation=11999
+08/13/23 19:33:40::   Parameter beta_fudge=1.000000e-01
+08/13/23 19:33:40:: Initializing post trace instance
+08/13/23 19:33:40:: Initializing pre trace instance
+08/13/23 19:33:40:: NeuronGroup (SpikingGroup.cpp): :: Sharing post trace with 0.02s timeconstant.
+08/13/23 19:33:40:: NeuronGroup (SpikingGroup.cpp): :: Sharing post trace with 0.1s timeconstant.
+08/13/23 19:33:40:: SpikingGroup (SpikingGroup.cpp): :: Registering 1 spike attributes.
+08/13/23 19:33:40::   Parameter beta_fudge=5.000000e-02
+08/13/23 19:33:40:: Setting up stimulus ...
+08/13/23 19:33:40:: StimulusGroup:: Read pattern 0 with pattern size 960 ( 230 on rank )
+08/13/23 19:33:40:: StimulusGroup:: Read pattern 1 with pattern size 1193 ( 282 on rank )
+08/13/23 19:33:40:: StimulusGroup:: Read pattern 2 with pattern size 832 ( 209 on rank )
+08/13/23 19:33:40:: StimulusGroup:: Read pattern 3 with pattern size 980 ( 246 on rank )
+08/13/23 19:33:40:: StimulusGroup:: Finished loading 4 patterns
+08/13/23 19:33:40:: Loading from complete wmat file (all ranks in the same file). Element count: 184840.
+08/13/23 19:33:40:: ./data/rf_discsR8.mtx: Reading from file (4096x4096 @ 0.0440693)
+08/13/23 19:33:41:: ./data/rf_discsR8.mtx (Connection.cpp): OK, 184840 elements pushed.
+08/13/23 19:33:41:: DuplexConnection: Finalizing ...
+08/13/23 19:33:41:: Clearing reverse matrix...
+08/13/23 19:33:41:: DuplexConnection: (./data/rf_discsR8.mtx): Computing transposed (reverse) matrix view ...
+08/13/23 19:33:41:: DuplexConnection: (./data/rf_discsR8.mtx): 184840 elements processed.
+08/13/23 19:33:41:: WeightMonitor:: Initialized. Writing to file ./data/sim/rf1.0.sse
+08/13/23 19:33:41:: WeightMonitor:: Added 50 equally spaced values.
+08/13/23 19:33:41:: PatternMonitor:: Setting binsize 0.1s
+08/13/23 19:33:41:: PatternMonitor:: Read pattern 0 with pattern size 864 ( 228 on rank )
+08/13/23 19:33:41:: PatternMonitor:: Read pattern 1 with pattern size 1188 ( 309 on rank )
+08/13/23 19:33:41:: PatternMonitor:: Read pattern 2 with pattern size 1059 ( 236 on rank )
+08/13/23 19:33:41:: PatternMonitor:: Read pattern 3 with pattern size 1123 ( 291 on rank )
+08/13/23 19:33:41:: PatternMonitor:: Finished loading 4 patterns
+08/13/23 19:33:41:: WeightMonitor:: Read pattern 0 with pattern size 960 ( 960 on rank )
+08/13/23 19:33:41:: WeightMonitor:: Read pattern 1 with pattern size 1193 ( 1193 on rank )
+08/13/23 19:33:41:: WeightMonitor:: Read pattern 2 with pattern size 832 ( 832 on rank )
+08/13/23 19:33:41:: WeightMonitor:: Read pattern 3 with pattern size 980 ( 980 on rank )
+08/13/23 19:33:41:: WeightMonitor:: Read pattern 0 with pattern size 864 ( 864 on rank )
+08/13/23 19:33:41:: WeightMonitor:: Read pattern 1 with pattern size 1188 ( 1188 on rank )
+08/13/23 19:33:41:: WeightMonitor:: Read pattern 2 with pattern size 1059 ( 1059 on rank )
+08/13/23 19:33:41:: WeightMonitor:: Read pattern 3 with pattern size 1123 ( 1123 on rank )
+08/13/23 19:33:41:: WeightMonitor:: Adding 20 elements to index list (connections 0 to 0)
+08/13/23 19:33:41:: WeightMonitor:: Adding 20 elements to index list (connections 1 to 1)
+08/13/23 19:33:41:: WeightMonitor:: Adding 20 elements to index list (connections 2 to 2)
+08/13/23 19:33:41:: WeightMonitor:: Adding 20 elements to index list (connections 3 to 3)
+08/13/23 19:33:41:: WeightMonitor:: Finished loading connections from n_pre=4 and n_post=4 patterns
+08/13/23 19:33:41:: WeightMonitor:: Initialized. Writing to file ./data/sim/rf1.0.see
+08/13/23 19:33:41:: WeightMonitor:: Added 50 equally spaced values.
+08/13/23 19:33:41:: WeightMonitor:: Read pattern 0 with pattern size 864 ( 864 on rank )
+08/13/23 19:33:41:: WeightMonitor:: Read pattern 1 with pattern size 1188 ( 1188 on rank )
+08/13/23 19:33:41:: WeightMonitor:: Read pattern 2 with pattern size 1059 ( 1059 on rank )
+08/13/23 19:33:41:: WeightMonitor:: Read pattern 3 with pattern size 1123 ( 1123 on rank )
+08/13/23 19:33:41:: WeightMonitor:: Adding 10 elements to index list (connections 0 to 0)
+08/13/23 19:33:41:: WeightMonitor:: Adding 10 elements to index list (connections 1 to 1)
+08/13/23 19:33:41:: WeightMonitor:: Adding 10 elements to index list (connections 2 to 2)
+08/13/23 19:33:41:: WeightMonitor:: Adding 10 elements to index list (connections 3 to 3)
+08/13/23 19:33:41:: WeightMonitor:: Finished loading connections from n_pre=4 and n_post=4 patterns
+08/13/23 19:33:41:: Set record for times for monitor.
+08/13/23 19:33:41:: Set record for times for monitor.
+08/13/23 19:33:41:: WeightMonitor:: Initialized. Writing to file ./data/sim/rf1.0.si2e
+08/13/23 19:33:41:: WeightMonitor:: Added 50 equally spaced values.
+08/13/23 19:33:41:: WeightPatternMonitor:: Read pattern 0 with pattern size 864 ( 864 on rank )
+08/13/23 19:33:41:: WeightPatternMonitor:: Read pattern 1 with pattern size 1188 ( 1188 on rank )
+08/13/23 19:33:41:: WeightPatternMonitor:: Read pattern 2 with pattern size 1059 ( 1059 on rank )
+08/13/23 19:33:41:: WeightPatternMonitor:: Read pattern 3 with pattern size 1123 ( 1123 on rank )
+08/13/23 19:33:41:: WeightPatternMonitor:: Finished loading 4 patterns
+08/13/23 19:33:41:: WeightPatternMonitor:: Read pattern 0 with pattern size 864 ( 864 on rank )
+08/13/23 19:33:41:: WeightPatternMonitor:: Read pattern 1 with pattern size 1188 ( 1188 on rank )
+08/13/23 19:33:41:: WeightPatternMonitor:: Read pattern 2 with pattern size 1059 ( 1059 on rank )
+08/13/23 19:33:41:: WeightPatternMonitor:: Read pattern 3 with pattern size 1123 ( 1123 on rank )
+08/13/23 19:33:41:: WeightPatternMonitor:: Finished loading 4 patterns
+08/13/23 19:33:41:: WeightPatternMonitor:: Read pattern 0 with pattern size 960 ( 960 on rank )
+08/13/23 19:33:41:: WeightPatternMonitor:: Read pattern 1 with pattern size 1193 ( 1193 on rank )
+08/13/23 19:33:41:: WeightPatternMonitor:: Read pattern 2 with pattern size 832 ( 832 on rank )
+08/13/23 19:33:41:: WeightPatternMonitor:: Read pattern 3 with pattern size 980 ( 980 on rank )
+08/13/23 19:33:41:: WeightPatternMonitor:: Finished loading 4 patterns
+08/13/23 19:33:41:: WeightPatternMonitor:: Read pattern 0 with pattern size 864 ( 864 on rank )
+08/13/23 19:33:41:: WeightPatternMonitor:: Read pattern 1 with pattern size 1188 ( 1188 on rank )
+08/13/23 19:33:41:: WeightPatternMonitor:: Read pattern 2 with pattern size 1059 ( 1059 on rank )
+08/13/23 19:33:41:: WeightPatternMonitor:: Read pattern 3 with pattern size 1123 ( 1123 on rank )
+08/13/23 19:33:41:: WeightPatternMonitor:: Finished loading 4 patterns
+08/13/23 19:33:41:: PopulationRateMonitor:: Setting binsize 0.1s
+08/13/23 19:33:41:: PopulationRateMonitor:: Setting binsize 0.1s
+08/13/23 19:33:41::   Parameter StimulusGroup:: mean_on_period=1.000000e+00
+08/13/23 19:33:41::   Parameter StimulusGroup:: mean_off_period=2.000000e+00
+08/13/23 19:33:41:: Main simtime ...
+08/13/23 19:33:41:: Simulation triggered ( runtime=1800s ) ...
+08/13/23 19:33:41:: On this rank: neurons_total=2304, synapses_total=513071
+08/13/23 19:33:41:: On all ranks: neurons_total=9216, synapses_total=2049903
