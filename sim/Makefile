@@ -13,8 +13,8 @@ AURYNLIB=$(AURYNPATH)/build/release/src
 CC = mpic++
 CFLAGS=-ansi -pipe -O3 -march=native -ffast-math -pedantic -I/usr/include -I$(AURYNINC) 
 LDFLAGS=$(AURYNLIB)/libauryn.a -lboost_filesystem -lboost_system -lboost_program_options -lboost_mpi -lboost_serialization 
-SIMFILES=sim_rc_p11
-OBJFILES=P11Connection.o
+SIMFILES=sim_sleep
+OBJFILES=P11Connection.o GlobalPFConnection.o
 
 .SECONDARY:
 

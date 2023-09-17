@@ -7,7 +7,7 @@ RECFILE="./data/rf_discsR8.mtx"
 mkdir -p $OUTDIR
 
 DIR="."
-BIN="sim_rc_p11"
+BIN="sim_sleep"
 NP=4
 BETA="0.05"
 ETA="1e-3"

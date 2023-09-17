@@ -26,3 +26,9 @@
 *.exe
 *.out
 *.app
+
+# Python venv
+.venv
+
+# Simulation data
+sim/data

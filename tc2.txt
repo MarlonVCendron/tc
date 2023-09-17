@@ -1,0 +1,3 @@
+
+
+testar com MNIST
