@@ -1,9 +1,9 @@
 #include "startup.h"
 
-// using namespace auryn;
+using namespace auryn;
 
-// namespace po = boost::program_options;
-// namespace mpi = boost::mpi;
+namespace po = boost::program_options;
+namespace mpi = boost::mpi;
 
 int main(int ac, char *av[]) {
   int ret = startup(ac, av);
