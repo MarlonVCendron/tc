@@ -31,4 +31,4 @@
 .venv
 
 # Simulation data
-sim/data
+sim/data/sim
