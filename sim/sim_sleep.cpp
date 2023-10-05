@@ -1,6 +1,5 @@
 #include "startup.h"
 
-
 int main(int ac, char *av[]) {
   int ret = startup(ac, av);
   if (ret != 0) return ret;
@@ -19,16 +18,20 @@ int main(int ac, char *av[]) {
   neurons_i->set_tau_nmda(100e-3);
   neurons_i->set_ampa_nmda_ratio(0.3);
 
-  StimulusGroup *stimgroup;
+  SleepyStimulusGroup *stimgroup;
   sprintf(strbuf, "%s/%s.%d.stimtimes", dir.c_str(), file_prefix.c_str(), sys->mpi_rank());
   string stimtimefile = strbuf;
-  stimgroup = new StimulusGroup(size, stimtimefile);
-  stimgroup->set_mean_on_period(ontime);
-  stimgroup->set_mean_off_period(offtime);
+  stimgroup = new SleepyStimulusGroup(size, stimtimefile);
+  // stimgroup->set_mean_on_period(ontime);
+  // stimgroup->set_mean_off_period(offtime);
+  stimgroup->set_mean_on_period(0.1);
+  stimgroup->set_mean_off_period(0.1);
   stimgroup->binary_patterns = true;
   stimgroup->scale = scale;
   stimgroup->background_rate = bgrate;
   stimgroup->background_during_stimulus = true;
+  stimgroup->sleep_duration = 25;
+  stimgroup->awake_duration = 25;
   // stimgroup->randomintensities = true;
   if (seed != 1) stimgroup->seed(seed);
 
@@ -83,7 +86,8 @@ int main(int ac, char *av[]) {
   if (!stimfile.empty()) {
     logger->msg("Setting up stimulus ...", PROGRESS, true);
     stimgroup->load_patterns(stimfile.c_str());
-    stimgroup->set_next_action_time(10); // let network settle for some time
+    // stimgroup->set_next_action_time(10); // let network settle for some time
+    stimgroup->set_next_action_time(2); // let network settle for some time
 
     sprintf(strbuf, "%s/%s.%d.s.spk", dir.c_str(), file_prefix.c_str(), sys->mpi_rank());
     BinarySpikeMonitor *smon_s = new BinarySpikeMonitor(stimgroup, string(strbuf), size);

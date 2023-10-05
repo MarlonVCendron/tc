@@ -17,7 +17,8 @@ XI="0.5"
 BGRATE="5"
 SCALE="25"
 INTSPARSENESS=0.05
-SIMTIME=1800
+# SIMTIME=1800
+SIMTIME=100
 TAUF="0.6" # Was 0.6 (600ms) here we are trying something shorter
 TAUD="0.15" # Was 0.2 (200ms) in original sim, but this seemingly works better
 

@@ -2,6 +2,7 @@
 
 #include "GlobalPFConnection.h"
 #include "P11Connection.h"
+#include "SleepyStimulusGroup.h"
 #include "auryn.h"
 
 using namespace auryn;
