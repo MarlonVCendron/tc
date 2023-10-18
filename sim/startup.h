@@ -2,6 +2,7 @@
 
 #include "GlobalPFConnection.h"
 #include "P11Connection.h"
+#include "SleepGroup.h"
 #include "SleepyStimulusGroup.h"
 #include "auryn.h"
 
@@ -17,6 +18,7 @@ string infilename = "";
 char strbuf[255];
 string msg;
 
+bool sleeps = false;
 bool save = false;
 bool consolidation = true;
 bool isp_active = true;
@@ -61,6 +63,9 @@ double normalization_factor = (wtmax - weight_a) * (wtmax - (weight_a + weight_c
 
 double bgrate = 10.0;
 
+double sleep_duration = 200;
+double awake_duration = 400;
+
 string stimfile = "";   // stimulus patterns file
 string prefile = "";    // preload patters file
 string recfile = "";    // file with receptive fields
@@ -87,9 +92,9 @@ int startup(int ac, char *av[]) {
   try {
     po::options_description desc("Allowed options");
     desc.add_options()("help", "produce help message")("load", po::value<string>(), "input weight matrix")("prefix", po::value<string>(), "set file prefix")(
-        "save", "save network state at end of sim")("noconsolidation", "switches off consolidation")("noisp", "switches off isp")(
-        "noisyweights", "switches noisy initial weights on")("consolidateweights", "initialize weights as consolidated")("quiet", "quiet mode")(
-        "alpha", po::value<double>(), "exc input rate")("kappa", po::value<double>(), "hom parameter")(
+        "sleeps", "whether the network should sleep")("save", "save network state at end of sim")("noconsolidation", "switches off consolidation")(
+        "noisp", "switches off isp")("noisyweights", "switches noisy initial weights on")("consolidateweights", "initialize weights as consolidated")(
+        "quiet", "quiet mode")("alpha", po::value<double>(), "exc input rate")("kappa", po::value<double>(), "hom parameter")(
         "taud", po::value<double>(), "time constant of synaptic depression")("tauf", po::value<double>(), "time constant of synaptic facilitation")(
         "tauh", po::value<double>(), "time constant of homeostasis")("ujump", po::value<double>(), "u jump STP constant")(
         "chi", po::value<double>(), "chi factor - pattern preload strength")("xi", po::value<double>(), "xi factor - stimulation strength")(
@@ -118,6 +123,8 @@ int startup(int ac, char *av[]) {
     if (vm.count("load")) infilename = vm["load"].as<string>();
 
     if (vm.count("prefix")) file_prefix = vm["prefix"].as<string>();
+
+    if (vm.count("sleeps")) sleeps = true;
 
     if (vm.count("save")) save = true;
 

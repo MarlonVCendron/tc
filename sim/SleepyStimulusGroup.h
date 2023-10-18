@@ -162,7 +162,7 @@ public:
   /*! \brief Switch for background firing during stimulus. */
   bool background_during_stimulus;
 
-  /*! \brief Current stimulus active
+  /*! \brief Whether it's sleeping
    *
    * Only read this state. */
   bool sleeping;

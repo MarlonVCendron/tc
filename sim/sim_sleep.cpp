@@ -4,6 +4,10 @@ int main(int ac, char *av[]) {
   int ret = startup(ac, av);
   if (ret != 0) return ret;
 
+  std::cout << (sleeps ? "SLEEPING" : "NOT SLEEPING") << '\n';
+  std::cout << sleep_duration << '\n';
+  std::cout << awake_duration << '\n';
+
   AIF2Group *neurons_e = new AIF2Group(size);
   neurons_e->dg_adapt1 = 0.1;
   neurons_e->dg_adapt2 = adapt;
@@ -18,26 +22,29 @@ int main(int ac, char *av[]) {
   neurons_i->set_tau_nmda(100e-3);
   neurons_i->set_ampa_nmda_ratio(0.3);
 
+  SleepGroup *sleepgroup;
+  if (sleeps) {
+    sleepgroup = new SleepGroup(size / 16, sleep_duration, awake_duration);
+  }
+
   SleepyStimulusGroup *stimgroup;
   sprintf(strbuf, "%s/%s.%d.stimtimes", dir.c_str(), file_prefix.c_str(), sys->mpi_rank());
   string stimtimefile = strbuf;
   stimgroup = new SleepyStimulusGroup(size, stimtimefile);
-  // stimgroup->set_mean_on_period(ontime);
-  // stimgroup->set_mean_off_period(offtime);
-  stimgroup->set_mean_on_period(0.1);
-  stimgroup->set_mean_off_period(0.1);
+  stimgroup->set_mean_on_period(ontime);
+  stimgroup->set_mean_off_period(offtime);
   stimgroup->binary_patterns = true;
   stimgroup->scale = scale;
   stimgroup->background_rate = bgrate;
   stimgroup->background_during_stimulus = true;
-  stimgroup->sleep_duration = 25;
-  stimgroup->awake_duration = 25;
+  stimgroup->sleep_duration = sleep_duration;
+  stimgroup->awake_duration = sleeps ? awake_duration : simtime; // Just a quick way to make the net not sleep
   // stimgroup->randomintensities = true;
   if (seed != 1) stimgroup->seed(seed);
 
   P11Connection *con_ee = new P11Connection(neurons_e, neurons_e, wee, sparseness, eta, kappa, wmax);
   con_ee->set_transmitter(AMPA);
-  con_ee->set_name("EE");
+  con_ee->set_name("E->E");
   con_ee->set_weight_a(weight_a);
   con_ee->set_weight_c(weight_c);
   con_ee->consolidation_active = consolidation;
@@ -65,7 +72,13 @@ int main(int ac, char *av[]) {
 
   GlobalPFConnection *con_ie;
   con_ie = new GlobalPFConnection(neurons_i, neurons_e, wie, sparseness, 10.0, eta / 50, alpha, wmaxi, GABA);
-  con_ie->set_name("IE");
+  con_ie->set_name("I->E");
+
+  SparseConnection *con_sleep_e;
+  if (sleeps) {
+    con_sleep_e = new SparseConnection(sleepgroup, neurons_e, 0.04, 0.2, GLUT);
+    con_sleep_e->set_name("Sleep->E");
+  }
 
   P11Connection *con_stim_e = new P11Connection(stimgroup, neurons_e, wext, sparseness_ext, eta, kappa, wmax, GLUT);
   con_stim_e->set_weight_a(weight_a);
@@ -86,8 +99,8 @@ int main(int ac, char *av[]) {
   if (!stimfile.empty()) {
     logger->msg("Setting up stimulus ...", PROGRESS, true);
     stimgroup->load_patterns(stimfile.c_str());
-    // stimgroup->set_next_action_time(10); // let network settle for some time
-    stimgroup->set_next_action_time(2); // let network settle for some time
+    stimgroup->set_next_action_time(10); // let network settle for some time
+    // stimgroup->set_next_action_time(2); // let network settle for some time
 
     sprintf(strbuf, "%s/%s.%d.s.spk", dir.c_str(), file_prefix.c_str(), sys->mpi_rank());
     BinarySpikeMonitor *smon_s = new BinarySpikeMonitor(stimgroup, string(strbuf), size);
@@ -173,6 +186,12 @@ int main(int ac, char *av[]) {
     WeightPatternMonitor *wpmon = new WeightPatternMonitor(con_stim_e, string(strbuf), 60);
     wpmon->load_pre_patterns(premonfile);
     wpmon->load_post_patterns(monfile);
+  }
+
+  BinarySpikeMonitor *smon_sleep;
+  if (sleeps) {
+    sprintf(strbuf, "%s/%s.%d.sleep.spk", dir.c_str(), file_prefix.c_str(), sys->mpi_rank());
+    smon_sleep = new BinarySpikeMonitor(sleepgroup, string(strbuf), size);
   }
 
   sprintf(strbuf, "%s/%s.%d.e.spk", dir.c_str(), file_prefix.c_str(), sys->mpi_rank());

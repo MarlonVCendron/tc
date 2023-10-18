@@ -68,8 +68,8 @@ void SleepyStimulusGroup::init(StimulusGroupModeType stimulusmode, std::string s
   binary_patterns = false;
 
   sleeping = true;
-  sleep_duration = 100.0;
-  awake_duration = 100.0;
+  sleep_duration = 200.0;
+  awake_duration = 400.0;
 
   // if a filename was supplied and we are
   // not supposed to be reading from it.
@@ -234,7 +234,7 @@ void SleepyStimulusGroup::evolve() {
   if (auryn::sys->get_clock() >= next_sleep_awake_time) {
     sleeping = !sleeping;
 
-    if(next_sleep_awake_time) {
+    if (next_sleep_awake_time) {
       set_next_action_time(0);
     }
 
@@ -243,7 +243,6 @@ void SleepyStimulusGroup::evolve() {
     } else {
       next_sleep_awake_time = auryn::sys->get_clock() + (AurynTime)(awake_duration / auryn_timestep);
     }
-    // std::cout << (sleeping ? "sleeping now" : "awake now") << std::endl;
   }
 
   // update stimulus properties
@@ -288,12 +287,12 @@ void SleepyStimulusGroup::evolve() {
         stimulus_active = false;
         last_stim_offset_time = sys->get_clock();
 
-				if (randomintervals && mean_off_period > 0.0) {
+        if (randomintervals && mean_off_period > 0.0) {
           boost::exponential_distribution<> dist(1. / mean_off_period);
           boost::variate_generator<boost::mt19937 &, boost::exponential_distribution<> > die(order_gen, dist);
-   	     	set_next_action_time(std::max(0.0, die()) + (sleeping * sleep_duration));
+          set_next_action_time(std::max(0.0, die()) + (sleeping * sleep_duration));
         } else {
-   		    set_next_action_time(mean_off_period);
+          set_next_action_time(mean_off_period);
         }
       } else {                             // stimulus was not active and is going active now
         if (active && get_num_stimuli()) { // the group is active and there are stimuli in the array
@@ -335,12 +334,12 @@ void SleepyStimulusGroup::evolve() {
           stimulation_count++;
           last_stim_onset_time = sys->get_clock();
 
-					if (randomintervals && stimulus_order != STIMFILE) {
+          if (randomintervals && stimulus_order != STIMFILE) {
             boost::normal_distribution<> dist(mean_on_period, mean_on_period / 3);
             boost::variate_generator<boost::mt19937 &, boost::normal_distribution<> > die(order_gen, dist);
-     		    set_next_action_time(std::max(0.0, die()));
+            set_next_action_time(std::max(0.0, die()));
           } else {
-     		    set_next_action_time(mean_on_period);
+            set_next_action_time(mean_on_period);
           }
         }
       }

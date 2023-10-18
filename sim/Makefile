@@ -14,7 +14,7 @@ CC = mpic++
 CFLAGS=-ansi -pipe -O3 -march=native -ffast-math -pedantic -I/usr/include -I$(AURYNINC) 
 LDFLAGS=$(AURYNLIB)/libauryn.a -lboost_filesystem -lboost_system -lboost_program_options -lboost_mpi -lboost_serialization 
 SIMFILES=sim_sleep
-OBJFILES=P11Connection.o GlobalPFConnection.o SleepyStimulusGroup.o
+OBJFILES=P11Connection.o GlobalPFConnection.o SleepyStimulusGroup.o SleepGroup.o
 
 .SECONDARY:
 
