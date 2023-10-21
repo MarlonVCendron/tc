@@ -22,6 +22,47 @@ A unidade básica de uma RNP é o neurônio, então o primeiro passo para o mode
 utilizado foi o \textit{Leaky Integrate-and-Fire} (LIF) devido à sua simplicidade, que captura o comportamento geral de um
 neurônio enquanto permite simulações rápidas de larga escala, como apresentado na Seção~\ref{section_modelos_neuronios}.
 
+O modelo LIF utilizado possui algumas diferenças do descrito na Seção~\ref{section_modelos_neuronios}, pois implementa adaptação
+por frequência de disparo\footnote{Comportamento de um neurônio que reduz sua frequência de disparo em resposta a um estímulo
+constante.} e segue a Equação~\ref{eq_lif_sfa}.
+
+\begin{equation}
+\label{eq_lif_sfa}
+\tau^m\frac{dv_i}{dt} = (v^{rest} - v_i) + g_i^{exc}(t)(v^{exc} - v_i)+ (g_i^{gaba}(t) + g_i^{a}(t))(v^{ini} - v_i)
+\end{equation}
+
+\noindent{}onde $v_i(t)$, $v^{rest}$, $v^{exc}$, $v^{ini}$ se referem, respectivamente, ao potencial de membrana do neurônio,
+potencial de repouso, potencial excitatório e potencial inibitório. As condutâncias são descritas por $g_i^{exc}(t)$,
+$g_i^{gaba}(t)$, $g_i^{a}(t)$, respectivamente excitatória, inibitória pelos neurônios pré-sinápticos GABAérgicos e inibitória
+pela adaptação por frequência de disparo, e o comportamento dessas condutâncias está definido nas
+Equações~\ref{eq_lif_sfa_exc},~\ref{eq_lif_sfa_ini} e~\ref{eq_lif_sfa_a}. 
+
+\begin{equation}
+\label{eq_lif_sfa_exc}
+\frac{dg_i^{exc}}{dt} = -\frac{g_i^{exc}}{\tau^{exc}} + \sum_{j\in exc}{w_{ij}S_j(t)}
+\end{equation}
+
+\begin{equation}
+\label{eq_lif_sfa_ini}
+\frac{dg_i^{gaba}}{dt} = -\frac{g_i^{gaba}}{\tau^{gaba}} + \sum_{j\in ini}{w_{ij}S_j(t)}
+\end{equation}
+
+\begin{equation}
+\label{eq_lif_sfa_a}
+\frac{dg_i^{a}}{dt} = -\frac{g_i^{a}}{\tau^{a}} + \Delta^{a}S_i(t)
+\end{equation}
+
+\begin{equation}
+\label{eq_lif_sfa_spikes}
+S_j(t) = \sum_{k}{\delta(t-t_j^k)}
+\end{equation}
+
+\noindent{}onde $w_{ij}$ refere-se ao peso da sinapse do neurônio $i$ para o $j$. A Equação~\ref{eq_lif_sfa_spikes} representa a
+soma de disparos no momento $t$. Nessas equações, a condutância $g$ tende a zero com o tempo, mas quando há um disparo dos
+neurônios pré-sinápticos essa condutância sobe, exceto no caso da condutância pela adaptação do neurônio, que aumenta seguindo um
+fator $\Delta^{a}S_i(t)$ quando o próprio neurônio dispara.
+
+
 \section{Modelo das sinapses}
 
 O próximo passo foi simular como os neurônios interagem entre si. Para isso, foi utilizado o modelo de sinapse de condução,
