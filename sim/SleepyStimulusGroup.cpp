@@ -234,9 +234,9 @@ void SleepyStimulusGroup::evolve() {
   if (auryn::sys->get_clock() >= next_sleep_awake_time) {
     sleeping = !sleeping;
 
-    if (next_sleep_awake_time) {
-      set_next_action_time(0);
-    }
+    // if (next_sleep_awake_time) {
+    //   set_next_action_time(0);
+    // }
 
     if (sleeping) {
       next_sleep_awake_time = auryn::sys->get_clock() + (AurynTime)(sleep_duration / auryn_timestep);
@@ -290,7 +290,12 @@ void SleepyStimulusGroup::evolve() {
         if (randomintervals && mean_off_period > 0.0) {
           boost::exponential_distribution<> dist(1. / mean_off_period);
           boost::variate_generator<boost::mt19937 &, boost::exponential_distribution<> > die(order_gen, dist);
-          set_next_action_time(std::max(0.0, die()) + (sleeping * sleep_duration));
+
+          double new_next_action_time = std::max(0.0, die());
+          double time_till_sleep = (next_sleep_awake_time - auryn::sys->get_clock()) * auryn_timestep;
+          bool willGoToSleep = (!sleeping && new_next_action_time >= time_till_sleep) || sleeping;
+
+          set_next_action_time(new_next_action_time + (willGoToSleep * sleep_duration));
         } else {
           set_next_action_time(mean_off_period);
         }
