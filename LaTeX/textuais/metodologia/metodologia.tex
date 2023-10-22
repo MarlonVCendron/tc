@@ -2,7 +2,7 @@
 
 Nesse capítulo serão apresentados os passos metodológicos para a realização do trabalho, que tem como objetivo principal estudar a
 formação e consolidação de memórias em RNPs, com foco em analisar o impacto do sono nesse processo. Para estudar a influência do
-sono na formação e recordação de assembleias neu\-ro\-nais será simulado um modelo de RNP com diferentes formas de plasticidade. A
+sono na formação e recordação de assembleias neu\-ro\-nais foi simulado um modelo de RNP com diferentes formas de plasticidade. A
 Figura~\ref{fig_metodologia} apresenta uma visão geral da metodologia, contendo os passos para criação do modelo, que serão
 descritos nas seções subsequentes.
 
@@ -11,7 +11,7 @@ descritos nas seções subsequentes.
 \centering{
 \parbox{\linewidth}{
 \includegraphics[width=\linewidth]{figuras/metodologia.png}\label{fig_metodologia}
-% \fonte{}
+\fonte{Elaborado pelo autor (2023).}
 }}
 \end{figure}
 
@@ -88,33 +88,38 @@ moduladas pelo neurotransmissor GABA.
 
 De modo a simular a entrada de estímulos visuais, foi simulada uma retina. A retina é composta de 4.096 neurônios LIF, com cada
 neurônio representando um pixel em uma imagem de 64$\times$64 pixels. Cada neurônio excitatório da RNP recebe conexões dos
-neurônios da retina de uma área circular de raio 8, em que o centro do círculo é escolhido aleatoriamente para cada neurônio. As
-conexões da retina com a RNP também são plásticas.
+neurônios da retina de uma área circular de raio 8, em que o centro do círculo é escolhido aleatoriamente para cada neurônio, como
+exemplifica a Figura~\ref{fig_estimulo_raio}. As conexões da retina com a RNP também são plásticas.
 
-Como explicado na Seção~\ref{section_experimento}, os estímulos são imagens simples de serem reconhecidas, como formas
-geométricas e símbolos. Essas imagens serão binárias: apenas preto e branco; o neurônio da retina correspondente a um pixel preto
-irá disparar com frequência de 10Hz, enquanto o neurônio correspondente a um pixel branco irá disparar com frequência de 35Hz.
+\begin{figure}[!ht]
+\caption{Exemplo de estímulo apresentado à RNP.\@Aqui, um neurônio com seu campo receptivo centralizado no X recebe conexões dos neurônios da retina contidos dentro da grade verde.}
+\centering{
+\parbox{6cm}{
+\includegraphics[width=6cm]{figuras/estimulo_raio.png}\label{fig_estimulo_raio}
+\fonte{Elaborado pelo autor (2023).}}}
+\end{figure}
+
+Como explicado na Seção~\ref{section_experimento}, são utilizados 6 estímulos diferentes, que são imagens simples de serem
+reconhecidas, como formas geométricas e símbolos. Essas imagens são binárias: apenas preto e branco; o neurônio da retina
+correspondente a um pixel preto irá disparar com frequência média de 10Hz, enquanto o neurônio correspondente a um pixel branco
+irá disparar com frequência média de 35Hz, ou seja, com uma maior ativação.
 
 \subsection{Simulação do sono}\label{subsection_sono}
 
-Para simular o sono, a rede funcionará de dois modos diferentes intercalados: um modo de atividade, em que a rede vai funcionar
-normalmente enquanto recebe estímulos, e um modo de inatividade, em que será simulado o sono. 
+Para simular o sono, a rede funciona de dois modos diferentes intercalados: um modo de atividade ou vigília, em que a rede
+funciona normalmente enquanto recebe estímulos, e um modo de inatividade ou sono, em que será simulado o sono. 
 
-Durante a fase de inatividade, nenhum estímulo será apresentado à rede, mas ela vai continuar sendo simulada normalmente. Além
-disso, essa fase será dividida em duas subfases de acordo com as fases do sono real REM e NREM. 
+Durante o ciclo de sono, nenhum estímulo é apresentado à rede, contudo, ela continua sendo simulada normalmente. Essa etapa é
+subdividida em duas fases, correspondentes às fases do sono real: REM e NREM. Em um ciclo completo de sono, as fases REM e NREM se
+alternam, iniciando-se com a fase NREM, seguida pela REM, sendo que cada uma destas fases ocupa um oitavo da duração total do
+sono. Assim, o ciclo de NREM e REM se repete quatro vezes em um ciclo completo de sono, de maneira análoga ao que ocorre nos
+humanos, nos quais cada noite de sono compreende entre 4 a 6 ciclos~\cite{patelPhysiology2023}.
 
-
-Para simular cada fase do sono, existe um grupo de 256 neurônios que ativam de maneira sinusoidal e conectam-se a 20\% dos
-neurônios do grupo de neurônios excitatórios
-
-receberão uma corrente sinusoidal de frequência e amplitude diferentes para cada fase de modo a tentar imitar os padrões de
-atividade cerebral durante o sono observados em eletroencefalograma; também serão simulados outros sinais característicos do sono
-de forma similar injetando corrente, como os fusos do sono que ocorrem durante a fase N2.
+Para simular cada fase do sono, é utilizado um grupo de 256 neurônios excitatórios que se ativam de maneira sinusoidal e
+conectam-se a 20\% dos neurônios do grupo de neurônios excitatórios. Durante a fase NREM, a frequência dessa onda de ativação
+sinusoidal é de 1Hz, enquanto na fase REM é de 16Hz, visando aproximar-se, de forma simplificada, das frequências observadas
+durante essas fases em humanos~\cite{guoSlow2022, cowdinTheta2014}. Este método foi inspirado no trabalho de~\citeonline{bazhenovModel2002}, que
+simulou o sono de maneira similar, utilizando um grupo de neurônios com 25\% de conectividade com a rede, com um disparo médio de
+25Hz modulados por uma função sinusoidal.
 
 \input{textuais/metodologia/experimentos}
-
-
-% https://sci-hub.mksa.top/10.1523/JNEUROSCI.22-19-08691.2002
-% mencionar esse artigo que estimula 25% dos neurônios no sono
-% \cite{bazhenovModel2002}
-% !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
