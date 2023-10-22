@@ -74,12 +74,17 @@ As sinapses, porém, não serão estáticas e terão diversas formas de plastici
 acordo com os seguintes modelos de plasticidade: PCP, PDTD-E, heterossináptica e a induzida por transmissor, apresentados na
 Seção~\ref{section_modelos_plasticidade}.
 
-\section{Modelo de conexão da rede}
+\section{Arquitetura da rede}
 
-A rede é composta de 5.120 neurônios LIF, sendo 4.096 excitatórios e 1.024 inibitórios. Cada neurônio de cada grupo da rede é
-conectado a 10\% dos neurônios de outro ou do mesmo grupo de forma aleatória.
+A rede é estruturada com um total de 5.120 neurônios do tipo LIF, distribuídos em dois grupos principais. O primeiro grupo é
+formado por 4.096 neurônios excitatórios, enquanto o segundo grupo contém 1.024 neurônios inibitórios. Além disso, há grupos
+auxiliares como a retina (Detalhada na Seção~\ref{subsection_retina}) e o grupo responsável pelos padrões de sono (Detalhado na
+Seção~\ref{subsection_experimento}). Para as conexões entre o grupo excitatório e inibitório, cada neurônio é conectado a 10\% dos
+neurônios de outro grupo ou do seu próprio grupo, e essa conectividade é estabelecida de forma aleatória. As conexões excitatórias
+entre neurônios são moduladas pelo neurotransmissor glutamato, com receptores AMPA e NMDA, enquanto as conexões inibitórias são
+moduladas pelo neurotransmissor GABA.
 
-\section{Modelo da retina}
+\subsection{Modelo da retina}\label{subsection_retina}
 
 De modo a simular a entrada de estímulos visuais, foi simulada uma retina. A retina é composta de 4.096 neurônios LIF, com cada
 neurônio representando um pixel em uma imagem de 64$\times$64 pixels. Cada neurônio excitatório da RNP recebe conexões dos
@@ -90,7 +95,7 @@ Como explicado na Seção~\ref{section_experimento}, os estímulos são imagens 
 geométricas e símbolos. Essas imagens serão binárias: apenas preto e branco; o neurônio da retina correspondente a um pixel preto
 irá disparar com frequência de 10Hz, enquanto o neurônio correspondente a um pixel branco irá disparar com frequência de 35Hz.
 
-\section{Simulação do sono}
+\subsection{Simulação do sono}\label{subsection_sono}
 
 Para simular o sono, a rede funcionará de dois modos diferentes intercalados: um modo de atividade, em que a rede vai funcionar
 normalmente enquanto recebe estímulos, e um modo de inatividade, em que será simulado o sono. 
