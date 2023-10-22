@@ -5,10 +5,11 @@ Como forma de avaliar o modelo proposto serão conduzidos dois principais experi
 \subsection{Experimento 1: Formação de assembleias neuronais}
 
 O primeiro experimento consiste em simular a RNP apresentando estímulos ao modelo de retina e analisar se a repetição dos
-estímulos leva à formação de assembleias neuronais associadas a cada estímulo a longo prazo. Os estímulos consistem em seis
-imagens simples de serem reconhecidas, exibidas na Figura~\ref{fig_estimulos}, e são apresentados à rede de forma intercalada e
-aleatória. Quatro estímulos foram reaproveitados do trabalho de~\citeonline{zenkeDiverse2015}, enquanto as figuras de diamante e
-de cruz foram adicionadas com o intuito de colocar a RNP mais próxima do seu limite.
+estímulos leva à formação de assembleias neuronais associadas a cada estímulo a longo prazo, com o objetivo de ter uma base de
+comparação para o experimento 2, que terá o sono simulado. Os estímulos consistem em seis imagens simples de serem reconhecidas,
+exibidas na Figura~\ref{fig_estimulos}, e são apresentados à rede de forma intercalada e aleatória. Quatro estímulos foram
+reaproveitados do trabalho de~\citeonline{zenkeDiverse2015}, enquanto as figuras de diamante e de cruz foram adicionadas com o
+intuito de colocar a RNP mais próxima do seu limite.
 
 \begin{figure}[!ht]
 \caption{Os seis estímulos apresentados à RNP durante os experimentos.}
@@ -18,16 +19,28 @@ de cruz foram adicionadas com o intuito de colocar a RNP mais próxima do seu li
 \fonte{Elaborado pelo autor (2023).}}}
 \end{figure}
 
-O objetivo desse experimento é ter uma base de comparação para o experimento 2. Espera-se que a repetição desses
-estímulos durante o tempo de simulação da RNP leve à formação de assembleias neuronais associadas a cada estímulo.
+Houveram três fases da simulação da RNP:
+
+\begin{enumerate}
+  \item Simulação da rede em seu estado inicial por 1800 segundos, com um tempo médio de aparição do estímulo de 2 segundos, e
+  tempo médio entre estímulos de 1 segundo. O peso das sinapses entre a retina e a rede é de 0.05.
+  \item Simulação da rede também por 1800 segundos, mas com um tempo médio de aparição do estímulo de 0.2 segundo, e
+  tempo médio entre estímulos de 5 segundos. O peso das sinapses entre a retina e a rede agora é de 0.1. A intenção aqui é
+  fazer com que a rede tenha mais tempo entre um estímulo e outro para poder memorizá-los melhor.
+  \item A última simulação é de 2400 segundos e é de onde são tirados os resultados. O tempo médio de aparição do estímulo diminui
+  para 0.1, enquanto o tempo médio entre estímulos é de 10 segundos, com a intenção de ter uma janela maior de tempo entre os
+  estímulos para analisar a capacidade de memorização da RNP.
+\end{enumerate}
+
 
 \subsection{Experimento 2: Formação de assembleias neuronais com sono}
 
 De forma similar ao experimento 1, o segundo experimento consiste em simular a RNP apresentando os mesmos estímulos, mas dessa vez
 com a simulação de sono. O objetivo desse experimento é analisar se a simulação de sono tem algum efeito na formação de
-assembleias neuronais. Espera-se que a simulação de sono leve à formação de assembleias neuronais mais rapidamente e que elas
-durem mais tempo e sejam mais estáveis, bem como possa permitir o esquecimento de estímulos já não mais relevantes e a memorização
-de mais estímulos.
+assembleias neuronais.
+
+Esse experimento seguiu as mesmas três fases do experimento anterior, mas com a simulação do sono. Nesse experimento, a RNP ficava
+em estado de vigília por 400s e dormia por 200s.
 
 \section{Análise}
 

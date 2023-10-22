@@ -9,8 +9,8 @@ descritos nas seções subsequentes.
 \begin{figure}[!ht]
 \caption{Visão geral da metodologia: passos para construção do modelo e simulação e análise.}
 \centering{
-\parbox{\linewidth}{
-\includegraphics[width=\linewidth]{figuras/metodologia.png}\label{fig_metodologia}
+\parbox{12cm}{
+\includegraphics[width=12cm]{figuras/metodologia.png}\label{fig_metodologia}
 \fonte{Elaborado pelo autor (2023).}
 }}
 \end{figure}
@@ -24,32 +24,33 @@ neurônio enquanto permite simulações rápidas de larga escala, como apresenta
 
 O modelo LIF utilizado possui algumas diferenças do descrito na Seção~\ref{section_modelos_neuronios}, pois implementa adaptação
 por frequência de disparo\footnote{Comportamento de um neurônio que reduz sua frequência de disparo em resposta a um estímulo
-constante.} e segue a Equação~\ref{eq_lif_sfa}.
+constante.} assim como o trabalho de~\cite{zenkeDiverse2015}, e segue a Equação~\ref{eq_lif_sfa}.
 
 \begin{equation}
 \label{eq_lif_sfa}
-\tau^m\frac{dv_i}{dt} = (v^{rest} - v_i) + g_i^{exc}(t)(v^{exc} - v_i)+ (g_i^{gaba}(t) + g_i^{a}(t))(v^{ini} - v_i)
+\tau^m\frac{d}{dt}v_i = (v^{rest} - v_i) + g_i^{exc}(t)(v^{exc} - v_i)+ (g_i^{gaba}(t) + g_i^{a}(t))(v^{ini} - v_i)
 \end{equation}
 
 \noindent{}onde $v_i(t)$, $v^{rest}$, $v^{exc}$, $v^{ini}$ se referem, respectivamente, ao potencial de membrana do neurônio,
 potencial de repouso, potencial excitatório e potencial inibitório. As condutâncias são descritas por $g_i^{exc}(t)$,
 $g_i^{gaba}(t)$, $g_i^{a}(t)$, respectivamente excitatória, inibitória pelos neurônios pré-sinápticos GABAérgicos e inibitória
-pela adaptação por frequência de disparo, e o comportamento dessas condutâncias está definido nas
-Equações~\ref{eq_lif_sfa_exc},~\ref{eq_lif_sfa_ini} e~\ref{eq_lif_sfa_a}. 
+pela adaptação por frequência de disparo.
 
-\begin{equation}
-\label{eq_lif_sfa_exc}
-\frac{dg_i^{exc}}{dt} = -\frac{g_i^{exc}}{\tau^{exc}} + \sum_{j\in exc}{w_{ij}S_j(t)}
-\end{equation}
+\section{Modelo das sinapses}
+
+Para simular como os neurônios interagem entre si, é preciso modelar as sinapses e como as condutâncias apresentadas na seção
+anterior evoluem com o tempo. Para isso, foi utilizado o modelo de sinapse de
+condução, apresentado na Seção~\ref{subsection_modelos_sinapses}, mas com algumas diferenças notáveis. O comportamento das
+condutâncias inibitórias está definido nas Equações~\ref{eq_lif_sfa_ini} e~\ref{eq_lif_sfa_a}:
 
 \begin{equation}
 \label{eq_lif_sfa_ini}
-\frac{dg_i^{gaba}}{dt} = -\frac{g_i^{gaba}}{\tau^{gaba}} + \sum_{j\in ini}{w_{ij}S_j(t)}
+\frac{d}{dt}g_i^{gaba} = -\frac{g_i^{gaba}}{\tau^{gaba}} + \sum_{j\in ini}{w_{ij}S_j(t)}
 \end{equation}
 
 \begin{equation}
 \label{eq_lif_sfa_a}
-\frac{dg_i^{a}}{dt} = -\frac{g_i^{a}}{\tau^{a}} + \Delta^{a}S_i(t)
+\frac{d}{dt}g_i^{a} = -\frac{g_i^{a}}{\tau^{a}} + \Delta^{a}S_i(t)
 \end{equation}
 
 \begin{equation}
@@ -62,24 +63,141 @@ soma de disparos no momento $t$. Nessas equações, a condutância $g$ tende a z
 neurônios pré-sinápticos essa condutância sobe, exceto no caso da condutância pela adaptação do neurônio, que aumenta seguindo um
 fator $\Delta^{a}S_i(t)$ quando o próprio neurônio dispara.
 
+As sinapses excitatórias são modeladas com um componente rápido AMPA $g_i^{ampa}$ e um componente NMDA $g_i^{nmda}$ que aumenta e
+decai lentamente, como detalhado nas Equações~\ref{eq_lif_sfa_exc},~\ref{eq_lif_sfa_ampa} e~\ref{eq_lif_sfa_nmda}:
 
-\section{Modelo das sinapses}
+\begin{equation}
+\label{eq_lif_sfa_exc}
+g_i^{exc}(t) = \alpha g_i^{ampa}(t) + (1-\alpha)g_i^{nmda}(t)
+\end{equation}
 
-O próximo passo foi simular como os neurônios interagem entre si. Para isso, foi utilizado o modelo de sinapse de condução,
-apresentado na Seção~\ref{subsection_modelos_sinapses}.
+\begin{equation}
+\label{eq_lif_sfa_ampa}
+\frac{d}{dt}g_i^{ampa} = -\frac{g_i^{ampa}}{\tau^{ampa}} + \sum_{j\in exc}{w_{ij} 
+\underbrace{u_j(t)x_j(t)}_{\text{PCP}}
+S_j(t)}
+\end{equation}
+
+\begin{equation}
+\label{eq_lif_sfa_nmda}
+\tau^{nmda} \frac{d}{dt}g_i^{nmda} = -g_i^{nmda} + g_i^{ampa}
+\end{equation}
+
+As conexões excitatórias da RNP também têm a Plasticidade de Curto-Prazo (PCP) simulada pelas variáveis $u_j(t)$ e $x_j(t)$.
+
+Quando $v_i$ utlrapassa seu limiar $\vartheta_i$, o potencial retorna para seu potencial de membrana $v_i^{rest}$. Quando há um
+disparo, o limiar aumenta $\vartheta_i \rightarrow \vartheta^{disparo}$ para implementar o período refratário do neurônio, mas na
+ausência de disparos, ele retorna lentamente a seu valor usual, como demonstra a Equação~\ref{eq_lif_sfa_thr}:
+
+\begin{equation}
+\label{eq_lif_sfa_thr}
+\tau^{th}\frac{d\vartheta_i}{dt} = \vartheta^{rest} - \vartheta_i
+\end{equation}
+
 
 \section{Modelos de plasticidade}
 
-As sinapses, porém, não serão estáticas e terão diversas formas de plasticidade simuladas. Todas as sinapses serão plásticas, de
-acordo com os seguintes modelos de plasticidade: PCP, PDTD-E, heterossináptica e a induzida por transmissor, apresentados na
+As sinapses não são estáticas e têm diversas formas de plasticidade simuladas. As sinapses excitatórias implementam os seguintes
+modelos de plasticidade: PCP, PDTD, heterossináptica e a induzida por transmissor, como apresentados na
 Seção~\ref{section_modelos_plasticidade}.
+
+
+\subsection{Plasticidade de curto-prazo}
+
+Como apresentado na seção anterior, as variáveis $u_j(t)$ e $x_j(t)$ controlam a PCP.\@A Equação~\ref{eq_x} descreve a evolução da
+fração de recursos sinápticos disponíveis $x_j(t)$ ao longo do tempo, considerando tanto a liberação quanto a recuperação de
+neurotransmissores. A Equação~\ref{eq_u} representa a variação na utilização desses recursos $u_j(t)$ com o tempo, refletindo a
+probabilidade de liberação de neurotransmissores em resposta a um estímulo. Novamente, $S_j(t)$ indica a presença de um disparo
+pré-sináptico, enquanto $\tau^d$ e $\tau^f$ são constantes de tempo que determinam a velocidade de recuperação e decaimento dos
+recursos e da sua utilização, respectivamente. O termo $U$ representa a probabilidade básica de liberação de um neurotransmissor em
+resposta a um único disparo.
+
+\begin{equation}
+\label{eq_x}
+\frac{d}{dt} x_j(t) = \frac{1 - x_j(t)}{\tau^d} - u_j(t) x_j(t) S_j(t)
+\end{equation}
+
+\begin{equation}
+\label{eq_u}
+\frac{d}{dt}u_j(t) = \frac{U - u_j(t)}{\tau^f} + U(1 - u_j(t)) S_j(t)
+\end{equation}
+
+\subsection{Plasticidade de longo-prazo}
+
+Três tipos de plasticidade de longo-prazo afetam as sinapses excitatórias: PDTD $\mathfrak{P}(t)$ e  $\mathfrak{D}(t)$,
+heterossináptica $\mathfrak{H}(t)$ e induzida por transmissor $\mathfrak{T}(t)$. Essas formas de plasticidade afetam diretamente o
+peso da sinapse $w_{ij}$, como indica a Equação~\ref{eq_pdtd}:
+e~\ref{eq_t}.
+
+\begin{samepage}
+
+\begin{equation}
+\label{eq_pdtd}
+\frac{d}{dt}w_{ij}(t) = \mathfrak{P}(t) + \mathfrak{D}(t) + \mathfrak{H}(t) + \mathfrak{T}(t)\\
+\end{equation}
+
+\begin{align}
+\begin{split}\label{eq_p}
+  \mathfrak{P}(t) = Az_j^+(t) z_i^{lento}(t - \epsilon)S_j(t){} & \quad\quad\text{PLP tripla}
+\end{split}\\
+\begin{split}\label{eq_d}
+  \mathfrak{D}(t) = - B_i(t)z_i^- (t)S_j(t){} & \quad\quad\text{DLP dupla}
+\end{split}\\
+\begin{split}\label{eq_h}
+  \mathfrak{H}(t) = - \beta (w_{ij} - \bar{w}_{ij}(t)) (z_i^- (t - \epsilon))^3 S_i(t){} & \quad\quad\text{Heterossináptica}
+\end{split}\\
+\begin{split}\label{eq_t}
+  \mathfrak{T}(t) = \delta S_j(t){} & \quad\quad\text{Induzida por transmissor}
+\end{split}
+\end{align}
+
+\end{samepage}
+
+As Equações~\ref{eq_p} e~\ref{eq_d} representam a potenciação e a depressão de longo-prazo, respectivamente, usando uma regra
+tripla, ou seja, que leva em consideração 3 disparos~\cite{pfisterTriplets2006}. Os parâmetros $A$, $\beta$ e $\delta$ são apenas
+escalares fixos, assim como $B_i(t)=A$. A variável $z_k^x(t)$ representa os traços sinápticos dos neurônios pré- (índice $j$) e
+pós-sinápticos (índice $i$), e ela evolui de acordo com a Equação~\ref{eq_z}:
+
+\begin{equation}
+\label{eq_z}
+\frac{d}{dt}z_i^x(t) = - \frac{z^x}{\tau^x}+S_i(t)
+\end{equation}
+
+\noindent{}em que $x$ pode tomar diferentes valores representando diferentes traços sinápticos. As variáveis $z^+$ e $z^-$
+representam traços de atividade neuronal associados à potenciação e depressão sináptica, respectivamente. Quando um neurônio
+pré-sináptico dispara antes de um pós-sináptico, isso pode levar ao aumento da força sináptica, relacionado ao traço $z^+$.
+Inversamente, se o neurônio pós-sináptico dispara antes, a força sináptica pode diminuir, associado ao traço $z^+$. Já $z^{lento}$
+refere-se a um traço que decai lentamente, capturando a atividade neuronal ao longo de um período de tempo mais extenso.
+
+\subsubsection{Plasticidade de longo-prazo em sinapses inibitórias}
+
+Também seguindo o modelo de~\citeonline{zenkeDiverse2015}, as sinapses inibitórias são moduladas pela PDTD hipotética descrita na
+Equação~\ref{eq_pdtd_ini}, que basicamente tende a potencializar as sinapses inibitórias quando a atividade excitatória global da
+rede estiver muito alta: 
+
+\begin{equation}
+\label{eq_pdtd_ini}
+\frac{d}{dt}w_{ij}(t) = \eta G(t) [(z_i(t) + 1) S_j(t) + z_j(t) S_i(t)]
+\end{equation}
+
+\noindent{}onde $\eta$ é uma constante, $z_k$ representa os traços sinápticos e $G(t) = H(t) - \gamma$, em que $H(t)$ é o fator
+global secretado, um valor que comprime toda a atividade do grupo excitatório e evolui segundo a Equação~\ref{eq_pdtd_ini_h} :
+
+\begin{equation}
+\label{eq_pdtd_ini_h}
+\frac{d}{dt}H(t) = - \frac{H(t)}{\tau^H} + \sum_{i \in \text{exc}} S_i(t)
+\end{equation}
+
+Quando a atividade global da população excitatória $H(t)$ cai abaixo de um valor-alvo $\gamma$, $G(t)$ é menor que zero e a regra
+de aprendizagem da Equação~\ref{eq_pdtd_ini} se torna uma regra unidirecional de "depressão". Se a atividade da rede for maior que
+$\gamma$, a regra de aprendizagem se torna hebbiana. Isso serve para estabilizar a dinâmica geral da rede.
 
 \section{Arquitetura da rede}
 
 A rede é estruturada com um total de 5.120 neurônios do tipo LIF, distribuídos em dois grupos principais. O primeiro grupo é
 formado por 4.096 neurônios excitatórios, enquanto o segundo grupo contém 1.024 neurônios inibitórios. Além disso, há grupos
 auxiliares como a retina (Detalhada na Seção~\ref{subsection_retina}) e o grupo responsável pelos padrões de sono (Detalhado na
-Seção~\ref{subsection_experimento}). Para as conexões entre o grupo excitatório e inibitório, cada neurônio é conectado a 10\% dos
+Seção~\ref{subsection_sono}). Para as conexões entre o grupo excitatório e inibitório, cada neurônio é conectado a 10\% dos
 neurônios de outro grupo ou do seu próprio grupo, e essa conectividade é estabelecida de forma aleatória. As conexões excitatórias
 entre neurônios são moduladas pelo neurotransmissor glutamato, com receptores AMPA e NMDA, enquanto as conexões inibitórias são
 moduladas pelo neurotransmissor GABA.
@@ -121,5 +239,9 @@ sinusoidal é de 1Hz, enquanto na fase REM é de 16Hz, visando aproximar-se, de 
 durante essas fases em humanos~\cite{guoSlow2022, cowdinTheta2014}. Este método foi inspirado no trabalho de~\citeonline{bazhenovModel2002}, que
 simulou o sono de maneira similar, utilizando um grupo de neurônios com 25\% de conectividade com a rede, com um disparo médio de
 25Hz modulados por uma função sinusoidal.
+
+\subsection{Detalhes da simulação}
+
+A simulação foi feita em C++ utilizando o framework Auryn~\cite{zenkeLimits2014}.
 
 \input{textuais/metodologia/experimentos}

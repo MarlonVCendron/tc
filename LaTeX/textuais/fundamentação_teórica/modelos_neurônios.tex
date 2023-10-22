@@ -45,7 +45,7 @@ Equação~\ref{eq_lif} e uma condição adicional para a geração de potenciais
 
 \begin{equation}
 \label{eq_lif}
-C_m \frac{dv(t)}{dt} = -\frac{C_m}{\tau_m} [v(t) - V_0] + I(t)
+C_m \frac{d}{dt}v(t) = -\frac{C_m}{\tau_m} [v(t) - V_0] + I(t)
 \end{equation}
 
 \begin{equation}
@@ -85,7 +85,7 @@ resistência.} da sinapse é descrita pela Equação~\ref{eq_sinapse}:
 
 \begin{equation}
 \label{eq_sinapse}
-\frac{dg_{syn}(t)}{dt} = \bar{g}_{syn}\sum_{k}{\delta(t-t_k)} - g_{syn}(t)/\tau_{syn}
+\frac{d}{dt}g_{syn}(t) = \bar{g}_{syn}\sum_{k}{\delta(t-t_k)} - g_{syn}(t)/\tau_{syn}
 \end{equation}
 
 \noindent{}onde $g_{syn}(t)$ refere-se à condutância da sinapse, $\bar{g}_{syn}$ é a condutância máxima da sinapse, ou o peso da
