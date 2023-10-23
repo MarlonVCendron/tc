@@ -42,17 +42,27 @@ assembleias neuronais.
 Esse experimento seguiu as mesmas três fases do experimento anterior, mas com a simulação do sono. Nesse experimento, a RNP ficava
 em estado de vigília por 400s e dormia por 200s.
 
-\section{Análise}
 
-A parte final do trabalho consistirá em analisar as diferentes simulações feitas e determinar se a simulação de sono teve algum
-efeito na formação de assembleias neuronais. Para isso, antes de tudo é necessário um modo de identificar as assembleias neuronais
-e quais neurônios pertencem a cada uma.
+\section{Análise dos resultados}
 
-Para determinar quais neurônios pertencem à assembleia neuronal associada a um estímulo, será analisada a frequência de disparos de
-cada neurônio no intervalo $3s < t < 3.5s$ após a apresentação do estímulo. Os neurônios que disparam com frequência maior que
-10Hz serão considerados como pertencentes à assembleia neuronal associada a um estímulo.
+O número médio de neurônios por assembleia neuronal na RNP base foi de 709, enquanto na RNP com sono foi 573.5; isso se deve
+principalmente ao fato de que a assembleia neuronal do círculo teve pouquíssimos neurônios, apenas 109 na RNP com sono. Ambas as
+RNPs tiveram dificuldades em manter uma assembleia neuronal única para o estímulo do círculo, havendo bastante sobreposição com os
+neurônios da assembleia neuronal do quadrado; isso provavelmente ocorre pela similaridade entre os dois estímulos e também a
+possibilidade da RNP ter alcançado um limite de memória. Também ocorre um pouco dessa sobreposição na RNP com sono entre a
+assembleia neuronal do quadrado e do triângulo. A matriz de sobreposição das assembleias neuronais está ilustrada nas
+Figura~\ref{fig_mat_base}.
 
-Por fim, será analisado quanto tempo leva para a assembleia neuronal associada ser formada e quanto tempo ela dura nas diferentes
-simulações.
+\begin{figure}[!ht]
+\caption{Matrizes contendo o número de neurônios pertecentes a cada assembleia neuronal. Os elementos da diagonal principal da
+matriz indicam o número total de neurônios em cada assembleia individual. Por outro lado, o elemento na posição $i,j$ da matriz
+mostra quantos neurônios da assembleia $i$ também são parte da assembleia $j$.}
 
+\centering{
+\parbox{\linewidth}{
+\includegraphics[width=7.5cm]{figuras/plots/mat_base.png}\label{fig_mat_base}
+\hfill
+\includegraphics[width=7.5cm]{figuras/plots/mat_sleep.png}\label{fig_mat_sleep}
+\fonte{Elaborado pelo autor (2023).}}}
+\end{figure}
 

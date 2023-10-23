@@ -240,6 +240,20 @@ durante essas fases em humanos~\cite{guoSlow2022, cowdinTheta2014}. Este método
 simulou o sono de maneira similar, utilizando um grupo de neurônios com 25\% de conectividade com a rede, com um disparo médio de
 25Hz modulados por uma função sinusoidal.
 
+\subsection{Análise de assembleias neuronais}
+
+A parte final do trabalho consiste em analisar as diferentes simulações realizadas e determinar se a simulação de sono teve algum
+efeito na formação de assembleias neuronais. Para isso, antes de tudo é necessário definir um modo de identificar as assembleias
+neuronais e quais neurônios pertencem a cada uma.
+
+Para determinar quais neurônios pertencem à assembleia neuronal associada a um estímulo, o método consiste em analisar a
+frequência de disparos de cada neurônio no intervalo $3s < t < 3.5s$ após a apresentação do estímulo. Os neurônios que disparam
+com frequência maior que 20Hz nesse intervalo são considerados como pertencentes à assembleia neuronal associada a esse estímulo.
+No trabalho de~\citeonline{zenkeDiverse2015} foram analisados os neurônios com frequência de disparos maior que 10Hz, mas nesse
+trabalho optou-se por considerar apenas os com frequência maior que 20Hz, pois com esse valor a soma total de todos os neurônios
+em assembleias neuronais chegou mais próximo do número total de neurônios da rede, incluindo neurônios repetidos em cada
+assembleia.
+
 \subsection{Detalhes da simulação}
 
 A simulação foi feita em C++ utilizando o framework Auryn~\cite{zenkeLimits2014}.
