@@ -45,6 +45,8 @@ e dormem 8~\cite{waterhouseDaily2012}.
 
 \section{Análise dos resultados}
 
+\subsection{Formação de assembleias neuronais}
+
 O número médio de neurônios por assembleia neuronal na RNP base foi de 787, enquanto na RNP com sono foi de 432.67; isso se deve
 principalmente ao fato de que as assembleias neuronais do círculo e do quadrado tiveram pouquíssimos neurônios, apenas 42 e 34 na
 RNP com sono. Ambas as RNPs tiveram dificuldades em manter uma assembleia neuronal única para o estímulo do círculo, havendo
@@ -74,7 +76,46 @@ atividade nas assembleias neuronais não relacionadas com o estímulo, indicando
 \caption{Matrizes representando a ativação média em Hz de cada assembleia neuronal para cada estímulo diferente.}
 \centering{
 \parbox{\linewidth}{
-\includegraphics[width=7.5cm]{figuras/plots/mat_act_base_sleep.png}\label{fig_mat_act_base}
+\includegraphics[width=\linewidth]{figuras/plots/mat_act_base_sleep.png}\label{fig_mat_act_base}
 \fonte{Elaborado pelo autor (2023).}}}
 \end{figure}
 
+Com base nesses resultados, pode-se deduzir que a simulação do sono não afetou significativamente a formação de assembleias
+neuronais, ou que no máximo serviu apenas para limitar as capacidades da rede.
+
+\subsection{Atividade da RNP}
+
+Outra forma de analisar os resultados da simulação é analisando diretamente os dados dos disparos dos neurônios. A
+Figura~\ref{fig_base_act} contém um gráfico relacionando o momento dos estímulos (topo da figura) com a ativação média das
+assembleias neuronais (parte inferior da figura). É possível identificar que na maioria das vezes em que um estímulo é apresentado
+à RNP, a assembleia neuronal associada a esse estímulo dispara e mantém-se ativa até que outro estímulo domine a atividade da
+RNP;\@é importante notar que o estímulo é mostrado para a RNP por menos de 1 segundo, portanto a ativação da assembleia neuronal
+nos segundos seguintes é a memória do estímulo.
+
+Também pode-se notar que quando é mostrado o estímulo do círculo ou do quadrado, as assembleias neuronais de ambos os estímulos
+disparam juntas, devido à sobreposição de neurônios entre as duas assembleias neuronais\footnote{Se é que podem ser consideradas
+duas assembleias neuronais, já que os neurônios são quase todos os mesmos em ambas.} identificada na seção anterior.
+
+\begin{figure}[!ht]
+\caption{Ativação das assembleias neuronais na simulação da RNP base.}
+\centering{
+\parbox{\linewidth}{
+\includegraphics[width=\linewidth]{figuras/plots/base_act.png}\label{fig_base_act}
+\fonte{Elaborado pelo autor (2023).}}}
+\end{figure}
+
+\begin{figure}[!ht]
+\caption{Ativação das assembleias neuronais na simulação da RNP com sono em momento de ``sonho''. A cor cinza indica o período de sono.}
+\centering{
+\parbox{\linewidth}{
+\includegraphics[width=\linewidth]{figuras/plots/sleep_act2.png}\label{fig_sleep_act2}
+\fonte{Elaborado pelo autor (2023).}}}
+\end{figure}
+
+\begin{figure}[!ht]
+\caption{Ativação das assembleias neuronais na simulação da RNP com sono em outro momento de ``sonho''. A cor cinza indica o período de sono.}
+\centering{
+\parbox{\linewidth}{
+\includegraphics[width=\linewidth]{figuras/plots/sleep_act.png}\label{fig_sleep_act}
+\fonte{Elaborado pelo autor (2023).}}}
+\end{figure}

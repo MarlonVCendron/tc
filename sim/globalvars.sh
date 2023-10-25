@@ -1,6 +1,6 @@
 #!/bin/sh
 
-OUTDIR="./data/sim_sleep_base"
+OUTDIR="./data/sim_sleep3"
 RECFILE="./data/rf_discsR8.mtx"
 
 # Create directory if it does not exist
