@@ -1,6 +1,6 @@
 from PIL import Image
 
-shape = "plus"
+shape = "bolt"
 
 image = Image.open(f"{shape}.png")
 image = image.convert("L")

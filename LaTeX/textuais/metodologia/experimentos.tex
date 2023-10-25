@@ -40,18 +40,17 @@ com a simulação de sono. O objetivo desse experimento é analisar se a simula�
 assembleias neuronais.
 
 Esse experimento seguiu as mesmas três fases do experimento anterior, mas com a simulação do sono. Nesse experimento, a RNP ficava
-em estado de vigília por 400s e dormia por 200s.
-
+em estado de vigília por 200s e dormia por 100s, seguindo uma proporção similar a de humanos que ficam acordados 16 horas por dia
+e dormem 8~\cite{waterhouseDaily2012}.
 
 \section{Análise dos resultados}
 
-O número médio de neurônios por assembleia neuronal na RNP base foi de 709, enquanto na RNP com sono foi 573.5; isso se deve
-principalmente ao fato de que a assembleia neuronal do círculo teve pouquíssimos neurônios, apenas 109 na RNP com sono. Ambas as
-RNPs tiveram dificuldades em manter uma assembleia neuronal única para o estímulo do círculo, havendo bastante sobreposição com os
-neurônios da assembleia neuronal do quadrado; isso provavelmente ocorre pela similaridade entre os dois estímulos e também a
-possibilidade da RNP ter alcançado um limite de memória. Também ocorre um pouco dessa sobreposição na RNP com sono entre a
-assembleia neuronal do quadrado e do triângulo. A matriz de sobreposição das assembleias neuronais está ilustrada nas
-Figura~\ref{fig_mat_base}.
+O número médio de neurônios por assembleia neuronal na RNP base foi de 787, enquanto na RNP com sono foi de 432.67; isso se deve
+principalmente ao fato de que as assembleias neuronais do círculo e do quadrado tiveram pouquíssimos neurônios, apenas 42 e 34 na
+RNP com sono. Ambas as RNPs tiveram dificuldades em manter uma assembleia neuronal única para o estímulo do círculo, havendo
+bastante sobreposição com os neurônios da assembleia neuronal do quadrado; isso provavelmente ocorre pela similaridade entre os
+dois estímulos e também a possibilidade da RNP ter alcançado um limite de memória. A matriz de sobreposição das assembleias
+neuronais está ilustrada nas Figura~\ref{fig_mat_base}.
 
 \begin{figure}[!ht]
 \caption{Matrizes contendo o número de neurônios pertecentes a cada assembleia neuronal. Os elementos da diagonal principal da
@@ -63,6 +62,19 @@ neurônios de uma assembleia também são parte de outra assembleia.}
 \includegraphics[width=7.5cm]{figuras/plots/mat_base.png}\label{fig_mat_base}
 \hfill
 \includegraphics[width=7.5cm]{figuras/plots/mat_sleep.png}\label{fig_mat_sleep}
+\fonte{Elaborado pelo autor (2023).}}}
+\end{figure}
+
+Outra forma de analisar o comportamento das RNPs é verificando a ativação média das assembleias neuronais para cada estímulo, como
+mostra a Figura~\ref{fig_mat_act_base}. A diagonal principal claramente possui as maiores médias pois a assembleia neuronal de um
+determinado estímulo vai apresentar muito mais atividade para esse estímulo. Nota-se também que na RNP com sono houve mais
+atividade nas assembleias neuronais não relacionadas com o estímulo, indicando uma piora na performance.
+
+\begin{figure}[!ht]
+\caption{Matrizes representando a ativação média em Hz de cada assembleia neuronal para cada estímulo diferente.}
+\centering{
+\parbox{\linewidth}{
+\includegraphics[width=7.5cm]{figuras/plots/mat_act_base_sleep.png}\label{fig_mat_act_base}
 \fonte{Elaborado pelo autor (2023).}}}
 \end{figure}
 

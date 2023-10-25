@@ -63,8 +63,8 @@ double normalization_factor = (wtmax - weight_a) * (wtmax - (weight_a + weight_c
 
 double bgrate = 10.0;
 
-double sleep_duration = 200;
-double awake_duration = 400;
+double sleep_duration = 100;
+double awake_duration = 200;
 
 string stimfile = "";   // stimulus patterns file
 string prefile = "";    // preload patters file
