@@ -1,8 +1,8 @@
-\section{Experimentos}\label{section_experimento}
+\chapter{Experimentos}\label{section_experimento}
 
 Como forma de avaliar o modelo proposto serão conduzidos dois principais experimentos.
 
-\subsection{Experimento 1: Formação de assembleias neuronais}
+\section{Experimento 1: Formação de assembleias neuronais}
 
 O primeiro experimento consiste em simular a RNP apresentando estímulos ao modelo de retina e analisar se a repetição dos
 estímulos leva à formação de assembleias neuronais associadas a cada estímulo a longo prazo, com o objetivo de ter uma base de
@@ -33,7 +33,7 @@ Houveram três fases da simulação da RNP:
 \end{enumerate}
 
 
-\subsection{Experimento 2: Formação de assembleias neuronais com sono}
+\section{Experimento 2: Formação de assembleias neuronais com sono}
 
 De forma similar ao experimento 1, o segundo experimento consiste em simular a RNP apresentando os mesmos estímulos, mas dessa vez
 com a simulação de sono. O objetivo desse experimento é analisar se a simulação de sono tem algum efeito na formação de
@@ -61,9 +61,9 @@ neurônios de uma assembleia também são parte de outra assembleia.}
 
 \centering{
 \parbox{\linewidth}{
-\includegraphics[width=7.5cm]{figuras/plots/mat_base.png}\label{fig_mat_base}
+\includegraphics[width=7.5cm]{figuras/plots_pdf/RNP base.pdf}\label{fig_mat_base}
 \hfill
-\includegraphics[width=7.5cm]{figuras/plots/mat_sleep.png}\label{fig_mat_sleep}
+\includegraphics[width=7.5cm]{figuras/plots_pdf/RNP com sono.pdf}\label{fig_mat_sleep}
 \fonte{Elaborado pelo autor (2023).}}}
 \end{figure}
 
@@ -76,7 +76,11 @@ atividade nas assembleias neuronais não relacionadas com o estímulo, indicando
 \caption{Matrizes representando a ativação média em Hz de cada assembleia neuronal para cada estímulo diferente.}
 \centering{
 \parbox{\linewidth}{
-\includegraphics[width=\linewidth]{figuras/plots/mat_act_base_sleep.png}\label{fig_mat_act_base}
+\includegraphics[height=7cm]{figuras/plots_pdf/RNP base_atv.pdf}\label{fig_mat_act_base}
+\hfill
+\includegraphics[height=7cm]{figuras/plots_pdf/RNP com sono_atv.pdf}\label{fig_mat_act_sono}
+\hfill
+\includegraphics[height=5.8cm]{figuras/plots_pdf/atv_colorbar.pdf}\label{fig_mat_act_colorbar}
 \fonte{Elaborado pelo autor (2023).}}}
 \end{figure}
 
@@ -100,15 +104,22 @@ duas assembleias neuronais, já que os neurônios são quase todos os mesmos em 
 \caption{Ativação das assembleias neuronais na simulação da RNP base.}
 \centering{
 \parbox{\linewidth}{
-\includegraphics[width=\linewidth]{figuras/plots/base_act.png}\label{fig_base_act}
+\includegraphics[width=\linewidth]{figuras/plots_pdf/atividade base.pdf}\label{fig_base_act}
 \fonte{Elaborado pelo autor (2023).}}}
 \end{figure}
+
+Durante as simulações de sono da RNP, em diversas instâncias foram observados padrões intrigantes de atividade, como ilustrado nas
+Figuras~\ref{fig_sleep_act} e~\ref{fig_sleep_act2}. Em várias casos, ao entrar no modo de sono, a RNP mantém uma atividade
+consistente de uma assembleia neuronal, correspondente à resposta ao último estímulo mostrado a ela. Esta atividade é sustentada
+por algum tempo, no entanto, há um momento em que ela diminui e é substituída por uma nova assembleia neuronal que emerge com uma
+série de disparos. Como uma assembleia neuronal é a representação de uma memória na RNP, essa reativação da assembleia neuronal
+representa um momento durante o sono em que a RNP se recorda de algum estímulo.
 
 \begin{figure}[!ht]
 \caption{Ativação das assembleias neuronais na simulação da RNP com sono em momento de ``sonho''. A cor cinza indica o período de sono.}
 \centering{
 \parbox{\linewidth}{
-\includegraphics[width=\linewidth]{figuras/plots/sleep_act2.png}\label{fig_sleep_act2}
+\includegraphics[width=\linewidth]{figuras/plots_pdf/atividade sonho1.pdf}\label{fig_sleep_act}
 \fonte{Elaborado pelo autor (2023).}}}
 \end{figure}
 
@@ -116,6 +127,15 @@ duas assembleias neuronais, já que os neurônios são quase todos os mesmos em 
 \caption{Ativação das assembleias neuronais na simulação da RNP com sono em outro momento de ``sonho''. A cor cinza indica o período de sono.}
 \centering{
 \parbox{\linewidth}{
-\includegraphics[width=\linewidth]{figuras/plots/sleep_act.png}\label{fig_sleep_act}
+\includegraphics[width=\linewidth]{figuras/plots_pdf/atividade sonho2.pdf}\label{fig_sleep_act2}
 \fonte{Elaborado pelo autor (2023).}}}
 \end{figure}
+
+Esse padrão de reativação da assembleia neuronal pode ser interpretado analogamente aos processos de sonho em organismos
+biológicos. Segundo o trabalho de~\citeonline{picard-delandMemory2023}, existe um fenômeno observado durante o sono em que rastros
+de memória recém-formados são reativados espontaneamente durante o sono, e esse fenômeno pode ou não estar conectado com a experiência de
+sonhos e com a consolidação de memórias durante o sono.
+
+No entanto, é fundamental abordar esta interpretação com cautela. Embora as semelhanças sejam intrigantes, é essencial
+não tirar conclusões precipitadas e reconhecer que mais pesquisas são necessárias antes de afirmar que esses padrões representam
+efetivamente ``sonhos'' em RNP.\@

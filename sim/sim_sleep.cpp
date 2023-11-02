@@ -4,6 +4,7 @@ int main(int ac, char *av[]) {
   int ret = startup(ac, av);
   if (ret != 0) return ret;
 
+
   std::cout << (sleeps ? "SLEEPING" : "NOT SLEEPING") << '\n';
   std::cout << sleep_duration << '\n';
   std::cout << awake_duration << '\n';
