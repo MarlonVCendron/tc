@@ -1,10 +1,10 @@
-\chapter{Metodologia}
+\chapter{Metodologia}\label{cap_metodologia}
 
-Nesse capítulo serão apresentados os passos metodológicos para a realização do trabalho, que tem como objetivo principal estudar a
-formação e consolidação de memórias em RNPs, com foco em analisar o impacto do sono nesse processo. Para estudar a influência do
-sono na formação e recordação de assembleias neu\-ro\-nais foi simulado um modelo de RNP com diferentes formas de plasticidade. A
-Figura~\ref{fig_metodologia} apresenta uma visão geral da metodologia, contendo os passos para criação do modelo, que serão
-descritos nas seções subsequentes.
+Nesse capítulo serão apresentados os passos metodológicos para abordar o problema proposto, que tem como objetivo principal
+estudar a formação e consolidação de memórias em RNPs, com foco em analisar o impacto do sono nesse processo. Para estudar a
+influência do sono na formação e recordação de assembleias neu\-ro\-nais foi proposto um modelo que simula uma RNP com diferentes
+formas de plasticidade, baseado no trabalho de~\citeonline{zenkeDiverse2015}. A Figura~\ref{fig_metodologia} apresenta uma visão
+geral da metodologia, contendo os passos para criação do modelo, que serão descritos nas seções subsequentes.
 
 \begin{figure}[!ht]
 \caption{Visão geral da metodologia: passos para construção do modelo e simulação e análise.}
@@ -16,7 +16,7 @@ descritos nas seções subsequentes.
 \end{figure}
 
 
-\section{Modelo dos neurônios}
+\section{Modelo dos neurônios}\label{sec_modelo_neuronios}
 
 A unidade básica de uma RNP é o neurônio, então o primeiro passo para o modelo é a modelagem do neurônio. O modelo de neurônio
 utilizado foi o \textit{Leaky Integrate-and-Fire} (LIF) devido à sua simplicidade, que captura o comportamento geral de um
@@ -24,7 +24,7 @@ neurônio enquanto permite simulações rápidas de larga escala, como apresenta
 
 O modelo LIF utilizado possui algumas diferenças do descrito na Seção~\ref{section_modelos_neuronios}, pois implementa adaptação
 por frequência de disparo\footnote{Comportamento de um neurônio que reduz sua frequência de disparo em resposta a um estímulo
-constante.} assim como o trabalho de~\cite{zenkeDiverse2015}, e segue a Equação~\ref{eq_lif_sfa}.
+constante.} assim como o trabalho de~\cite{zenkeDiverse2015}, e apresentado na Equação~\ref{eq_lif_sfa}.
 
 \begin{equation}
 \label{eq_lif_sfa}
@@ -33,15 +33,15 @@ constante.} assim como o trabalho de~\cite{zenkeDiverse2015}, e segue a Equaçã
 
 \noindent{}onde $v_i(t)$, $v^{rest}$, $v^{exc}$, $v^{ini}$ se referem, respectivamente, ao potencial de membrana do neurônio,
 potencial de repouso, potencial excitatório e potencial inibitório. As condutâncias são descritas por $g_i^{exc}(t)$,
-$g_i^{gaba}(t)$, $g_i^{a}(t)$, respectivamente excitatória, inibitória pelos neurônios pré-sinápticos GABAérgicos e inibitória
+$g_i^{gaba}(t)$, $g_i^{a}(t)$, respectivamente, excitatória, inibitória pelos neurônios pré-sinápticos GABAérgicos e inibitória
 pela adaptação por frequência de disparo.
 
-\section{Modelo das sinapses}
+\section{Modelo das sinapses}\label{sec_modelo_sinapses}
 
-Para simular como os neurônios interagem entre si, é preciso modelar as sinapses e como as condutâncias apresentadas na seção
-anterior evoluem com o tempo. Para isso, foi utilizado o modelo de sinapse de
-condução, apresentado na Seção~\ref{subsection_modelos_sinapses}, mas com algumas diferenças notáveis. O comportamento das
-condutâncias inibitórias está definido nas Equações~\ref{eq_lif_sfa_ini} e~\ref{eq_lif_sfa_a}:
+Para simular como os neurônios interagem entre si, é preciso modelar as sinapses e como as condutâncias apresentadas na
+Seção~\ref{sec_modelo_neuronios} evoluem com o tempo. Para isso, foi utilizado o modelo de sinapse de condução, apresentado na
+Seção~\ref{subsection_modelos_sinapses}, mas com algumas diferenças notáveis. O comportamento das condutâncias inibitórias está
+definido nas Equações~\ref{eq_lif_sfa_ini} e~\ref{eq_lif_sfa_a}:
 
 \begin{equation}
 \label{eq_lif_sfa_ini}
@@ -63,8 +63,9 @@ soma de disparos no momento $t$. Nessas equações, a condutância $g$ tende a z
 neurônios pré-sinápticos essa condutância sobe, exceto no caso da condutância pela adaptação do neurônio, que aumenta seguindo um
 fator $\Delta^{a}S_i(t)$ quando o próprio neurônio dispara.
 
-As sinapses excitatórias são modeladas com um componente rápido AMPA $g_i^{ampa}$ e um componente NMDA $g_i^{nmda}$ que aumenta e
-decai lentamente, como detalhado nas Equações~\ref{eq_lif_sfa_exc},~\ref{eq_lif_sfa_ampa} e~\ref{eq_lif_sfa_nmda}:
+As sinapses excitatórias são modeladas com um componente rápido AMPA\footnote{ácido $\alpha$-amino-3-hidroxi-5-metil-4-isoxazol
+propiônico} $g_i^{ampa}$ e um componente NMDA\footnote{N-metil-D-aspartato} $g_i^{nmda}$ que aumenta e decai lentamente, como
+detalhado nas Equações~\ref{eq_lif_sfa_exc},~\ref{eq_lif_sfa_ampa} e~\ref{eq_lif_sfa_nmda}:
 
 \begin{equation}
 \label{eq_lif_sfa_exc}
@@ -104,13 +105,8 @@ Seção~\ref{section_modelos_plasticidade}.
 
 \subsection{Plasticidade de curto-prazo}
 
-Como apresentado na seção anterior, as variáveis $u_j(t)$ e $x_j(t)$ controlam a PCP.\@A Equação~\ref{eq_x} descreve a evolução da
-fração de recursos sinápticos disponíveis $x_j(t)$ ao longo do tempo, considerando tanto a liberação quanto a recuperação de
-neurotransmissores. A Equação~\ref{eq_u} representa a variação na utilização desses recursos $u_j(t)$ com o tempo, refletindo a
-probabilidade de liberação de neurotransmissores em resposta a um estímulo. Novamente, $S_j(t)$ indica a presença de um disparo
-pré-sináptico, enquanto $\tau^d$ e $\tau^f$ são constantes de tempo que determinam a velocidade de recuperação e decaimento dos
-recursos e da sua utilização, respectivamente. O termo $U$ representa a probabilidade básica de liberação de um neurotransmissor em
-resposta a um único disparo.
+Como apresentado na Seção~\label{sec_modelo_sinapses}, as variáveis $u_j(t)$ e $x_j(t)$ controlam a PCP, e suas dinâmicas estão
+descritas nas Equações~\ref{eq_x} e~\ref{eq_u}:
 
 \begin{equation}
 \label{eq_x}
@@ -122,12 +118,19 @@ resposta a um único disparo.
 \frac{d}{dt}u_j(t) = \frac{U - u_j(t)}{\tau^f} + U(1 - u_j(t)) S_j(t)
 \end{equation}
 
+A Equação~\ref{eq_x} descreve a evolução da fração de recursos sinápticos disponíveis $x_j(t)$ ao longo do tempo, considerando
+tanto a liberação quanto a recuperação de neurotransmissores. A Equação~\ref{eq_u} representa a variação na utilização desses
+recursos $u_j(t)$ com o tempo, refletindo a probabilidade de liberação de neurotransmissores em resposta a um estímulo. Novamente,
+$S_j(t)$ indica a presença de um disparo pré-sináptico, enquanto $\tau^d$ e $\tau^f$ são constantes de tempo que determinam a
+velocidade de recuperação e decaimento dos recursos e da sua utilização, respectivamente. O termo $U$ representa a probabilidade
+básica de liberação de um neurotransmissor em resposta a um único disparo.
+
+
 \subsection{Plasticidade de longo-prazo}
 
 Três tipos de plasticidade de longo-prazo afetam as sinapses excitatórias: PDTD $\mathfrak{P}(t)$ e  $\mathfrak{D}(t)$,
 heterossináptica $\mathfrak{H}(t)$ e induzida por transmissor $\mathfrak{T}(t)$. Essas formas de plasticidade afetam diretamente o
 peso da sinapse $w_{ij}$, como indica a Equação~\ref{eq_pdtd}:
-e~\ref{eq_t}.
 
 \begin{samepage}
 
@@ -154,9 +157,11 @@ e~\ref{eq_t}.
 \end{samepage}
 
 As Equações~\ref{eq_p} e~\ref{eq_d} representam a potenciação e a depressão de longo-prazo, respectivamente, usando uma regra
-tripla, ou seja, que leva em consideração 3 disparos~\cite{pfisterTriplets2006}. Os parâmetros $A$, $\beta$ e $\delta$ são apenas
-escalares fixos, assim como $B_i(t)=A$. A variável $z_k^x(t)$ representa os traços sinápticos dos neurônios pré- (índice $j$) e
-pós-sinápticos (índice $i$), e ela evolui de acordo com a Equação~\ref{eq_z}:
+tripla, ou seja, que leva em consideração 3 disparos~\cite{pfisterTriplets2006}. A Equação~\ref{eq_h} diz respeito à plasticidade
+heterossináptica, ou seja, depende apenas do estado do neurônio pós-sináptico. A Equação~\ref{eq_t} implementa a plasticidade
+induzida por transmissor, aquela que não depende no estado de nenhum neurônio, mas apenas na quantidade de transmissor presente.
+Os parâmetros $A$, $\beta$ e $\delta$ são apenas escalares fixos, assim como $B_i(t)=A$. A variável $z_k^x(t)$ representa os
+traços sinápticos dos neurônios pré- (índice $j$) e pós-sinápticos (índice $i$), e ela evolui de acordo com a Equação~\ref{eq_z}:
 
 \begin{equation}
 \label{eq_z}
@@ -181,7 +186,7 @@ rede estiver muito alta:
 \end{equation}
 
 \noindent{}onde $\eta$ é uma constante, $z_k$ representa os traços sinápticos e $G(t) = H(t) - \gamma$, em que $H(t)$ é o fator
-global secretado, um valor que comprime toda a atividade do grupo excitatório e evolui segundo a Equação~\ref{eq_pdtd_ini_h} :
+global secretado, um valor que comprime toda a atividade do grupo excitatório e evolui segundo a Equação~\ref{eq_pdtd_ini_h}:
 
 \begin{equation}
 \label{eq_pdtd_ini_h}
@@ -189,7 +194,7 @@ global secretado, um valor que comprime toda a atividade do grupo excitatório e
 \end{equation}
 
 Quando a atividade global da população excitatória $H(t)$ cai abaixo de um valor-alvo $\gamma$, $G(t)$ é menor que zero e a regra
-de aprendizagem da Equação~\ref{eq_pdtd_ini} se torna uma regra unidirecional de "depressão". Se a atividade da rede for maior que
+de aprendizagem da Equação~\ref{eq_pdtd_ini} se torna uma regra unidirecional de ``depressão''. Se a atividade da rede for maior que
 $\gamma$, a regra de aprendizagem se torna hebbiana. Isso serve para estabilizar a dinâmica geral da rede.
 
 \section{Arquitetura da rede}
@@ -200,27 +205,27 @@ auxiliares como a retina (Detalhada na Seção~\ref{subsection_retina}) e o grup
 Seção~\ref{subsection_sono}). Para as conexões entre o grupo excitatório e inibitório, cada neurônio é conectado a 10\% dos
 neurônios de outro grupo ou do seu próprio grupo, e essa conectividade é estabelecida de forma aleatória. As conexões excitatórias
 entre neurônios são moduladas pelo neurotransmissor glutamato, com receptores AMPA e NMDA, enquanto as conexões inibitórias são
-moduladas pelo neurotransmissor GABA.
+moduladas pelo neurotransmissor GABA.\@
 
 \subsection{Modelo da retina}\label{subsection_retina}
 
-De modo a simular a entrada de estímulos visuais, foi simulada uma retina. A retina é composta de 4.096 neurônios LIF, com cada
-neurônio representando um pixel em uma imagem de 64$\times$64 pixels. Cada neurônio excitatório da RNP recebe conexões dos
-neurônios da retina de uma área circular de raio 8, em que o centro do círculo é escolhido aleatoriamente para cada neurônio, como
-exemplifica a Figura~\ref{fig_estimulo_raio}. As conexões da retina com a RNP também são plásticas.
+De modo a simular a entrada de estímulos visuais, foi proposto um simulador para a retina, que é composta de 4.096 neurônios LIF,
+com cada neurônio representando um pixel em uma imagem de 64$\times$64 pixels. Cada neurônio excitatório da RNP recebe conexões
+dos neurônios da retina de uma área circular de raio 8, em que o centro do círculo é escolhido aleatoriamente para cada neurônio,
+como exemplifica a Figura~\ref{fig_estimulo_raio}. As conexões da retina com a RNP também são plásticas.
 
 \begin{figure}[!ht]
-\caption{Exemplo de estímulo apresentado à RNP.\@Aqui, um neurônio com seu campo receptivo centralizado no X recebe conexões dos neurônios da retina contidos dentro da grade verde.}
+\caption{Exemplo de estímulo apresentado à RNP.\@ Aqui, um neurônio com seu campo receptivo centralizado no X recebe conexões dos neurônios da retina contidos dentro da grade verde.}
 \centering{
 \parbox{6cm}{
 \includegraphics[width=6cm]{figuras/estimulo_raio.png}\label{fig_estimulo_raio}
 \fonte{Elaborado pelo autor (2023).}}}
 \end{figure}
 
-Como explicado no Capítulo~\ref{section_experimento}, são utilizados 6 estímulos diferentes, que são imagens simples de serem
-reconhecidas, como formas geométricas e símbolos. Essas imagens são binárias: apenas preto e branco; o neurônio da retina
-correspondente a um pixel preto irá disparar com frequência média de 10Hz, enquanto o neurônio correspondente a um pixel branco
-irá disparar com frequência média de 35Hz, ou seja, com uma maior ativação.
+No Capítulo~\ref{cap_experimentos}, será melhor detalhado quais os estímulos propostos para os experimentos, mas eles consistem em
+imagens simples de serem reconhecidas, como formas geométricas e símbolos. Essas imagens são binárias: apenas preto e branco; o
+neurônio da retina correspondente a um pixel preto dispara com frequência média de 10Hz, enquanto o neurônio correspondente a um
+pixel branco dispara com frequência média de 35Hz, ou seja, com uma maior ativação.
 
 \subsection{Simulação do sono}\label{subsection_sono}
 
@@ -228,8 +233,8 @@ Para simular o sono, a rede funciona de dois modos diferentes intercalados: um m
 funciona normalmente enquanto recebe estímulos, e um modo de inatividade ou sono, em que será simulado o sono. 
 
 Durante o ciclo de sono, nenhum estímulo é apresentado à rede, contudo, ela continua sendo simulada normalmente. Essa etapa é
-subdividida em duas fases, correspondentes às fases do sono real: REM e NREM. Em um ciclo completo de sono, as fases REM e NREM se
-alternam, iniciando-se com a fase NREM, seguida pela REM, sendo que cada uma destas fases ocupa um oitavo da duração total do
+subdividida em duas fases, correspondentes às fases do sono real: REM e NREM.\@ Em um ciclo completo de sono, as fases REM e NREM
+se alternam, iniciando-se com a fase NREM, seguida pela REM, sendo que cada uma destas fases ocupa um oitavo da duração total do
 sono. Assim, o ciclo de NREM e REM se repete quatro vezes em um ciclo completo de sono, de maneira análoga ao que ocorre nos
 humanos, nos quais cada noite de sono compreende entre 4 a 6 ciclos~\cite{patelPhysiology2023}.
 
@@ -242,7 +247,7 @@ simulou o sono de maneira similar, utilizando um grupo de neurônios com 25\% de
 
 \subsection{Análise de assembleias neuronais}
 
-A parte final do trabalho consiste em analisar as diferentes simulações realizadas e determinar se a simulação de sono teve algum
+A fase final do trabalho consiste em analisar as diferentes simulações realizadas e determinar se a simulação de sono teve algum
 efeito na formação de assembleias neuronais. Para isso, antes de tudo é necessário definir um modo de identificar as assembleias
 neuronais e quais neurônios pertencem a cada uma.
 
@@ -253,9 +258,5 @@ No trabalho de~\citeonline{zenkeDiverse2015} foram analisados os neurônios com 
 trabalho optou-se por considerar apenas os com frequência maior que 20Hz, pois com esse valor a soma total de todos os neurônios
 em assembleias neuronais chegou mais próximo do número total de neurônios da rede, incluindo neurônios repetidos em cada
 assembleia.
-
-\subsection{Detalhes da simulação}
-
-A simulação foi feita em C++ utilizando o framework Auryn~\cite{zenkeLimits2014}.
 
 \input{textuais/metodologia/experimentos}

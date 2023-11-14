@@ -16,16 +16,15 @@ otimizadas, e um período em que não há mais treinamento e as sinapses se torn
 sempre se alterando conforme a experiência, salvo nos raros casos em que há um período crítico de aprendizado durante a infância,
 que é desativado quando o indivíduo se torna adulto~\cite{crepelRegression1982}.
 
-As RNPs são modelos muito mais próximos das RNBs que se comunicam por meio de impulsos elétricos discretos, chamados de
+As RNPs são modelos muito mais próximos das RNBs, que se comunicam por meio de impulsos elétricos discretos, chamados de
 disparos\footnote{Também chamados de potenciais de ação, pulsos ou \textit{spikes}, um disparo é um impulso elétrico propagado
 pelo axônio de um neurônio para transmitir um sinal pelas sinapses a outros neurônios. Um disparo é sempre igual independente do
-neurônio, a informação transmitida pelo neurônio é codificada no tempo e na frequência dos disparos \cite{kandelPrinciples2021}.}
-e que aprendem por métodos realistas, como a
-plasticidade das sinapses. O grau de realismo biológico de uma RNP depende de sua implementação, podendo empregar modelos de
-neurônios tão simples quanto uma única equação, que descreve a mudança de tensão elétrica de um neurônio~\cite{burkittReview2006},
-ou até modelos que simulam canais de íons~\cite{hodgkinQuantitative1952}, ramificações de
-dendritos~\cite{pagkalosIntroducing2023}, entre outros. As RNPs não só representam uma possível evolução das RNAs, como também são
-usadas para seu propósito original: compreender o cérebro através da simulação.
+neurônio, a informação transmitida pelo neurônio é codificada no tempo e na frequência dos disparos~\cite{kandelPrinciples2021}.}
+, e que aprendem por métodos realistas, como a plasticidade das sinapses. O grau de realismo biológico de uma RNP depende de sua
+implementação, podendo empregar modelos de neurônios tão simples quanto uma única equação, que descreve a mudança de tensão
+elétrica de um neurônio~\cite{burkittReview2006}, ou até modelos que simulam canais de íons~\cite{hodgkinQuantitative1952},
+ramificações de dendritos~\cite{pagkalosIntroducing2023}, entre outros. As RNPs não só representam uma possível evolução das RNAs,
+como também são usadas para seu propósito original: compreender o cérebro através da simulação.
 
 A principal característica que torna as RNAs capazes de aprender é seu método de retropropagação de erro, um método de treinamento
 que até pode existir em alguns casos no cérebro~\cite{lillicrapBackpropagation2020,songCan2020}, mas que é diferente da forma de
@@ -43,17 +42,17 @@ de~\citeonline{santiagoCroonian1894}, que pode resultar no fortalecimento ou enf
 simultânea de neurônios conectados: caso o neurônio pós-sináptico dispare logo após o neurônio pré-sináptico, significa que há uma
 correlação entre eles e a sinapse é fortalecida, caso contrário, a sinapse é enfraquecida.
 
-A plasticidade hebbiana, resumida pela expressão ``neurônios que disparam juntos, co\-nectam-se juntos'', descreve a formação de
-assembleias neuronais\footnote{Do inglês \textit{Cell Assemblies}. Também traduzido como Assembleias Celulares.} como resultado do
-fortalecimento das conexões entre neurônios ativados simultaneamente. Essas assembleias neuronais podem funcionar como mecanismos
-de memória associativa~\cite{sakuraiMultiple2018}. Tomando como exemplo a memória de uma viagem à praia: essa memória consiste em
-vários elementos, como o som das ondas, a sensação de areia sob os pés, o cheiro de água salgada, a visão do mar, entre outros.
-Cada um desses elementos sensoriais é processado em diferentes áreas do cérebro e ativa diferentes grupos de neurônios. A ativação
-síncrona dos neurônios responsáveis por esses elementos sensoriais leva à formação de uma assembleia neuronal. Algum tempo depois, ao
-sentir o cheiro do mar novamente, esse estímulo pode acabar ativando a assembleia neuronal, resultando na experiência da memória.
-Assembleias celulares não são estruturas estáticas, essas redes dinâmicas de neurônios que surgem a partir da experiência estão
-sujeitas a modificações e reativações ao longo do tempo, sendo influenciadas pela falta de estímulos ou novas informações, o que
-pode levar à alteração ou esquecimento de partes da memória.
+A plasticidade hebbiana, resumida pela expressão ``\textit{neurônios que disparam juntos, co\-nectam-se juntos}'', descreve a
+formação de assembleias neuronais\footnote{Do inglês \textit{Cell Assemblies}. Também traduzido como Assembleias Celulares.} como
+resultado do fortalecimento das conexões entre neurônios ativados simultaneamente. Essas assembleias neuronais podem funcionar
+como mecanismos de memória associativa~\cite{sakuraiMultiple2018}. Tomando como exemplo a memória de uma viagem à praia: essa
+memória consiste em vários elementos, como o som das ondas, a sensação de areia sob os pés, o cheiro de água salgada, a visão do
+mar, entre outros. Cada um desses elementos sensoriais é processado em diferentes áreas do cérebro e ativa diferentes grupos de
+neurônios. A ativação síncrona dos neurônios responsáveis por esses elementos sensoriais leva à formação de uma assembleia
+neuronal. Algum tempo depois, ao sentir o cheiro do mar novamente, esse estímulo pode acabar ativando a assembleia neuronal,
+resultando na experiência da memória. Assembleias nueronais não são estruturas estáticas, essas redes dinâmicas de neurônios que
+surgem a partir da experiência estão sujeitas a modificações e reativações ao longo do tempo, sendo influenciadas pela falta de
+estímulos ou novas informações, o que pode levar à alteração ou esquecimento de partes da memória.
 
 A plasticidade hebbiana, no entanto, não consegue gerar, por si só, assembleias neuronais estáveis quando simulada em uma RNP;\@
 isso ocorre pois a atividade neural continuamente modifica as sinapses, fazendo com que em pouco tempo quaisquer estímulos não
@@ -85,8 +84,8 @@ contribuição para a consolidação da memória ainda controversa. Contudo, pes
 REM desempenha um papel fundamental na consolidação da memória espacial e contextual~\cite{boyceREM2017}.
 
 Neste contexto, o problema a ser abordado neste trabalho consiste em explorar a retenção de memórias em uma RNP.\@ A principal
-hipótese a ser avaliada neste trabalho é de que abordagens baseadas em simulações de fases do sono podem melhorar a estabilidade
-de assembleias neuronais contribuindo para o processo de retenção de memórias.
+hipótese a ser avaliada é de que abordagens baseadas em simulações de fases do sono podem melhorar a estabilidade de assembleias
+neuronais contribuindo para o processo de retenção de memórias.
 
 \input{textuais/introdução/objetivo_geral}
 
