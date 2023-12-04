@@ -5,7 +5,9 @@ Como forma de avaliar o modelo proposto serão conduzidos dois principais experi
 \section{Detalhes da simulação}
 
 A simulação foi feita em C++ utilizando o framework Auryn~\cite{zenkeLimits2014} e o código está disponível no repositório GitHub
-do autor~\cite{cendronContribuicao2023}.
+do autor~\cite{cendronContribuicao2023}. Auryn é um software livre de simulação de RNPs com sinapses plásticas, otimizado para
+alta velocidade. Focado em modelos de tamanho pequeno a médio, permite simulações eficientes em máquinas de memória compartilhada
+e pequenos clusters, usando MPI para execução paralela.
 
 \section{Experimento 1: Formação de assembleias neuronais}
 
@@ -37,6 +39,7 @@ Foram simuladas três fases para a RNP:\@
   estímulos para analisar a capacidade de memorização da RNP.\@
 \end{enumerate}
 
+Os parâmetros utilizados nas simulações 1 e 2 foram retirados do trabalho de~\citeonline{zenkeDiverse2015}.
 
 \section{Experimento 2: Formação de assembleias neuronais com sono}
 
@@ -58,7 +61,7 @@ principalmente ao fato de que as assembleias neuronais do círculo e do quadrado
 RNP com sono. Ambas as RNPs apresentaram dificuldades em manter uma assembleia neuronal única para o estímulo do círculo, havendo
 bastante sobreposição com os neurônios da assembleia neuronal do quadrado; uma possível explicação para isso é a similaridade
 entre os dois estímulos e também a possibilidade da RNP ter alcançado um limite de memória. A matriz de sobreposição das
-assembleias neuronais está ilustrada nas Figura~\ref{fig_mat_base}, essa matriz é simétrica e cada número representa o número de
+assembleias neuronais está ilustrada nas Figura~\ref{fig_mat_base}. Essa matriz é simétrica e cada número representa o número de
 neurônios pertecentes a cada assembleia neuronal. Os elementos da diagonal principal da matriz indicam o número total de neurônios
 em cada assembleia individual. Nos outros casos, o elemento representa quantos neurônios de uma assembleia também são parte de
 outra assembleia.
@@ -93,7 +96,7 @@ nas assembleias neuronais não relacionadas com o estímulo, indicando uma piora
 Os resultados deste experimento mostraram-se inconclusivos para a hipótese de que o sono poderia contribuir para a formação de
 assembleias neuronais mais consistentes e, consequentemente, para a melhora no desempenho da retenção de memória. Isso pode ser
 explicado por diversos fatores. Primeiramente, a modelagem do sono pode não ter sido suficientemente realista ou detalhada para
-replicar os efeitos benéficos observados em organismos vivos. O sono é está associado a uma série de processos complexos e ainda
+replicar os efeitos benéficos observados em organismos vivos. O sono está associado a uma série de processos complexos e ainda
 pouco compreendidos, por isso, pode ser que o  modelo neural empregado não tenha capturado esses processos de forma eficaz, e,
 portanto, a simulação do sono não pôde produzir os efeitos esperados na formação e no fortalecimento das assembleias neuronais.
 Além disso, a duração e a frequência das fases de sono e vigília podem não ter sido otimizadas para o modelo específico da RNP.\@
@@ -128,9 +131,18 @@ disparam juntas, devido à sobreposição de neurônios entre as duas assembleia
 Durante as simulações de sono da RNP, em diversas instâncias foram observados padrões intrigantes de atividade, como ilustrado nas
 Figuras~\ref{fig_sleep_act} e~\ref{fig_sleep_act2}. Em várias casos, ao entrar no modo de sono, a RNP mantém uma atividade
 consistente de uma assembleia neuronal, correspondente à resposta ao último estímulo mostrado a ela. Esta atividade é sustentada
-por algum tempo, no entanto, há um momento em que ela diminui e é substituída por uma nova assembleia neuronal que emerge com uma
+por algum tempo. No entanto, há um momento em que ela diminui e é substituída por uma nova assembleia neuronal que emerge com uma
 série de disparos. Como uma assembleia neuronal é a representação de uma memória na RNP, essa reativação da assembleia neuronal
 sugere um momento durante o sono em que a RNP se recorda de algum estímulo.
+
+Esse padrão de reativação da assembleia neuronal pode ser interpretado analogamente aos processos de sonho em organismos
+biológicos. Segundo o trabalho de~\citeonline{picard-delandMemory2023}, foi observado durante o sono um fenômeno em que rastros
+de memória recém-formados são reativados espontaneamente, e esse fenômeno pode ou não estar conectado com a experiência de
+sonhos e com a consolidação de memórias durante o sono.
+
+No entanto, é fundamental abordar esta interpretação com cautela. Embora as semelhanças sejam intrigantes, é essencial
+não tirar conclusões precipitadas e reconhecer que mais pesquisas são necessárias antes de afirmar que esses padrões representam
+efetivamente ``sonhos'' em RNP.\@
 
 \begin{figure}[!ht]
 \caption{Ativação das assembleias neuronais na simulação da RNP com sono em momento de ``sonho''. A cor cinza indica o período de sono.}
@@ -147,12 +159,3 @@ sugere um momento durante o sono em que a RNP se recorda de algum estímulo.
 \includegraphics[width=\linewidth]{figuras/plots_pdf/atividade sonho2.pdf}\label{fig_sleep_act2}
 \fonte{Elaborado pelo autor (2023).}}}
 \end{figure}
-
-Esse padrão de reativação da assembleia neuronal pode ser interpretado analogamente aos processos de sonho em organismos
-biológicos. Segundo o trabalho de~\citeonline{picard-delandMemory2023}, foi observado durante o sono um fenômeno em que rastros
-de memória recém-formados são reativados espontaneamente durante o sono, e esse fenômeno pode ou não estar conectado com a experiência de
-sonhos e com a consolidação de memórias durante o sono.
-
-No entanto, é fundamental abordar esta interpretação com cautela. Embora as semelhanças sejam intrigantes, é essencial
-não tirar conclusões precipitadas e reconhecer que mais pesquisas são necessárias antes de afirmar que esses padrões representam
-efetivamente ``sonhos'' em RNP.\@
